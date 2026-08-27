@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Tags -->
+  <title>Vansh Arora — Web Developer & Video Editor</title>
+  <meta name="title" content="Vansh Arora — Web Developer & Video Editor">
+  <meta name="description" content="Portfolio of Vansh Arora, a premium creative Web Developer and Video Editor specialized in building digital experiences and creating visual stories.">
+  <meta name="keywords" content="Vansh Arora, Web Developer, Video Editor, Creative Developer, Motion Design, Portfolio, React, JavaScript, Video Editing">
+  <meta name="author" content="Vansh Arora">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vansh Arora — Web Developer & Video Editor">
+  <meta property="og:description" content="Portfolio of Vansh Arora, a premium creative Web Developer and Video Editor specialized in building digital experiences and creating visual stories.">
+  <meta property="og:image" content="assets/projects/aura.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Vansh Arora — Web Developer & Video Editor">
+  <meta property="twitter:description" content="Portfolio of Vansh Arora, a premium creative Web Developer and Video Editor specialized in building digital experiences and creating visual stories.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div class="loader-container" id="preloader">
+    <div class="loader-content">
+      <div class="loader-logo">VANSH ARORA</div>
+      <div class="loader-bar-bg">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <a href="#" class="nav-logo" id="navLogo">VANSH</a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link" id="navLinkAbout">About</a>
+      <a href="#work" class="nav-link" id="navLinkWork">Work</a>
+      <a href="#skills" class="nav-link" id="navLinkSkills">Skills</a>
+      <a href="#contact" class="nav-link" id="navLinkContact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta" id="navCta">Let's Talk <span class="cta-arrow">↗</span></a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <!-- Giant occluded background statement -->
+    <div class="hero-typography" id="heroTypography">
+      <h1 class="hero-line hero-line-solid" id="heroLine1">BUILD</h1>
+      <h1 class="hero-line hero-line-solid" id="heroLine2">DIGITAL</h1>
+      <h1 class="hero-line hero-line-outline" id="heroLine3">CREATIVE</h1>
+      <h1 class="hero-line hero-line-outline" id="heroLine4">STORIES</h1>
+    </div>
+    
+    <!-- New Character Animation from assets_video.mp4 -->
+    <div class="hero-character-container" id="heroCharacterContainer">
+      <canvas id="heroCharacterCanvas" width="540" height="960" class="hero-character-canvas"></canvas>
+    </div>
+    
+    <!-- Hero Scroll Indicator -->
+    <div class="hero-scroll-indicator" id="heroScroll">
+      SCROLL TO EXPLORE <span class="scroll-arrow">↓</span>
+    </div>
+    
+    <!-- Hero Personal Identity / Role Statement (Bottom Right) -->
+    <div class="hero-footer-info" id="heroFooterInfo">
+      <div class="sig-number">01</div>
+      <hr class="sig-divider" />
+      <div class="sig-title">CREATIVE DEVELOPER</div>
+      <div class="sig-meta">WEB / MOTION / CODE</div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section (02) -->
+    <section class="about-section" id="about" aria-label="About Vansh Arora">
+      <div class="about-grid">
+        <!-- Left Side: Editorial Typography & Background Content -->
+        <div class="about-text-column reveal-element">
+          <span class="section-tag">02 — ABOUT</span>
+          <h2 class="about-huge-headline">
+            I BUILD DIGITAL<br>
+            EXPERIENCES THAT<br>
+            <span class="outlined-about-text">FEEL ALIVE.</span>
+          </h2>
+          
+          <div class="about-description">
+            <p class="about-body">I'm Vansh, a creative developer merging structural code with kinetic motion to build premium, immersive digital experiences that feel alive.</p>
+          </div>
+        </div>
+
+        <!-- Right Side: Hanging ID Card & Physics Thread -->
+        <div class="about-interactive-column" id="aboutInteractiveCol">
+          <!-- SVG Thread connecting to the ID Card -->
+          <svg class="thread-svg" id="threadSvg">
+            <defs>
+              <filter id="threadShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="1" dy="3" stdDeviation="2" flood-opacity="0.15" flood-color="#000" />
+              </filter>
+            </defs>
+            <path class="thread-path" id="threadPath" d="M 0 0 Q 0 0 0 0" filter="url(#threadShadow)" />
+          </svg>
+
+          <!-- Hanging ID Card Wrapper -->
+          <div class="id-card-wrapper" id="idCardWrapper">
+            <div class="id-card" id="idCard">
+              <div class="id-card-shine"></div>
+              <div class="id-card-inner">
+                <div class="id-card-header">
+                  <span class="id-card-logo">VANSH ARORA</span>
+                  <span class="id-card-year">2026</span>
+                </div>
+                
+                <div class="id-card-avatar-container">
+                  <img src="assets/character_frames/frame_000.webp" alt="Vansh Arora Avatar" class="id-card-avatar">
+                  <div class="id-card-avatar-overlay"></div>
+                  <div class="avatar-corners">
+                    <span class="corner top-left"></span>
+                    <span class="corner top-right"></span>
+                    <span class="corner bottom-left"></span>
+                    <span class="corner bottom-right"></span>
+                  </div>
+                </div>
+                
+                <div class="id-card-details">
+                  <div class="id-card-name">VANSH ARORA</div>
+                  <div class="id-card-role">CREATIVE DEVELOPER</div>
+                  <div class="id-card-spec">WEB / MOTION / CODE</div>
+                  <div class="id-card-footer">
+                    <span class="id-card-country">INDIA</span>
+                    <span class="id-card-serial">ID-982.02</span>
+                  </div>
+                </div>
+                
+                <!-- Micro details for card realism -->
+                <div class="id-card-microchip"></div>
+                <div class="id-card-barcode">
+                  <div class="barcode-line w-1"></div>
+                  <div class="barcode-line w-2"></div>
+                  <div class="barcode-line w-1"></div>
+                  <div class="barcode-line w-3"></div>
+                  <div class="barcode-line w-2"></div>
+                  <div class="barcode-line w-1"></div>
+                  <div class="barcode-line w-4"></div>
+                  <div class="barcode-line w-2"></div>
+                </div>
+              </div>
+              <div class="id-card-hook"></div>
+            </div>
+            
+            <!-- Click visual cue -->
+            <div class="click-cue-container" id="clickCue">
+              <span class="click-cue">CLICK THE CARD ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transition to Work -->
+      <div class="about-transition-footer reveal-element delay-200">
+        <div class="transition-title-line">NEXT SECTION</div>
+        <a href="#work" class="transition-link">
+          <span class="transition-num">03</span>
+          <span class="transition-text">SELECTED WORK <span class="arrow">↓</span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Selected Work Section (03) -->
+    <section class="work-section" id="work" aria-label="Selected Projects">
+      <span class="section-tag reveal-element">03 — SELECTED WORK</span>
+      <h2 class="section-title reveal-element delay-100">SELECTED WORK</h2>
+      
+      <div class="projects-grid">
+        <!-- Project 1: AURA -->
+        <article class="project-item reveal-element" id="projectAura">
+          <div class="project-preview">
+            <img src="assets/projects/aura.png" alt="Preview of Aura motion design landing page">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-meta-box">
+            <span class="project-category">Web Development & Motion Design</span>
+            <h3 class="project-title">AURA</h3>
+            <p class="project-desc">A premium motion-graphics based landing page combining rich fluid ribbons with interactive web elements. Built to showcase extreme aesthetic standards in frontend development.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Vanilla JS</span>
+              <span class="tech-tag">WebGL</span>
+            </div>
+            <a href="https://github.com/vansharora" target="_blank" class="project-link" id="projectLinkAura">
+              VIEW CASE STUDY
+              <svg viewBox="0 0 24 24">
+                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+        
+        <!-- Project 2: VORTEX -->
+        <article class="project-item reveal-element" id="projectVortex">
+          <div class="project-preview">
+            <img src="assets/projects/vortex.png" alt="Preview of Vortex video editor interface">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-meta-box">
+            <span class="project-category">Full-Stack & Video Editing</span>
+            <h3 class="project-title">VORTEX</h3>
+            <p class="project-desc">A WebGL-powered online video editor interface featuring a multi-track timeline, interactive waveforms, real-time filters, and color grading controls.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Three.js</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <a href="https://github.com/vansharora" target="_blank" class="project-link" id="projectLinkVortex">
+              VIEW CASE STUDY
+              <svg viewBox="0 0 24 24">
+                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+        
+        <!-- Project 3: CHRONOS -->
+        <article class="project-item reveal-element" id="projectChronos">
+          <div class="project-preview">
+            <img src="assets/projects/chronos.png" alt="Preview of Chronos interactive documentary website">
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-meta-box">
+            <span class="project-category">Video Editing & Storytelling</span>
+            <h3 class="project-title">CHRONOS</h3>
+            <p class="project-desc">An interactive digital documentary tracking urban stories through moody cinematic video loops, custom motion graphics overlay, and sensory ambient audio design.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Video Editing</span>
+              <span class="tech-tag">Color Grading</span>
+              <span class="tech-tag">Sound Design</span>
+              <span class="tech-tag">Motion Design</span>
+            </div>
+            <a href="https://github.com/vansharora" target="_blank" class="project-link" id="projectLinkChronos">
+              VIEW CASE STUDY
+              <svg viewBox="0 0 24 24">
+                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+    
+    <!-- Expertise / Skills Section (04) -->
+    <section class="skills-section" id="skills" aria-label="Skills & Expertise">
+      <span class="section-tag reveal-element">04 — EXPERTISE / SKILLS</span>
+      <h2 class="section-title reveal-element delay-100">CAPABILITIES</h2>
+      
+      <div class="skills-container">
+        <!-- Web Development Group -->
+        <div class="skills-group reveal-element delay-200">
+          <h3 class="skills-group-title">WEB DEVELOPMENT</h3>
+          <div class="skills-list">
+            <div class="skill-card">React</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">HTML / CSS</div>
+            <div class="skill-card">Node.js</div>
+            <div class="skill-card">MongoDB</div>
+            <div class="skill-card">Responsive Design</div>
+          </div>
+        </div>
+        
+        <!-- Video & Creative Group -->
+        <div class="skills-group reveal-element delay-300">
+          <h3 class="skills-group-title">VIDEO & CREATIVE</h3>
+          <div class="skills-list">
+            <div class="skill-card">Video Editing</div>
+            <div class="skill-card">Motion Design</div>
+            <div class="skill-card">Color Grading</div>
+            <div class="skill-card">Visual Storytelling</div>
+            <div class="skill-card">Cinematography</div>
+            <div class="skill-card">Audio Engineering</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section (05) -->
+    <section class="contact-section" id="contact" aria-label="Contact Information">
+      <span class="section-tag reveal-element">05 — CONTACT</span>
+      
+      <div class="contact-layout">
+        <h2 class="contact-title reveal-element delay-100">LET'S BUILD<br><span>SOMETHING.</span></h2>
+        <p class="contact-support reveal-element delay-200">Have a project in mind or want to collaborate?</p>
+        <a href="mailto:vansharora.contact@gmail.com" class="contact-btn reveal-element delay-300" id="contactBtn">
+          START A PROJECT ↗
+          <svg viewBox="0 0 24 24">
+            <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-copy">
+      &copy; 2026 VANSH ARORA. ALL RIGHTS RESERVED.
+    </div>
+    <div class="footer-credit">
+      WEB DEVELOPER &times; VIDEO EDITOR
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="main.js"></script>
+</body>
+</html>
