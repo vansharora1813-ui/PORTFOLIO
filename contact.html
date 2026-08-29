@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Tags -->
+  <title>Contact & Collaborate — Vansh Arora</title>
+  <meta name="title" content="Contact & Collaborate — Vansh Arora">
+  <meta name="description" content="Get in touch with Vansh Arora for web development, WebGL interactive applications, motion design, and video editing inquiries.">
+  <meta name="keywords" content="Contact Vansh Arora, Hire Web Developer, Hire Video Editor, Freelance Creative Developer">
+  <meta name="author" content="Vansh Arora">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div class="loader-container" id="preloader">
+    <div class="loader-content">
+      <div class="loader-logo">VANSH ARORA</div>
+      <div class="loader-bar-bg">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <a href="index.html" class="nav-logo" id="navLogo">VANSH</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">About</a>
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Let's Talk <span class="cta-arrow">↗</span></a>
+  </nav>
+
+  <!-- Subpage Hero Header -->
+  <header class="page-hero">
+    <div class="page-hero-content reveal-element">
+      <span class="page-tag">01 — GET IN TOUCH</span>
+      <h1 class="page-title">LET'S BUILD SOMETHING<br>EXTRAORDINARY.</h1>
+      <p class="page-subtitle">Have a project in mind, need a high-performance web experience, or looking for motion editing work? Fill out the project request form or send a direct email.</p>
+    </div>
+  </header>
+
+  <main style="padding: 0 8%;">
+    <section aria-label="Contact Section Layout">
+      <div class="contact-page-grid">
+        
+        <!-- Left Side: Contact Information & Status -->
+        <div class="contact-info-card reveal-element">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            AVAILABLE FOR NEW PROJECTS
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Direct Email</div>
+            <div class="contact-detail-val">vansharora.contact@gmail.com</div>
+            <button class="copy-email-btn" id="copyEmailBtn">
+              COPY EMAIL TO CLIPBOARD 📋
+            </button>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-val">India (Available Worldwide Remote)</div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Specializations</div>
+            <div class="contact-detail-val" style="font-size: 0.95rem; color: var(--text-secondary);">
+              • Web Development (React / Next.js)<br>
+              • Motion Design &amp; WebGL Physics<br>
+              • Video Editing &amp; Color Grading<br>
+              • Full-Stack Architecture
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Connect on Socials</div>
+            <div class="social-links-grid">
+              <a href="https://github.com/vansharora" target="_blank" class="social-pill">GitHub ↗</a>
+              <a href="https://linkedin.com" target="_blank" class="social-pill">LinkedIn ↗</a>
+              <a href="https://twitter.com" target="_blank" class="social-pill">Twitter / X ↗</a>
+              <a href="https://youtube.com" target="_blank" class="social-pill">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Interactive Inquiry Form -->
+        <div class="contact-form-card reveal-element delay-100">
+          <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; margin-bottom: 24px;">SEND A PROJECT INQUIRY</h2>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="clientName">YOUR NAME *</label>
+                <input type="text" id="clientName" class="form-input" placeholder="e.g. Alex Morgan" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="clientEmail">YOUR EMAIL *</label>
+                <input type="email" id="clientEmail" class="form-input" placeholder="alex@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="serviceType">SERVICE NEEDED *</label>
+                <select id="serviceType" class="form-select" required>
+                  <option value="" disabled selected>Select service type...</option>
+                  <option value="webdev">Web Development &amp; Frontend</option>
+                  <option value="fullstack">Full-Stack Web Application</option>
+                  <option value="video">Video Editing &amp; Motion Design</option>
+                  <option value="custom">Complete Creative Package</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="budgetRange">ESTIMATED BUDGET</label>
+                <select id="budgetRange" class="form-select">
+                  <option value="" disabled selected>Select budget range...</option>
+                  <option value="500-1500">$500 – $1,500</option>
+                  <option value="1500-3000">$1,500 – $3,000</option>
+                  <option value="3000-5000">$3,000 – $5,000</option>
+                  <option value="5000+">$5,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="projectDetails">PROJECT DETAILS &amp; GOALS *</label>
+              <textarea id="projectDetails" class="form-textarea" rows="5" placeholder="Tell me about your project goals, scope, desired timeline, or reference links..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              SEND PROJECT INQUIRY ↗
+            </button>
+
+            <div class="form-success-msg" id="formSuccessMsg">
+              Thank you! Your project inquiry has been received. I will get back to you within 24 hours.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section reveal-element" aria-label="Frequently Asked Questions">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+        <span class="section-tag">02 — FAQ</span>
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+      </div>
+
+      <div class="faq-list">
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What types of projects do you specialize in?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            I specialize in high-end creative web development (React, Next.js, WebGL micro-interactions) as well as professional cinematic video editing and motion graphics for brands and creators.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is your typical project timeline?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Standard web landing pages or motion design assets typically take 1–2 weeks. Comprehensive full-stack web applications take 3–5 weeks depending on scope and feature complexity.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can you collaborate with existing engineering or design teams?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes! I frequently join existing dev teams as a specialized frontend/motion engineer or collaborate directly with design leads to implement complex UI/UX animations.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do project payments work?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We typically work on a 50% deposit upfront and 50% upon final sign-off and deployment, with milestone schedules available for larger full-stack developments.
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-copy">
+      &copy; 2026 VANSH ARORA. ALL RIGHTS RESERVED.
+    </div>
+    <div class="footer-credit">
+      WEB DEVELOPER &times; VIDEO EDITOR
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="main.js"></script>
+</body>
+</html>

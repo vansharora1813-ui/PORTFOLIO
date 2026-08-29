@@ -37,7 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const essentialAssets = projectAssets.length + 30; // essential threshold to start
 
   function startPreloading() {
-    // 1. Preload project images & initial character frames
+    // Guaranteed fallback timer: hide loader after max 1.2 seconds no matter what
+    setTimeout(() => {
+      if (!isFramesReady) {
+        isFramesReady = true;
+        if (loaderBar) loaderBar.style.width = '100%';
+        completeLoading();
+      }
+    }, 1200);
+
+    // 1. Preload project images
     projectAssets.forEach(src => {
       const img = new Image();
       img.onload = onAssetProgress;
@@ -48,12 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Load all 240 character frames asynchronously
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image();
-      img.onload = () => {
+      const handler = () => {
         if (i < 30) onAssetProgress();
         if (i === 0 && ctx) {
           drawCharacterFrame(0);
         }
       };
+      img.onload = handler;
+      img.onerror = handler;
       img.src = `assets/character_frames/frame_${String(i).padStart(3, '0')}.webp`;
       characterFrames.push(img);
     }
@@ -66,17 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loadedAssetsCount >= essentialAssets && !isFramesReady) {
       isFramesReady = true;
-      setTimeout(completeLoading, 350);
+      setTimeout(completeLoading, 200);
     }
   }
 
   function completeLoading() {
     if (preloader) {
+      preloader.style.pointerEvents = 'none';
       preloader.style.opacity = '0';
       setTimeout(() => {
         preloader.style.display = 'none';
         startEntranceSequence();
-      }, 800);
+      }, 700);
     }
   }
 
@@ -241,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const heroW = window.innerWidth;
       const heroH = window.innerHeight;
       const centerX = heroW / 2;
-      const centerY = heroH * 0.45;
+      const centerY = heroH * 0.46;
 
       const dx = e.clientX - centerX;
       const dy = e.clientY - centerY;
@@ -599,4 +611,176 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => {
     revealObserver.observe(el);
   });
+
+  // --------------------------------------------------------------------------
+  // DYNAMIC SCROLL BACKGROUND TRANSITION ENGINE
+  // --------------------------------------------------------------------------
+  // Smoothly morphs background color as user scrolls down the page
+  const bodyEl = document.body;
+  const isHomePage = !!heroSection;
+
+  function updateDynamicBackgroundOnScroll() {
+    const scrollY = window.scrollY;
+    const maxScroll = (document.documentElement.scrollHeight - window.innerHeight) || 1;
+    const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+    if (isHomePage) {
+      const heroHeight = window.innerHeight;
+      if (scrollY <= 50) {
+        bodyEl.style.backgroundColor = '#0574C5'; // pure hero blue
+      } else if (scrollY > 50 && scrollY < heroHeight) {
+        // Shift from hero blue to crisp surface light cream
+        const ratio = (scrollY - 50) / (heroHeight - 50);
+        bodyEl.style.backgroundColor = interpolateColor('#0574C5', '#FAF9F5', ratio);
+      } else {
+        // As you scroll deeper past About into bottom teasers: smooth subtle shift to dynamic teal/accent background tint
+        const ratio = Math.min(1, (scrollY - heroHeight) / (heroHeight * 1.5));
+        bodyEl.style.backgroundColor = interpolateColor('#FAF9F5', '#EBF4FA', ratio);
+      }
+    } else {
+      // Subpages: start from crisp light background, smoothly morph tint on scroll
+      const ratio = Math.min(1, scrollY / (window.innerHeight * 0.8));
+      bodyEl.style.backgroundColor = interpolateColor('#FAF9F5', '#EAF3FA', ratio);
+    }
+  }
+
+  // Color interpolation helper
+  function interpolateColor(color1, color2, factor) {
+    const c1 = hexToRgb(color1);
+    const c2 = hexToRgb(color2);
+    const r = Math.round(c1.r + factor * (c2.r - c1.r));
+    const g = Math.round(c1.g + factor * (c2.g - c1.g));
+    const b = Math.round(c1.b + factor * (c2.b - c1.b));
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  function hexToRgb(hex) {
+    hex = hex.replace('#', '');
+    if (hex.length === 3) {
+      hex = hex.split('').map(char => char + char).join('');
+    }
+    const num = parseInt(hex, 16);
+    return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+  }
+
+  window.addEventListener('scroll', updateDynamicBackgroundOnScroll, { passive: true });
+  updateDynamicBackgroundOnScroll();
+
+  // --------------------------------------------------------------------------
+  // NAVIGATION ACTIVE LINK HIGHLIGHTER
+  // --------------------------------------------------------------------------
+  const path = window.location.pathname.toLowerCase();
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href').toLowerCase();
+    if ((path.includes('work.html') && href.includes('work.html')) ||
+        (path.includes('skills.html') && href.includes('skills.html')) ||
+        (path.includes('contact.html') && href.includes('contact.html')) ||
+        ((path.endsWith('/') || path.includes('index.html')) && (href === 'index.html' || href === '#about' || href === '#hero'))) {
+      link.classList.add('active');
+    }
+  });
+
+  // Navbar background change on scroll for subpages
+  if (!isHomePage && navbar) {
+    navbar.classList.add('navbar-subpage');
+  }
+
+  // --------------------------------------------------------------------------
+  // WORK PAGE: CATEGORY FILTER TABS
+  // --------------------------------------------------------------------------
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.getAttribute('data-filter');
+        projectItems.forEach(item => {
+          const itemCat = item.getAttribute('data-category');
+          if (category === 'all' || itemCat === category) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // SKILLS PAGE: ANIMATED PROGRESS BARS
+  // --------------------------------------------------------------------------
+  const skillFills = document.querySelectorAll('.skill-progress-fill');
+  if (skillFills.length > 0) {
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fill = entry.target;
+          const targetWidth = fill.getAttribute('data-width') || '85%';
+          fill.style.width = targetWidth;
+          skillObserver.unobserve(fill);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    skillFills.forEach(fill => skillObserver.observe(fill));
+  }
+
+  // --------------------------------------------------------------------------
+  // CONTACT PAGE: FORM SUBMIT & COPY EMAIL
+  // --------------------------------------------------------------------------
+  const copyEmailBtn = document.getElementById('copyEmailBtn');
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', () => {
+      const email = 'vansharora.contact@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const origText = copyEmailBtn.innerHTML;
+        copyEmailBtn.innerHTML = 'COPIED TO CLIPBOARD ✓';
+        copyEmailBtn.style.background = '#00C853';
+        copyEmailBtn.style.color = '#FFFFFF';
+        setTimeout(() => {
+          copyEmailBtn.innerHTML = origText;
+          copyEmailBtn.style.background = '';
+          copyEmailBtn.style.color = '';
+        }, 2200);
+      });
+    });
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  const formSuccessMsg = document.getElementById('formSuccessMsg');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector('.form-submit-btn');
+      if (submitBtn) {
+        submitBtn.innerHTML = 'SENDING... ⏳';
+        submitBtn.disabled = true;
+      }
+      setTimeout(() => {
+        if (submitBtn) submitBtn.innerHTML = 'MESSAGE SENT! ✓';
+        if (formSuccessMsg) formSuccessMsg.style.display = 'block';
+        contactForm.reset();
+      }, 1000);
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // SPATIAL CRAFT CARDS (3D LAY-DOWN ON CLICK)
+  // --------------------------------------------------------------------------
+  const spatialCards = document.querySelectorAll('.spatial-card-wrapper');
+  spatialCards.forEach(card => {
+    card.addEventListener('click', () => {
+      spatialCards.forEach(c => {
+        if (c !== card) c.classList.remove('is-active');
+      });
+      card.classList.toggle('is-active');
+    });
+  });
 });
+
+
