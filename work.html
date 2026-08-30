@@ -1,27 +1,399 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary SEO Tags -->
   <title>Selected Work & Case Studies — Vansh Arora</title>
   <meta name="title" content="Selected Work & Case Studies — Vansh Arora">
   <meta name="description" content="Explore selected web development, motion design, and video editing case studies by Vansh Arora.">
   <meta name="keywords" content="Vansh Arora Work, Web Development Projects, Motion Design Portfolio, Video Editing Showcase, React Projects">
   <meta name="author" content="Vansh Arora">
-  
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-  <!-- CSS Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .work-page-hero {
+      padding: 160px 8% 100px 8%;
+      background: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .work-page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse 60% 80% at 10% 50%, rgba(5,116,197,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .work-hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: #0574C5;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .work-hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1.5px;
+      background: #0574C5;
+    }
+    .work-hero-headline {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 8rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      margin: 0 0 40px;
+    }
+    .work-hero-headline em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--text-primary);
+    }
+    .work-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .work-hero-desc {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 480px;
+      font-weight: 400;
+    }
+    .work-hero-count { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+    .work-hero-count-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: #0574C5;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .work-hero-count-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .work-filter-strip {
+      padding: 0 8%;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+      background: var(--bg-color);
+      position: sticky;
+      top: 72px;
+      z-index: 30;
+    }
+    .work-filter-strip::-webkit-scrollbar { display: none; }
+    .wf-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 20px 28px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    .wf-btn:hover { color: var(--text-primary); }
+    .wf-btn.active { color: #0574C5; border-bottom-color: #0574C5; }
+    .work-roster { padding: 0 8%; background: var(--bg-color); }
+    .work-roster-header {
+      display: grid;
+      grid-template-columns: 80px 1fr 200px 160px;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .roster-col-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .work-project-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 200px 160px;
+      gap: 24px;
+      align-items: center;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .work-project-row::before {
+      content: '';
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      top: 0; bottom: 0;
+      background: rgba(5,116,197,0.035);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .work-project-row:hover::before { opacity: 1; }
+    .row-hover-preview {
+      position: fixed;
+      width: 320px;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      border-radius: 6px;
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0.92) rotate(-2deg);
+      transition: opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1);
+      z-index: 999;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.2);
+    }
+    .work-project-row:hover .row-hover-preview {
+      opacity: 1;
+      transform: scale(1) rotate(-1deg);
+    }
+    .row-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+    .work-project-row:hover .row-num { color: #0574C5; }
+    .row-main { display: flex; flex-direction: column; gap: 10px; }
+    .row-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      line-height: 1;
+      transition: color 0.3s ease, letter-spacing 0.4s ease;
+    }
+    .work-project-row:hover .row-title { color: #0574C5; letter-spacing: -0.01em; }
+    .row-tags { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .row-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 30px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .work-project-row:hover .row-tag { border-color: rgba(5,116,197,0.4); color: #0574C5; }
+    .row-category {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .row-link-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s ease, gap 0.3s ease;
+    }
+    .work-project-row:hover .row-link-indicator { color: #0574C5; gap: 14px; }
+    .row-arrow { font-size: 1rem; transition: transform 0.3s ease; }
+    .work-project-row:hover .row-arrow { transform: translate(4px, -4px); }
+    .work-stats-strip {
+      padding: 80px 8%;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-color);
+    }
+    .work-stat-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0 40px;
+      border-right: 1px solid var(--border-color);
+    }
+    .work-stat-item:first-child { padding-left: 0; }
+    .work-stat-item:last-child { border-right: none; }
+    .work-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #0574C5;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .work-stat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .work-showreel {
+      padding: 120px 8%;
+      background: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .showreel-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+    .showreel-title-group { display: flex; flex-direction: column; gap: 14px; }
+    .showreel-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      color: #0574C5;
+      text-transform: uppercase;
+    }
+    .showreel-headline {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+    .showreel-desc {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 340px;
+      font-weight: 400;
+      align-self: flex-end;
+    }
+    .showreel-video-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 40px 100px rgba(5,116,197,0.08);
+    }
+    .showreel-video-wrap video { width: 100%; display: block; border-radius: 12px; }
+    .work-cta-section {
+      padding: 160px 8% 140px;
+      background: var(--bg-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .work-cta-section::before {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 50%;
+      background: radial-gradient(ellipse 80% 80% at 100% 50%, rgba(5,116,197,0.06), transparent);
+      pointer-events: none;
+    }
+    .work-cta-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .work-cta-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--text-muted);
+    }
+    .work-cta-headline {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      margin-bottom: 60px;
+    }
+    .work-cta-headline em { font-style: normal; color: #0574C5; }
+    .work-cta-actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .work-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #FFFFFF;
+      background: #0574C5;
+      padding: 18px 40px;
+      border-radius: 4px;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 30px rgba(5,116,197,0.25);
+    }
+    .work-cta-primary:hover { background: #035aa3; transform: translateY(-3px); box-shadow: 0 16px 40px rgba(5,116,197,0.35); }
+    .work-cta-secondary {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 4px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .work-cta-secondary:hover { color: #0574C5; border-color: #0574C5; }
+    .work-project-row.hidden { display: none; }
+    @media (max-width: 900px) {
+      .work-roster-header { display: none; }
+      .work-project-row { grid-template-columns: 50px 1fr; grid-template-rows: auto auto; gap: 12px; }
+      .row-category, .row-link-indicator { display: none; }
+      .work-stats-strip { flex-direction: column; gap: 0; }
+      .work-stat-item { border-right: none; border-bottom: 1px solid var(--border-color); padding: 32px 0; }
+      .work-stat-item:last-child { border-bottom: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Preloader Screen -->
   <div class="loader-container" id="preloader">
     <div class="loader-content">
       <div class="loader-logo">VANSH ARORA</div>
@@ -31,7 +403,6 @@
     </div>
   </div>
 
-  <!-- Navigation Bar -->
   <nav class="navbar" aria-label="Main Navigation">
     <a href="index.html" class="nav-logo" id="navLogo">VANSH</a>
     <div class="nav-links">
@@ -43,262 +414,159 @@
     <a href="contact.html" class="nav-cta">Let's Talk <span class="cta-arrow">↗</span></a>
   </nav>
 
-  <!-- Subpage Hero Header -->
-  <header class="page-hero">
-    <div class="page-hero-content reveal-element">
-      <span class="page-tag">01 — PORTFOLIO SHOWCASE</span>
-      <h1 class="page-title">SELECTED WORK &amp;<br>CASE STUDIES</h1>
-      <p class="page-subtitle">A curated collection of web applications, WebGL visual experiences, and cinematic video editing projects engineered with structural precision and fluid motion.</p>
+  <header class="work-page-hero reveal-element">
+    <div class="work-hero-eyebrow">SELECTED WORK — 2024 / 26</div>
+    <h1 class="work-hero-headline">CASE<br><em>STUDIES</em></h1>
+    <div class="work-hero-meta">
+      <p class="work-hero-desc">A curated collection of web applications, WebGL visual experiences, and cinematic video editing projects engineered with structural precision and fluid motion.</p>
+      <div class="work-hero-count">
+        <span class="work-hero-count-num">06</span>
+        <span class="work-hero-count-label">Projects Listed</span>
+      </div>
     </div>
   </header>
 
+  <div class="work-filter-strip reveal-element delay-100">
+    <button class="wf-btn active" data-filter="all">ALL</button>
+    <button class="wf-btn" data-filter="webdev">WEB DEVELOPMENT</button>
+    <button class="wf-btn" data-filter="fullstack">FULL-STACK &amp; WEBGL</button>
+    <button class="wf-btn" data-filter="video">VIDEO &amp; MOTION</button>
+  </div>
+
   <main>
-    <!-- Filter Tabs -->
-    <div class="filter-tabs-container reveal-element delay-100">
-      <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="webdev">Web Development</button>
-        <button class="filter-btn" data-filter="fullstack">Full-Stack &amp; WebGL</button>
-        <button class="filter-btn" data-filter="video">Video &amp; Motion</button>
+
+    <section class="work-roster" aria-label="Projects Roster">
+
+      <div class="work-roster-header">
+        <span class="roster-col-label">No.</span>
+        <span class="roster-col-label">Project</span>
+        <span class="roster-col-label">Discipline</span>
+        <span class="roster-col-label">View</span>
+      </div>
+
+      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element" data-category="webdev">
+        <span class="row-num">01</span>
+        <div class="row-main">
+          <h2 class="row-title">AURA</h2>
+          <div class="row-tags">
+            <span class="row-tag">HTML5</span>
+            <span class="row-tag">CSS3</span>
+            <span class="row-tag">Vanilla JS</span>
+            <span class="row-tag">WebGL</span>
+          </div>
+        </div>
+        <div class="row-category">Web Development<br>&amp; Motion Design</div>
+        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
+        <img class="row-hover-preview" src="assets/projects/aura.png" alt="AURA preview">
+      </a>
+
+      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-50" data-category="fullstack">
+        <span class="row-num">02</span>
+        <div class="row-main">
+          <h2 class="row-title">VORTEX</h2>
+          <div class="row-tags">
+            <span class="row-tag">React</span>
+            <span class="row-tag">Node.js</span>
+            <span class="row-tag">Three.js</span>
+            <span class="row-tag">MongoDB</span>
+          </div>
+        </div>
+        <div class="row-category">Full-Stack<br>&amp; Video Editing</div>
+        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
+        <img class="row-hover-preview" src="assets/projects/vortex.png" alt="VORTEX preview">
+      </a>
+
+      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-100" data-category="video">
+        <span class="row-num">03</span>
+        <div class="row-main">
+          <h2 class="row-title">CHRONOS</h2>
+          <div class="row-tags">
+            <span class="row-tag">Video Editing</span>
+            <span class="row-tag">Color Grading</span>
+            <span class="row-tag">After Effects</span>
+          </div>
+        </div>
+        <div class="row-category">Video Editing<br>&amp; Storytelling</div>
+        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
+        <img class="row-hover-preview" src="assets/projects/chronos.png" alt="CHRONOS preview">
+      </a>
+
+      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-150" data-category="webdev">
+        <span class="row-num">04</span>
+        <div class="row-main">
+          <h2 class="row-title">APEX MOTION SYSTEM</h2>
+          <div class="row-tags">
+            <span class="row-tag">TypeScript</span>
+            <span class="row-tag">Physics Engine</span>
+            <span class="row-tag">Canvas API</span>
+          </div>
+        </div>
+        <div class="row-category">Motion<br>Engineering</div>
+        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
+        <img class="row-hover-preview" src="assets/projects/aura.png" alt="APEX preview">
+      </a>
+
+      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-200" data-category="fullstack">
+        <span class="row-num">05</span>
+        <div class="row-main">
+          <h2 class="row-title">ZENITH STORE</h2>
+          <div class="row-tags">
+            <span class="row-tag">Next.js</span>
+            <span class="row-tag">Node.js</span>
+            <span class="row-tag">MongoDB</span>
+            <span class="row-tag">Stripe</span>
+          </div>
+        </div>
+        <div class="row-category">Full-Stack<br>E-Commerce</div>
+        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
+        <img class="row-hover-preview" src="assets/projects/vortex.png" alt="ZENITH preview">
+      </a>
+
+      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-250" data-category="video">
+        <span class="row-num">06</span>
+        <div class="row-main">
+          <h2 class="row-title">NEBULA VISUALIZER</h2>
+          <div class="row-tags">
+            <span class="row-tag">Three.js</span>
+            <span class="row-tag">Web Audio API</span>
+            <span class="row-tag">GLSL Shaders</span>
+          </div>
+        </div>
+        <div class="row-category">Audio &amp;<br>Motion Visuals</div>
+        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
+        <img class="row-hover-preview" src="assets/projects/chronos.png" alt="NEBULA preview">
+      </a>
+
+    </section>
+
+    <div class="work-stats-strip reveal-element">
+      <div class="work-stat-item">
+        <span class="work-stat-num">06</span>
+        <span class="work-stat-label">Projects Shipped</span>
+      </div>
+      <div class="work-stat-item">
+        <span class="work-stat-num">100</span>
+        <span class="work-stat-label">Lighthouse Score</span>
+      </div>
+      <div class="work-stat-item">
+        <span class="work-stat-num">60fps</span>
+        <span class="work-stat-label">Animation Target</span>
+      </div>
+      <div class="work-stat-item">
+        <span class="work-stat-num">4K</span>
+        <span class="work-stat-label">Cinema Export</span>
       </div>
     </div>
 
-    <!-- Projects Roster -->
-    <section class="work-section" aria-label="Projects Roster">
-      <div class="projects-grid">
-        
-        <!-- Project 1: AURA -->
-        <article class="project-item reveal-element" data-category="webdev">
-          <div class="project-preview">
-            <img src="assets/projects/aura.png" alt="Preview of Aura motion design landing page">
-            <div class="project-overlay"></div>
-          </div>
-          <div class="project-meta-box">
-            <span class="project-category">Web Development &amp; Motion Design</span>
-            <h3 class="project-title">AURA</h3>
-            <p class="project-desc">A premium motion-graphics based landing page combining rich fluid ribbons with interactive web elements. Built to showcase extreme aesthetic standards in frontend development.</p>
-            
-            <div class="project-stats-badge">
-              <div class="stat-item">
-                <span class="stat-value">60 FPS</span>
-                <span class="stat-label">Fluid Motion</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">100/100</span>
-                <span class="stat-label">Lighthouse Performance</span>
-              </div>
-            </div>
-
-            <div class="project-tech">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">Vanilla JS</span>
-              <span class="tech-tag">WebGL</span>
-            </div>
-            <a href="https://github.com/vansharora" target="_blank" class="project-link">
-              VIEW REPOSITORY
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 2: VORTEX -->
-        <article class="project-item reveal-element" data-category="fullstack">
-          <div class="project-preview">
-            <img src="assets/projects/vortex.png" alt="Preview of Vortex video editor interface">
-            <div class="project-overlay"></div>
-          </div>
-          <div class="project-meta-box">
-            <span class="project-category">Full-Stack &amp; Video Editing</span>
-            <h3 class="project-title">VORTEX</h3>
-            <p class="project-desc">A WebGL-powered online video editor interface featuring a multi-track timeline, interactive waveforms, real-time filters, and color grading controls.</p>
-
-            <div class="project-stats-badge">
-              <div class="stat-item">
-                <span class="stat-value">Multi-Track</span>
-                <span class="stat-label">Timeline Engine</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">4K</span>
-                <span class="stat-label">Canvas Renderer</span>
-              </div>
-            </div>
-
-            <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Three.js</span>
-              <span class="tech-tag">MongoDB</span>
-            </div>
-            <a href="https://github.com/vansharora" target="_blank" class="project-link">
-              VIEW REPOSITORY
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 3: CHRONOS -->
-        <article class="project-item reveal-element" data-category="video">
-          <div class="project-preview">
-            <img src="assets/projects/chronos.png" alt="Preview of Chronos interactive documentary website">
-            <div class="project-overlay"></div>
-          </div>
-          <div class="project-meta-box">
-            <span class="project-category">Video Editing &amp; Storytelling</span>
-            <h3 class="project-title">CHRONOS</h3>
-            <p class="project-desc">An interactive digital documentary tracking urban stories through moody cinematic video loops, custom motion graphics overlay, and sensory ambient audio design.</p>
-
-            <div class="project-stats-badge">
-              <div class="stat-item">
-                <span class="stat-value">Cinematic</span>
-                <span class="stat-label">Color Grade</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">Spatial</span>
-                <span class="stat-label">Audio Design</span>
-              </div>
-            </div>
-
-            <div class="project-tech">
-              <span class="tech-tag">Video Editing</span>
-              <span class="tech-tag">Color Grading</span>
-              <span class="tech-tag">Sound Design</span>
-              <span class="tech-tag">After Effects</span>
-            </div>
-            <a href="https://github.com/vansharora" target="_blank" class="project-link">
-              VIEW REPOSITORY
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 4: APEX MOTION SYSTEM -->
-        <article class="project-item reveal-element" data-category="webdev">
-          <div class="project-preview">
-            <img src="assets/projects/aura.png" alt="Apex Motion System preview">
-            <div class="project-overlay"></div>
-          </div>
-          <div class="project-meta-box">
-            <span class="project-category">Motion Engineering</span>
-            <h3 class="project-title">APEX MOTION SYSTEM</h3>
-            <p class="project-desc">A zero-dependency physics spring animation library tailored for high-performance micro-interactions and smooth character kinetics in modern web browsers.</p>
-
-            <div class="project-stats-badge">
-              <div class="stat-item">
-                <span class="stat-value">&lt; 4KB</span>
-                <span class="stat-label">Minified Bundle</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">Zero</span>
-                <span class="stat-label">External Dependencies</span>
-              </div>
-            </div>
-
-            <div class="project-tech">
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">Physics Engine</span>
-              <span class="tech-tag">Canvas API</span>
-            </div>
-            <a href="https://github.com/vansharora" target="_blank" class="project-link">
-              VIEW REPOSITORY
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 5: ZENITH STORE -->
-        <article class="project-item reveal-element" data-category="fullstack">
-          <div class="project-preview">
-            <img src="assets/projects/vortex.png" alt="Zenith Store preview">
-            <div class="project-overlay"></div>
-          </div>
-          <div class="project-meta-box">
-            <span class="project-category">Full-Stack E-Commerce</span>
-            <h3 class="project-title">ZENITH STORE</h3>
-            <p class="project-desc">A modern head-less e-commerce platform built for high velocity fashion brands, featuring dynamic product customizers, instant search filtering, and seamless checkout.</p>
-
-            <div class="project-stats-badge">
-              <div class="stat-item">
-                <span class="stat-value">Sub-100ms</span>
-                <span class="stat-label">Page Load Speed</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">Stripe API</span>
-                <span class="stat-label">Integrated Payment</span>
-              </div>
-            </div>
-
-            <div class="project-tech">
-              <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">Stripe</span>
-            </div>
-            <a href="https://github.com/vansharora" target="_blank" class="project-link">
-              VIEW REPOSITORY
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 6: NEBULA VISUALIZER -->
-        <article class="project-item reveal-element" data-category="video">
-          <div class="project-preview">
-            <img src="assets/projects/chronos.png" alt="Nebula Visualizer preview">
-            <div class="project-overlay"></div>
-          </div>
-          <div class="project-meta-box">
-            <span class="project-category">Audio &amp; Motion Visuals</span>
-            <h3 class="project-title">NEBULA VISUALIZER</h3>
-            <p class="project-desc">A real-time audio spectrum analyzer generating dynamic reactive particle landscapes directly synchronized with audio frequency channels.</p>
-
-            <div class="project-stats-badge">
-              <div class="stat-item">
-                <span class="stat-value">Web Audio</span>
-                <span class="stat-label">Realtime FFT</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">50k+</span>
-                <span class="stat-label">Particle Sim</span>
-              </div>
-            </div>
-
-            <div class="project-tech">
-              <span class="tech-tag">Three.js</span>
-              <span class="tech-tag">Web Audio API</span>
-              <span class="tech-tag">GLSL Shaders</span>
-            </div>
-            <a href="https://github.com/vansharora" target="_blank" class="project-link">
-              VIEW REPOSITORY
-              <svg viewBox="0 0 24 24">
-                <path d="M5 19L19 5M19 5H10M19 5V14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
+    <section class="work-showreel reveal-element" aria-label="Cinematic Showreel">
+      <div class="showreel-header">
+        <div class="showreel-title-group">
+          <span class="showreel-eyebrow">02 — CINEMATIC SHOWREEL</span>
+          <h2 class="showreel-headline">MOTION &amp;<br>EDITING</h2>
+        </div>
+        <p class="showreel-desc">Character tracking kinetics, video editing precision, and visual storytelling capabilities — all in one frame.</p>
       </div>
-    </section>
-
-    <!-- Motion Reel Video Showcase Section -->
-    <section class="video-showcase-section reveal-element" aria-label="Video Editing Showreel">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-        <span class="section-tag">02 — CINEMATIC SHOWREEL</span>
-        <h2 class="section-title">MOTION &amp; EDITING SHOWCASE</h2>
-        <p style="color: var(--text-secondary); margin-top: 12px; font-family: var(--font-body);">A glance at character tracking kinetics, video editing precision, and visual storytelling capabilities.</p>
-      </div>
-
-      <div class="video-player-frame">
+      <div class="showreel-video-wrap">
         <video controls poster="assets/projects/vortex.png" loop muted playsinline>
           <source src="assets_video.mp4" type="video/mp4">
           Your browser does not support HTML5 video playback.
@@ -306,25 +574,50 @@
       </div>
     </section>
 
-    <!-- Call to Action Banner -->
-    <section class="cta-banner-card reveal-element">
-      <h2 class="cta-banner-title">HAVE A CUSTOM PROJECT IN MIND?</h2>
-      <p class="cta-banner-sub">Let me build an engaging web experience or video production tailored to your exact creative vision.</p>
-      <a href="contact.html" class="cta-banner-btn">GET IN TOUCH NOW ↗</a>
+    <section class="work-cta-section reveal-element">
+      <div class="work-cta-eyebrow">HAVE A PROJECT IN MIND?</div>
+      <h2 class="work-cta-headline">LET'S BUILD<br><em>SOMETHING</em><br>ICONIC.</h2>
+      <div class="work-cta-actions">
+        <a href="contact.html" class="work-cta-primary">GET IN TOUCH ↗</a>
+        <a href="index.html" class="work-cta-secondary">BACK TO HOME</a>
+      </div>
     </section>
+
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-copy">
-      &copy; 2026 VANSH ARORA. ALL RIGHTS RESERVED.
-    </div>
-    <div class="footer-credit">
-      WEB DEVELOPER &times; VIDEO EDITOR
-    </div>
+    <div class="footer-copy">&copy; 2026 VANSH ARORA. ALL RIGHTS RESERVED.</div>
+    <div class="footer-credit">WEB DEVELOPER &times; VIDEO EDITOR</div>
   </footer>
 
-  <!-- Main JavaScript File -->
   <script src="main.js"></script>
+  <script>
+    const wfBtns = document.querySelectorAll('.wf-btn');
+    const projectRows = document.querySelectorAll('.work-project-row');
+
+    wfBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        wfBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        projectRows.forEach(row => {
+          if (filter === 'all' || row.dataset.category === filter) {
+            row.classList.remove('hidden');
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    projectRows.forEach(row => {
+      const preview = row.querySelector('.row-hover-preview');
+      if (!preview) return;
+      row.addEventListener('mousemove', (e) => {
+        preview.style.left = (e.clientX + 32) + 'px';
+        preview.style.top  = (e.clientY - 100) + 'px';
+      });
+    });
+  </script>
 </body>
 </html>

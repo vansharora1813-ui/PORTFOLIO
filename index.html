@@ -53,9 +53,15 @@
     <a href="contact.html" class="nav-cta" id="navCta">Let's Talk <span class="cta-arrow">↗</span></a>
   </nav>
 
-
-  <!-- Hero Section -->
+  <!-- Hero Section (Sticky Landing Page Pinned Beneath Scrolling Cards) -->
   <header class="hero" id="hero">
+
+    <!-- Premium Architectural Grid Overlay -->
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+    <!-- Animated Noise Vignette -->
+    <div class="hero-vignette" aria-hidden="true"></div>
+
     <!-- Giant occluded background statement -->
     <div class="hero-typography" id="heroTypography">
       <h1 class="hero-line hero-line-solid" id="heroLine1">BUILD</h1>
@@ -63,17 +69,17 @@
       <h1 class="hero-line hero-line-outline" id="heroLine3">CREATIVE</h1>
       <h1 class="hero-line hero-line-outline" id="heroLine4">STORIES</h1>
     </div>
-    
+
     <!-- New Character Animation from assets_video.mp4 -->
     <div class="hero-character-container" id="heroCharacterContainer">
       <canvas id="heroCharacterCanvas" width="540" height="960" class="hero-character-canvas"></canvas>
     </div>
-    
+
     <!-- Hero Scroll Indicator -->
     <div class="hero-scroll-indicator" id="heroScroll">
       SCROLL TO EXPLORE <span class="scroll-arrow">↓</span>
     </div>
-    
+
     <!-- Hero Personal Identity / Role Statement (Bottom Right) -->
     <div class="hero-footer-info" id="heroFooterInfo">
       <div class="sig-number">01</div>
@@ -81,51 +87,126 @@
       <div class="sig-title">CREATIVE DEVELOPER</div>
       <div class="sig-meta">WEB / MOTION / CODE</div>
     </div>
+
+    <!-- Corner Coordinate Labels — top corners, below nav -->
+    <div class="hero-corner hero-corner--tl" aria-hidden="true">28°36'N · 77°13'E</div>
+    <div class="hero-corner hero-corner--tr" aria-hidden="true">BUILD.2026.v1</div>
+
+    <!-- Animated Marquee Ticker (Bottom) -->
+    <div class="hero-marquee-track" aria-hidden="true">
+      <div class="hero-marquee-inner">
+        <span class="hero-marquee-item">PREMIUM WEB DESIGN</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">MOTION ENGINEERING</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">CREATIVE CODE</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">60 FPS INTERFACES</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">IMMERSIVE EXPERIENCES</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">PREMIUM WEB DESIGN</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">MOTION ENGINEERING</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">CREATIVE CODE</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">60 FPS INTERFACES</span>
+        <span class="hero-marquee-sep">·</span>
+        <span class="hero-marquee-item">IMMERSIVE EXPERIENCES</span>
+        <span class="hero-marquee-sep">·</span>
+      </div>
+    </div>
+
   </header>
 
   <main>
-    <!-- About Section (02) -->
+    <!-- About Section (02) — Card Overriding Hero on Scroll -->
     <section class="about-section" id="about" aria-label="About Vansh Arora">
       <div class="about-grid">
         <!-- Left Side: Editorial Typography & Background Content -->
         <div class="about-text-column reveal-element">
           <span class="section-tag">02 — ABOUT</span>
           <h2 class="about-huge-headline">
-            I BUILD DIGITAL<br>
-            EXPERIENCES THAT<br>
-            <span class="outlined-about-text">FEEL ALIVE.</span>
+            BUILDING DIGITAL<br>
+            <span class="outlined-about-text">EXPERIENCES.</span>
           </h2>
           
           <div class="about-description">
             <p class="about-body">I'm Vansh, a creative developer merging structural code with kinetic motion to build premium, immersive digital experiences that feel alive.</p>
           </div>
+
+          <!-- Editorial Live Stats Strip (flat, no cards) -->
+          <div class="about-stats-strip">
+            <div class="about-stat">
+              <span class="stat-num">03+</span>
+              <span class="stat-name">Years Crafting</span>
+            </div>
+            <span class="stat-divider"></span>
+            <div class="about-stat">
+              <span class="stat-num">60</span>
+              <span class="stat-name">FPS Locked</span>
+            </div>
+            <span class="stat-divider"></span>
+            <div class="about-stat">
+              <span class="stat-num">100%</span>
+              <span class="stat-name">Clean Code</span>
+            </div>
+          </div>
+
+          <!-- Focus Tags — clean comma-separated line -->
+          <div class="about-focus-line">
+            Full-Stack Architecture
+            <span class="focus-dot">·</span>
+            GLSL &amp; Shaders
+            <span class="focus-dot">·</span>
+            Motion Graphics
+            <span class="focus-dot">·</span>
+            10-Bit Color Grading
+          </div>
         </div>
 
         <!-- Right Side: Hanging ID Card & Physics Thread -->
         <div class="about-interactive-column" id="aboutInteractiveCol">
+          <!-- Ambient Background Glow behind Card -->
+          <div class="card-ambient-glow" aria-hidden="true"></div>
+
           <!-- SVG Thread connecting to the ID Card -->
           <svg class="thread-svg" id="threadSvg">
             <defs>
-              <filter id="threadShadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="1" dy="3" stdDeviation="2" flood-opacity="0.15" flood-color="#000" />
+              <linearGradient id="threadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0574C5" />
+                <stop offset="100%" stop-color="#035AA3" />
+              </linearGradient>
+              <filter id="threadShadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="1" dy="4" stdDeviation="3" flood-opacity="0.2" flood-color="#0574C5" />
               </filter>
             </defs>
-            <path class="thread-path" id="threadPath" d="M 0 0 Q 0 0 0 0" filter="url(#threadShadow)" />
+            <path class="thread-path" id="threadPath" d="M 0 0 Q 0 0 0 0" stroke="url(#threadGrad)" filter="url(#threadShadow)" />
+            <circle id="threadAnchorRing" cx="0" cy="0" r="6" fill="#0574C5" stroke="#FFFFFF" stroke-width="1.5" />
+            <circle id="threadAnchorDot" cx="0" cy="0" r="2.5" fill="#FFFFFF" />
           </svg>
 
           <!-- Hanging ID Card Wrapper -->
           <div class="id-card-wrapper" id="idCardWrapper">
             <div class="id-card" id="idCard">
-              <div class="id-card-shine"></div>
+              <!-- Security Grid Watermark & Glass Holographic Sheen -->
+              <div class="id-card-pattern" aria-hidden="true"></div>
+              <div class="id-card-shine" aria-hidden="true"></div>
+
               <div class="id-card-inner">
                 <div class="id-card-header">
-                  <span class="id-card-logo">VANSH ARORA</span>
+                  <div class="id-card-brand">
+                    <span class="id-card-badge"><span class="badge-dot"></span>OFFICIAL</span>
+                    <span class="id-card-logo">VANSH ARORA</span>
+                  </div>
                   <span class="id-card-year">2026</span>
                 </div>
                 
                 <div class="id-card-avatar-container">
                   <img src="assets/character_frames/frame_000.webp" alt="Vansh Arora Avatar" class="id-card-avatar">
-                  <div class="id-card-avatar-overlay"></div>
+                  <div class="avatar-status-tag"><span class="status-pulse"></span>ACTIVE</div>
+                  <div class="id-card-hologram"><span class="holo-text">VERIFIED</span></div>
                   <div class="avatar-corners">
                     <span class="corner top-left"></span>
                     <span class="corner top-right"></span>
@@ -136,17 +217,28 @@
                 
                 <div class="id-card-details">
                   <div class="id-card-name">VANSH ARORA</div>
-                  <div class="id-card-role">CREATIVE DEVELOPER</div>
-                  <div class="id-card-spec">WEB / MOTION / CODE</div>
+                  <div class="id-card-role"><span class="role-pill">CREATIVE DEVELOPER</span></div>
+                  <div class="id-card-spec">
+                    <span class="spec-tag">WEB</span>
+                    <span class="spec-sep">·</span>
+                    <span class="spec-tag">MOTION</span>
+                    <span class="spec-sep">·</span>
+                    <span class="spec-tag">CODE</span>
+                  </div>
                   <div class="id-card-footer">
-                    <span class="id-card-country">INDIA</span>
+                    <span class="id-card-country"><span class="flag-dot"></span>INDIA</span>
                     <span class="id-card-serial">ID-982.02</span>
                   </div>
                 </div>
                 
-                <!-- Micro details for card realism -->
-                <div class="id-card-microchip"></div>
-                <div class="id-card-barcode">
+                <!-- EMV Metallic Microchip & Barcode -->
+                <div class="id-card-microchip" aria-label="Security Chip">
+                  <div class="chip-line h-line-1"></div>
+                  <div class="chip-line h-line-2"></div>
+                  <div class="chip-line v-line-1"></div>
+                  <div class="chip-core"></div>
+                </div>
+                <div class="id-card-barcode" aria-hidden="true">
                   <div class="barcode-line w-1"></div>
                   <div class="barcode-line w-2"></div>
                   <div class="barcode-line w-1"></div>
@@ -157,12 +249,17 @@
                   <div class="barcode-line w-2"></div>
                 </div>
               </div>
-              <div class="id-card-hook"></div>
+
+              <!-- Lanyard Attachment Ring & Fastener Grommet -->
+              <div class="id-card-hook">
+                <div class="hook-hole"></div>
+                <div class="hook-clip"></div>
+              </div>
             </div>
             
-            <!-- Click visual cue -->
+            <!-- Drag interactive cue button -->
             <div class="click-cue-container" id="clickCue">
-              <span class="click-cue">CLICK THE CARD ↗</span>
+              <span class="click-cue"><span class="cue-icon">✦</span> DRAG &amp; RELEASE ↗</span>
             </div>
           </div>
         </div>
@@ -171,168 +268,194 @@
       <!-- Transition to Spatial Craft -->
       <div class="about-transition-footer reveal-element delay-200">
         <div class="transition-title-line">EXPLORE THE CRAFT</div>
-        <a href="#spatialCraft" class="transition-link">
+        <a href="#disciplines" class="transition-link">
           <span class="transition-num">03</span>
-          <span class="transition-text">TECHNICAL CAPABILITIES &amp; SPATIAL CRAFT <span class="arrow">↓</span></span>
+          <span class="transition-text">TECHNICAL CAPABILITIES &amp; CRAFT <span class="arrow">↓</span></span>
         </a>
       </div>
     </section>
 
-    <!-- Ultra-Premium 3D Spatial Craft Section (03) -->
-    <section class="spatial-craft-section" id="spatialCraft" aria-label="Kinetic Craft Showcase">
-      <div class="spatial-section-header reveal-element">
-        <span class="spatial-section-tag">03 — THE KINETIC CRAFT</span>
-        <p class="spatial-section-sub">Hover or click any card to lay it flat into 3D floor perspective and watch the holographic elements float in air.</p>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 03 — DISCIPLINES (Premium Bento Reveal)
+         ═══════════════════════════════════════════════════════ -->
+    <section class="disciplines-section" id="disciplines" aria-label="What I Do">
+
+      <!-- Scrolling Marquee Ticker -->
+      <div class="marquee-bar" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="marquee-item">WEB DEVELOPMENT</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">VIDEO EDITING</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">MOTION DESIGN</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">UI / UX</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">WEBGL / SHADERS</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">COLOR GRADING</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">WEB DEVELOPMENT</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">VIDEO EDITING</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">MOTION DESIGN</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">UI / UX</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">WEBGL / SHADERS</span><span class="marquee-sep">✦</span>
+          <span class="marquee-item">COLOR GRADING</span><span class="marquee-sep">✦</span>
+        </div>
       </div>
 
-      <!-- 3D Perspective Grid (2 Centered Monolithic Cards) -->
-      <div class="spatial-grid spatial-duo-grid">
+      <!-- Giant Section Number + Header -->
+      <div class="dis-header reveal-element">
+        <div class="dis-label">03 — WHAT I DO</div>
+        <h2 class="dis-headline">
+          <span class="dis-word dis-word-solid">THE</span>
+          <span class="dis-word dis-word-outline">CRAFT</span>
+        </h2>
+      </div>
 
-        <!-- Monolithic Card 1: Systems & Creative Engineering -->
-        <div class="spatial-card-wrapper spatial-card-tech reveal-element">
-          <div class="spatial-card-floor-glow glow-cyan"></div>
-          
-          <!-- Base Plate laying on floor in 3D -->
-          <div class="spatial-card-base base-cyan">
-            <div class="spatial-card-watermark">01</div>
-            <div class="spatial-grid-mesh"></div>
-            <div class="spatial-shimmer-sweep"></div>
-            <div class="spatial-corners">
-              <span class="sc-corner tl"></span>
-              <span class="sc-corner tr"></span>
-              <span class="sc-corner bl"></span>
-              <span class="sc-corner br"></span>
+      <!-- Bento Grid -->
+      <div class="dis-bento">
+
+        <!-- Panel A — Web & Code (tall left) -->
+        <div class="dis-panel dis-panel-web reveal-element" id="disPanelWeb">
+          <div class="dis-panel-inner">
+            <div class="dis-panel-top">
+              <span class="dis-panel-index">01</span>
+              <span class="dis-panel-tag">DIGITAL ENGINEERING</span>
             </div>
-          </div>
-
-          <!-- Floating Monolith Content Layer -->
-          <div class="spatial-floating-content">
-            <div class="spatial-card-topbar">
-              <div class="spatial-status-indicator">
-                <span class="spatial-status-dot dot-cyan"></span>
-                <span class="spatial-card-category color-cyan">ENGINEERING // ARCHITECTURE</span>
-              </div>
-              <span class="spatial-badge-chip chip-cyan">60 FPS ENGINE</span>
-            </div>
-
-            <span class="spatial-card-num color-cyan">MODULE 01 — FULL-STACK RIGOR</span>
-            <h3 class="spatial-card-title">DIGITAL ARCHITECTURE &amp; WEBGL</h3>
-            <p class="spatial-card-subtitle">Zero-Latency Interactive Systems • High-Scale APIs</p>
-            
-            <p class="spatial-card-desc">Architecting zero-bloat reactive web applications from low-latency distributed Node/Mongo backend microservices to real-time WebGL canvas shaders and 60fps kinetic physics.</p>
-            
-            <!-- Capability Metric Matrix -->
-            <div class="spatial-metrics-row">
-              <div class="spatial-metric-box">
-                <span class="metric-val color-cyan">&lt;100ms</span>
-                <span class="metric-lbl">Hydration Speed</span>
-              </div>
-              <div class="spatial-metric-box">
-                <span class="metric-val color-cyan">60 FPS</span>
-                <span class="metric-lbl">Canvas Physics</span>
-              </div>
-              <div class="spatial-metric-box">
-                <span class="metric-val color-cyan">100/100</span>
-                <span class="metric-lbl">Lighthouse Core</span>
+            <div class="dis-panel-content">
+              <h3 class="dis-panel-title">WEB &amp;<br>CODE</h3>
+              <p class="dis-panel-desc">Architecting zero-bloat reactive systems — from low-latency Node APIs to real-time WebGL shaders running at a locked 60 fps.</p>
+              <div class="dis-skills-grid">
+                <span class="dis-skill">React 19</span>
+                <span class="dis-skill">Next.js</span>
+                <span class="dis-skill">TypeScript</span>
+                <span class="dis-skill">Three.js</span>
+                <span class="dis-skill">Node.js</span>
+                <span class="dis-skill">GLSL</span>
+                <span class="dis-skill">MongoDB</span>
+                <span class="dis-skill">Tailwind</span>
               </div>
             </div>
-
-            <!-- Tech Stack Pills -->
-            <div class="spatial-pill-group">
-              <span class="spatial-pill"><span class="pill-dot dot-cyan"></span>React 19</span>
-              <span class="spatial-pill"><span class="pill-dot dot-cyan"></span>Next.js</span>
-              <span class="spatial-pill"><span class="pill-dot dot-cyan"></span>TypeScript</span>
-              <span class="spatial-pill"><span class="pill-dot dot-cyan"></span>Three.js</span>
-              <span class="spatial-pill"><span class="pill-dot dot-cyan"></span>Node.js</span>
-              <span class="spatial-pill"><span class="pill-dot dot-cyan"></span>GLSL Shaders</span>
+            <div class="dis-panel-stat">
+              <span class="dis-stat-val" data-target="100">0</span><span class="dis-stat-unit">/100</span>
+              <span class="dis-stat-lbl">Lighthouse Score</span>
             </div>
-            
-            <div class="spatial-card-footer">
-              <span class="spatial-tag-pill tag-cyan">COMPUTING LAB</span>
-              <span class="spatial-click-cue cue-cyan">TILT 3D ↘</span>
-            </div>
+            <div class="dis-panel-glow dis-glow-blue"></div>
           </div>
         </div>
 
-        <!-- Monolithic Card 2: Motion & Cinematic Storytelling -->
-        <div class="spatial-card-wrapper spatial-card-motion reveal-element delay-100">
-          <div class="spatial-card-floor-glow glow-amber"></div>
-          
-          <!-- Base Plate laying on floor in 3D -->
-          <div class="spatial-card-base base-amber">
-            <div class="spatial-card-watermark">02</div>
-            <div class="spatial-grid-mesh"></div>
-            <div class="spatial-shimmer-sweep"></div>
-            <div class="spatial-corners">
-              <span class="sc-corner tl"></span>
-              <span class="sc-corner tr"></span>
-              <span class="sc-corner bl"></span>
-              <span class="sc-corner br"></span>
+        <!-- Panel B — Right column: two stacked blocks -->
+        <div class="dis-panel-col">
+
+          <!-- Panel B1 — Stats Row -->
+          <div class="dis-panel dis-panel-stats reveal-element delay-100">
+            <div class="dis-stat-block">
+              <span class="dis-stat-num" data-target="60">0</span><span class="dis-stat-sfx">fps</span>
+              <span class="dis-stat-label">Canvas Physics</span>
+            </div>
+            <div class="dis-stat-divider"></div>
+            <div class="dis-stat-block">
+              <span class="dis-stat-num" data-target="4">0</span><span class="dis-stat-sfx">K</span>
+              <span class="dis-stat-label">Cinema Export</span>
+            </div>
+            <div class="dis-stat-divider"></div>
+            <div class="dis-stat-block">
+              <span class="dis-stat-num" data-target="10">0</span><span class="dis-stat-sfx">-Bit</span>
+              <span class="dis-stat-label">Color Grade</span>
             </div>
           </div>
 
-          <!-- Floating Monolith Content Layer -->
-          <div class="spatial-floating-content">
-            <div class="spatial-card-topbar">
-              <div class="spatial-status-indicator">
-                <span class="spatial-status-dot dot-amber"></span>
-                <span class="spatial-card-category color-amber">CINEMATICS // POST-PRODUCTION</span>
+          <!-- Panel B2 — Motion & Editing (tall right) -->
+          <div class="dis-panel dis-panel-motion reveal-element delay-200" id="disPanelMotion">
+            <div class="dis-panel-inner">
+              <div class="dis-panel-top">
+                <span class="dis-panel-index">02</span>
+                <span class="dis-panel-tag">CINEMATIC PRODUCTION</span>
               </div>
-              <span class="spatial-badge-chip chip-amber">4K PRO-RES</span>
-            </div>
-
-            <span class="spatial-card-num color-amber">MODULE 02 — NARRATIVE CRAFT</span>
-            <h3 class="spatial-card-title">CINEMATIC MOTION &amp; EDITING</h3>
-            <p class="spatial-card-subtitle">Dynamic Pacing • Color Grading • Sound Design</p>
-            
-            <p class="spatial-card-desc">Crafting high-impact video experiences, custom motion graphics sequences, color grading LUT workflows, dynamic sound design, and generative AI media pipelines.</p>
-            
-            <!-- Capability Metric Matrix -->
-            <div class="spatial-metrics-row">
-              <div class="spatial-metric-box">
-                <span class="metric-val color-amber">4K 60P</span>
-                <span class="metric-lbl">Cinema Master</span>
+              <div class="dis-panel-content">
+                <h3 class="dis-panel-title">MOTION<br>&amp; EDIT</h3>
+                <p class="dis-panel-desc">Crafting high-impact video experiences, custom motion graphics, 10-bit color LUT workflows, spatial sound design, and AI-driven media pipelines.</p>
+                <div class="dis-skills-grid">
+                  <span class="dis-skill">Premiere Pro</span>
+                  <span class="dis-skill">After Effects</span>
+                  <span class="dis-skill">Color Grade</span>
+                  <span class="dis-skill">Sound FX</span>
+                  <span class="dis-skill">Motion GFX</span>
+                  <span class="dis-skill">ComfyUI</span>
+                </div>
               </div>
-              <div class="spatial-metric-box">
-                <span class="metric-val color-amber">10-Bit</span>
-                <span class="metric-lbl">Log Color Grade</span>
-              </div>
-              <div class="spatial-metric-box">
-                <span class="metric-val color-amber">Spatial</span>
-                <span class="metric-lbl">Audio Design</span>
-              </div>
-            </div>
-
-            <!-- Tech Stack Pills -->
-            <div class="spatial-pill-group">
-              <span class="spatial-pill"><span class="pill-dot dot-amber"></span>Premiere Pro</span>
-              <span class="spatial-pill"><span class="pill-dot dot-amber"></span>After Effects</span>
-              <span class="spatial-pill"><span class="pill-dot dot-amber"></span>Color Grading</span>
-              <span class="spatial-pill"><span class="pill-dot dot-amber"></span>Sound FX</span>
-              <span class="spatial-pill"><span class="pill-dot dot-amber"></span>Motion Graphics</span>
-              <span class="spatial-pill"><span class="pill-dot dot-amber"></span>ComfyUI</span>
-            </div>
-            
-            <div class="spatial-card-footer">
-              <span class="spatial-tag-pill tag-amber">VISUAL LAB</span>
-              <span class="spatial-click-cue cue-amber">TILT 3D ↘</span>
+              <div class="dis-panel-glow dis-glow-white"></div>
             </div>
           </div>
+
         </div>
 
       </div>
+
+      <!-- Full-Width Closing Statement -->
+      <div class="dis-closing reveal-element delay-300">
+        <p class="dis-closing-text">EVERY PIXEL. EVERY FRAME. EVERY LINE OF CODE.</p>
+        <a href="work.html" class="dis-closing-cta">SEE THE WORK ↗</a>
+      </div>
+
     </section>
 
 
 
-    <!-- Dynamic Call to Action Banner (04) -->
-    <section class="cta-banner-card reveal-element" aria-label="Project Call to Action">
-      <h2 class="cta-banner-title">READY TO BUILD SOMETHING EXTRAORDINARY?</h2>
-      <p class="cta-banner-sub">Explore my full work showcase, technical capabilities, or get in touch directly to start a project.</p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="work.html" class="cta-banner-btn" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.4);">EXPLORE WORK ↗</a>
-        <a href="skills.html" class="cta-banner-btn" style="background: rgba(255, 255, 255, 0.15); color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.4);">VIEW SKILLS ↗</a>
-        <a href="contact.html" class="cta-banner-btn">START A PROJECT ↗</a>
+    <!-- ═══════════════════════════════════════════════════════════════
+         SECTION 04 — EDITORIAL STUDIO COLLABORATION HUB
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="editorial-cta-section reveal-element" id="collaboration" aria-label="Project Collaboration">
+      <div class="editorial-cta-container">
+        
+        <!-- Header & Live Status Badge -->
+        <div class="editorial-cta-header">
+          <div class="editorial-cta-tag-row">
+            <span class="editorial-section-tag">04 — COLLABORATION</span>
+            <span class="editorial-status-pill">
+              <span class="status-live-dot"></span>
+              AVAILABLE FOR NEW PROJECTS
+            </span>
+          </div>
+          
+          <h2 class="editorial-cta-headline">
+            LET’S BUILD<br>
+            <span class="editorial-cta-highlight">SOMETHING ICONIC.</span>
+          </h2>
+          
+          <p class="editorial-cta-description">
+            Merging structural web engineering with kinetic motion and spatial design. Open for full-stack builds, WebGL experiences, and high-impact creative campaigns.
+          </p>
+        </div>
+
+        <!-- Action Row: Compact Initiate Button -->
+        <div class="editorial-action-bar">
+          <div class="editorial-action-left">
+            <a href="contact.html" class="editorial-compact-initiate-btn">
+              <span class="btn-text">INITIATE A PROJECT</span>
+              <span class="btn-arrow">↗</span>
+            </a>
+            <span class="action-subtext">RESPONSE GUARANTEED WITHIN 24 HOURS</span>
+          </div>
+        </div>
+
+        <!-- Architectural Spec Matrix (Flat border-separated typographic grid with breathing space) -->
+        <div class="editorial-spec-matrix">
+          <div class="matrix-column">
+            <span class="matrix-index">01 / DISCIPLINE</span>
+            <span class="matrix-title">Full-Stack &amp; Creative Code</span>
+            <p class="matrix-desc">React, Next.js 15, WebGL Shaders, Three.js, Node.js &amp; 60 FPS Kinetic UI Systems.</p>
+          </div>
+          
+          <div class="matrix-column">
+            <span class="matrix-index">02 / CINEMATIC</span>
+            <span class="matrix-title">Motion &amp; Video Production</span>
+            <p class="matrix-desc">Premiere Pro, After Effects, 10-Bit Color Grading, Spatial Sound &amp; VFX Pipelines.</p>
+          </div>
+
+          <div class="matrix-column">
+            <span class="matrix-index">03 / DISPATCH</span>
+            <span class="matrix-title">Global Availability</span>
+            <p class="matrix-desc">Based in India [IST] · Remote &amp; On-Site Partnerships · Fast 24-Hour Turnaround.</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
