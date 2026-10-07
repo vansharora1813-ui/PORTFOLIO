@@ -34,40 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   let loadedAssetsCount = 0;
-  const essentialAssets = projectAssets.length + 30; // essential threshold to start
+  const essentialAssets = projectAssets.length;
 
   function startPreloading() {
-    // Guaranteed fallback timer: hide loader after max 1.2 seconds no matter what
-    setTimeout(() => {
+    // Hide loader smoothly after preloading or max 800ms
+    const fallbackTimer = setTimeout(() => {
       if (!isFramesReady) {
         isFramesReady = true;
         if (loaderBar) loaderBar.style.width = '100%';
         completeLoading();
       }
-    }, 1200);
+    }, 800);
 
-    // 1. Preload project images
+    // 1. Preload project images and avatar
     projectAssets.forEach(src => {
       const img = new Image();
-      img.onload = onAssetProgress;
-      img.onerror = onAssetProgress;
-      img.src = src;
-    });
-
-    // 2. Load all 240 character frames asynchronously
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
-      const img = new Image();
-      const handler = () => {
-        if (i < 30) onAssetProgress();
-        if (i === 0 && ctx) {
+      img.onload = () => {
+        onAssetProgress();
+        if (src.includes('frame_000') && ctx) {
           drawCharacterFrame(0);
         }
       };
-      img.onload = handler;
-      img.onerror = handler;
-      img.src = `assets/character_frames/frame_${String(i).padStart(3, '0')}.webp`;
+      img.onerror = onAssetProgress;
+      img.src = src;
       characterFrames.push(img);
-    }
+    });
   }
 
   function onAssetProgress() {
@@ -195,25 +186,31 @@ document.addEventListener('DOMContentLoaded', () => {
       currentFrameFloat = targetFrameIdx;
     }
 
-    drawCharacterFrame(currentFrameFloat);
+    // Organic idle floating breathing waves (subtle, luxurious floating kinetics)
+    const nowSec = performance.now() * 0.001;
+    const idleWaveY = Math.sin(nowSec * 1.2) * 4.5;
+    const idleWaveX = Math.cos(nowSec * 0.8) * 2.5;
+    const idleOutlineY = Math.sin(nowSec * 0.95 + 1.2) * 3.5;
+    const idleOutlineX = Math.cos(nowSec * 0.7 + 0.8) * -2;
 
     // 1. Character Container: Continuous 60 FPS mouse float + 3D perspective tilt
     if (characterContainer) {
       const tiltX = -currentNy * 8; // smooth 3D tilt pitch
       const tiltY = currentNx * 10;  // smooth 3D tilt yaw
-      characterContainer.style.transform = `translateX(calc(-50% + ${currentCharX}px)) translateY(${currentCharY + charScrollOffset}px) scale(${heroScale}) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      const charIdleY = Math.sin(nowSec * 1.4 + 0.5) * 3.5;
+      characterContainer.style.transform = `translateX(calc(-50% + ${currentCharX}px)) translateY(${currentCharY + charScrollOffset + charIdleY}px) scale(${heroScale}) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
       characterContainer.style.opacity = heroOpacity;
     }
 
-    // 2. Solid Typography Lines
+    // 2. Solid Typography Lines (compounded with organic idle breathing wave)
     solidLines.forEach(line => {
-      line.style.transform = `translate(${currentSolidX}px, ${currentSolidY + textScrollOffset}px) scale(${heroScale})`;
+      line.style.transform = `translate(${currentSolidX + idleWaveX}px, ${currentSolidY + idleWaveY + textScrollOffset}px) scale(${heroScale})`;
       line.style.opacity = heroOpacity;
     });
 
-    // 3. Outline Typography Lines
+    // 3. Outline Typography Lines (phase-offset drift for kinetic depth)
     outlineLines.forEach(line => {
-      line.style.transform = `translate(${currentOutlineX}px, ${currentOutlineY + textScrollOffset}px) scale(${heroScale})`;
+      line.style.transform = `translate(${currentOutlineX + idleOutlineX}px, ${currentOutlineY + idleOutlineY + textScrollOffset}px) scale(${heroScale})`;
       line.style.opacity = heroOpacity * 0.65;
     });
 
@@ -686,9 +683,14 @@ document.addEventListener('DOMContentLoaded', () => {
         bodyEl.style.backgroundColor = interpolateColor('#FAF9F5', '#EBF4FA', ratio);
       }
     } else {
-      // Subpages: start from crisp light background, smoothly morph tint on scroll
+      // Subpages: skills.html maintains the signature light sky-blue from index.html (#C3E0F5)
+      const isSkills = window.location.pathname.includes('skills');
       const ratio = Math.min(1, scrollY / (window.innerHeight * 0.8));
-      bodyEl.style.backgroundColor = interpolateColor('#FAF9F5', '#EAF3FA', ratio);
+      if (isSkills) {
+        bodyEl.style.backgroundColor = interpolateColor('#C3E0F5', '#B8DAF4', ratio);
+      } else {
+        bodyEl.style.backgroundColor = interpolateColor('#FAF9F5', '#EAF3FA', ratio);
+      }
     }
   }
 
@@ -818,15 +820,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // SPATIAL CRAFT CARDS (3D LAY-DOWN ON CLICK)
+  // CRAFT ACCORDION: Interactive strip expansion
   // --------------------------------------------------------------------------
-  const spatialCards = document.querySelectorAll('.spatial-card-wrapper');
-  spatialCards.forEach(card => {
-    card.addEventListener('click', () => {
-      spatialCards.forEach(c => {
-        if (c !== card) c.classList.remove('is-active');
-      });
-      card.classList.toggle('is-active');
+  const craftStrips = document.querySelectorAll('.craft-strip');
+  craftStrips.forEach(strip => {
+    strip.addEventListener('click', () => {
+      if (strip.classList.contains('is-active')) return;
+      craftStrips.forEach(s => s.classList.remove('is-active'));
+      strip.classList.add('is-active');
     });
   });
 });
@@ -838,7 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ───────────────────────────────────────────────────────────── */
 (function initDisCounters() {
   const counters = document.querySelectorAll(
-    '.dis-stat-num[data-target], .dis-stat-val[data-target]'
+    '.craft-metric-val[data-target]'
   );
   if (!counters.length) return;
 
@@ -869,4 +870,59 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.4 });
 
   counters.forEach((el) => observer.observe(el));
+})();
+
+
+/* ─────────────────────────────────────────────────────────────
+   CRAFT SECTION — GSAP ScrollTrigger entrance animations
+   ───────────────────────────────────────────────────────────── */
+(function initCraftGSAP() {
+  // Wait for GSAP to be available
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    // Retry after scripts load
+    window.addEventListener('load', initCraftGSAP);
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Stagger the strips in from below
+  gsap.from('.craft-strip', {
+    y: 80,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.craft-accordion',
+      start: 'top 80%',
+      once: true
+    }
+  });
+
+  // Animate the section header
+  gsap.from('.dis-header', {
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.disciplines-section',
+      start: 'top 75%',
+      once: true
+    }
+  });
+
+  // Animate closing statement
+  gsap.from('.dis-closing', {
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.dis-closing',
+      start: 'top 90%',
+      once: true
+    }
+  });
 })();

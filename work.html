@@ -1,20 +1,30 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selected Work & Case Studies — Vansh Arora</title>
-  <meta name="title" content="Selected Work & Case Studies — Vansh Arora">
-  <meta name="description" content="Explore selected web development, motion design, and video editing case studies by Vansh Arora.">
-  <meta name="keywords" content="Vansh Arora Work, Web Development Projects, Motion Design Portfolio, Video Editing Showcase, React Projects">
+  
+  <!-- Primary SEO Tags -->
+  <title>Video Editing Studio & Post-Production — Vansh Arora</title>
+  <meta name="title" content="Video Editing Studio & Post-Production — Vansh Arora">
+  <meta name="description" content="Explore an interactive high-end Video Editing Studio, 10-Bit Color Grading Engine, Multi-Track Timeline & Cinematic Showcase by Vansh Arora.">
+  <meta name="keywords" content="Vansh Arora, Video Editing, NLE Studio, Post-Production, Color Grading, Motion Graphics, Multi-Track Timeline, Cinematic Reel">
   <meta name="author" content="Vansh Arora">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css">
+
   <style>
+    /* ==========================================================================
+       WORK PAGE & VIDEO EDITING STUDIO STYLES
+       ========================================================================== */
+    
     .work-page-hero {
-      padding: 160px 8% 100px 8%;
+      padding: 140px 8% 60px 8%;
       background: var(--bg-color);
       border-bottom: 1px solid var(--border-color);
       position: relative;
@@ -24,17 +34,17 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse 60% 80% at 10% 50%, rgba(5,116,197,0.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse 60% 80% at 10% 40%, rgba(5,116,197,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
     .work-hero-eyebrow {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.25em;
-      color: #0574C5;
+      color: var(--accent-color);
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -44,356 +54,1005 @@
       display: block;
       width: 40px;
       height: 1.5px;
-      background: #0574C5;
+      background: var(--accent-color);
     }
     .work-hero-headline {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(3.5rem, 8vw, 8rem);
+      font-family: 'Syne', var(--font-heading);
+      font-size: clamp(3.2rem, 7vw, 7.5rem);
       font-weight: 800;
-      line-height: 0.9;
+      line-height: 0.92;
       letter-spacing: -0.04em;
       color: var(--text-primary);
-      margin: 0 0 40px;
+      margin: 0 0 32px;
     }
     .work-hero-headline em {
       font-style: normal;
       color: transparent;
-      -webkit-text-stroke: 1.5px var(--text-primary);
+      -webkit-text-stroke: 1.5px var(--accent-color);
     }
     .work-hero-meta {
       display: flex;
       align-items: center;
-      gap: 48px;
+      justify-content: space-between;
+      gap: 40px;
       flex-wrap: wrap;
     }
     .work-hero-desc {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1rem;
+      font-family: 'Space Grotesk', var(--font-body);
+      font-size: 1.05rem;
       line-height: 1.7;
       color: var(--text-secondary);
-      max-width: 480px;
+      max-width: 580px;
       font-weight: 400;
+    }
+    .work-hero-stats-group {
+      display: flex;
+      align-items: center;
+      gap: 36px;
     }
     .work-hero-count { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
     .work-hero-count-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 3rem;
+      font-family: 'Syne', var(--font-heading);
+      font-size: 2.8rem;
       font-weight: 800;
-      color: #0574C5;
+      color: var(--accent-color);
       line-height: 1;
       letter-spacing: -0.04em;
     }
     .work-hero-count-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-    .work-filter-strip {
-      padding: 0 8%;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      overflow-x: auto;
-      scrollbar-width: none;
-      background: var(--bg-color);
-      position: sticky;
-      top: 72px;
-      z-index: 30;
-    }
-    .work-filter-strip::-webkit-scrollbar { display: none; }
-    .wf-btn {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      padding: 20px 28px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color 0.25s ease, border-color 0.25s ease;
-    }
-    .wf-btn:hover { color: var(--text-primary); }
-    .wf-btn.active { color: #0574C5; border-bottom-color: #0574C5; }
-    .work-roster { padding: 0 8%; background: var(--bg-color); }
-    .work-roster-header {
-      display: grid;
-      grid-template-columns: 80px 1fr 200px 160px;
-      gap: 24px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .roster-col-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-    .work-project-row {
-      display: grid;
-      grid-template-columns: 80px 1fr 200px 160px;
-      gap: 24px;
-      align-items: center;
-      padding: 36px 0;
-      border-bottom: 1px solid var(--border-color);
-      position: relative;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-    .work-project-row::before {
-      content: '';
-      position: absolute;
-      left: -8%;
-      right: -8%;
-      top: 0; bottom: 0;
-      background: rgba(5,116,197,0.035);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-    .work-project-row:hover::before { opacity: 1; }
-    .row-hover-preview {
-      position: fixed;
-      width: 320px;
-      aspect-ratio: 16/10;
-      object-fit: cover;
-      border-radius: 6px;
-      pointer-events: none;
-      opacity: 0;
-      transform: scale(0.92) rotate(-2deg);
-      transition: opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1);
-      z-index: 999;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.2);
-    }
-    .work-project-row:hover .row-hover-preview {
-      opacity: 1;
-      transform: scale(1) rotate(-1deg);
-    }
-    .row-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      transition: color 0.3s ease;
-    }
-    .work-project-row:hover .row-num { color: #0574C5; }
-    .row-main { display: flex; flex-direction: column; gap: 10px; }
-    .row-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text-primary);
-      line-height: 1;
-      transition: color 0.3s ease, letter-spacing 0.4s ease;
-    }
-    .work-project-row:hover .row-title { color: #0574C5; letter-spacing: -0.01em; }
-    .row-tags { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .row-tag {
-      font-family: 'Space Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.65rem;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 30px;
-      transition: border-color 0.3s ease, color 0.3s ease;
-    }
-    .work-project-row:hover .row-tag { border-color: rgba(5,116,197,0.4); color: #0574C5; }
-    .row-category {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-      line-height: 1.4;
-    }
-    .row-link-indicator {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      transition: color 0.3s ease, gap 0.3s ease;
-    }
-    .work-project-row:hover .row-link-indicator { color: #0574C5; gap: 14px; }
-    .row-arrow { font-size: 1rem; transition: transform 0.3s ease; }
-    .work-project-row:hover .row-arrow { transform: translate(4px, -4px); }
-    .work-stats-strip {
-      padding: 80px 8%;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      background: var(--bg-color);
-    }
-    .work-stat-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 0 40px;
-      border-right: 1px solid var(--border-color);
-    }
-    .work-stat-item:first-child { padding-left: 0; }
-    .work-stat-item:last-child { border-right: none; }
-    .work-stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      color: #0574C5;
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-    .work-stat-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.68rem;
       letter-spacing: 0.18em;
       color: var(--text-muted);
       text-transform: uppercase;
     }
-    .work-showreel {
-      padding: 120px 8%;
+
+    /* Quick Studio Mode Selector */
+    .studio-quick-nav {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .sq-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: 6px;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .sq-btn:hover, .sq-btn.active {
+      background: var(--accent-color);
+      color: #FFFFFF;
+      border-color: var(--accent-color);
+      box-shadow: 0 6px 20px rgba(5, 116, 197, 0.25);
+    }
+
+    /* ==========================================================================
+       VIDEO EDITING STUDIO COMPACT SUITE
+       ========================================================================== */
+
+    .editing-studio-section {
+      padding: 60px 8% 80px 8%;
       background: var(--bg-color);
       border-bottom: 1px solid var(--border-color);
     }
-    .showreel-header {
+    .ve-section-header {
+      margin-bottom: 24px;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 40px;
-      margin-bottom: 60px;
+      gap: 24px;
       flex-wrap: wrap;
     }
-    .showreel-title-group { display: flex; flex-direction: column; gap: 14px; }
-    .showreel-eyebrow {
-      font-family: 'Space Mono', monospace;
+    .ve-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ve-section-tag {
+      font-family: var(--font-mono);
       font-size: 0.7rem;
-      letter-spacing: 0.22em;
-      color: #0574C5;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent-color);
       text-transform: uppercase;
     }
-    .showreel-headline {
+    .ve-section-heading {
+      font-family: 'Syne', var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .ve-status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.12);
+      color: #059669;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+    .ve-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      animation: pulseGreen 1.6s infinite ease-in-out;
+    }
+
+    /* Video Editing App Canvas Layout Container — Compact Low-Profile Height */
+    .ve-studio-wrapper {
+      background: #12151B;
+      border: 1px solid #262B36;
+      border-radius: 12px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      color: #D1D5DB;
+      font-family: 'Inter', sans-serif;
+      user-select: none;
+    }
+
+    /* Studio Top App Bar */
+    .ve-app-bar {
+      height: 38px;
+      background: #1A1D24;
+      border-bottom: 1px solid #262B36;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      font-size: 0.7rem;
+    }
+    .ve-app-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ve-window-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .ve-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .ve-dot-red { background: #FF5F56; }
+    .ve-dot-yellow { background: #FFBD2E; }
+    .ve-dot-green { background: #27C93F; }
+    .ve-app-title {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: #9CA3AF;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ve-badge-nle {
+      background: rgba(5,116,197,0.2);
+      color: #0574C5;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.62rem;
+      border: 1px solid rgba(5,116,197,0.4);
+    }
+    
+    /* Workspace switcher tabs */
+    .ve-workspace-tabs {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: #12151B;
+      padding: 2px;
+      border-radius: 5px;
+      border: 1px solid #262B36;
+    }
+    .ve-ws-tab {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: transparent;
+      color: #9CA3AF;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .ve-ws-tab:hover { color: #F3F4F6; background: rgba(255,255,255,0.05); }
+    .ve-ws-tab.active { background: #0574C5; color: #FFFFFF; font-weight: 700; }
+
+    .ve-app-specs {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: #0574C5;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    /* Main Studio Body Grid (Compact Heights: Top 300px, Timeline 150px) */
+    .ve-workspace-body {
+      display: grid;
+      grid-template-columns: 240px 1fr 280px;
+      grid-template-rows: 300px 150px;
+      gap: 2px;
+      background: #0B0D11;
+    }
+
+    /* Common Panel Header */
+    .ve-panel-header {
+      height: 28px;
+      background: #161920;
+      border-bottom: 1px solid #262B36;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: #9CA3AF;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .ve-panel-header .active-tab {
+      color: #0574C5;
+      border-bottom: 2px solid #0574C5;
+      padding-bottom: 4px;
+    }
+
+    /* PANEL 1: MEDIA BIN & LAYERS (LEFT) */
+    .ve-panel-bin {
+      background: #12151B;
+      border-right: 1px solid #262B36;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .ve-bin-tree {
+      padding: 8px;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ve-asset-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 8px;
+      background: #181C23;
+      border: 1px solid #262B36;
+      border-radius: 5px;
+      font-size: 0.68rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ve-asset-item:hover, .ve-asset-item.active {
+      background: #202530;
+      border-color: #0574C5;
+    }
+    .ve-asset-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+    }
+    .ve-asset-icon {
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .ve-asset-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      overflow: hidden;
+    }
+    .ve-asset-name {
+      font-weight: 600;
+      color: #E5E7EB;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.68rem;
+    }
+    .ve-asset-meta {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: #6B7280;
+    }
+    .ve-layer-controls {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ve-btn-icon {
+      background: none;
+      border: none;
+      color: #9CA3AF;
+      cursor: pointer;
+      font-size: 0.7rem;
+      padding: 2px;
+      border-radius: 3px;
+    }
+    .ve-btn-icon:hover { color: #FFFFFF; }
+    .ve-btn-icon.active { color: #0574C5; }
+
+    /* PANEL 2: VIDEO CANVAS & MONITOR (CENTER) */
+    .ve-panel-monitor {
+      background: #0B0D11;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .ve-monitor-screen {
+      flex: 1;
+      position: relative;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .ve-video-element {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: filter 0.2s ease;
+    }
+    .ve-monitor-overlay-guides {
+      position: absolute;
+      inset: 0;
+      border: 1px dashed rgba(255,255,255,0.06);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ve-guide-cross {
+      width: 80%;
+      height: 80%;
+      border: 1px solid rgba(5,116,197,0.15);
+    }
+    .ve-monitor-timecode {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #0574C5;
+      background: rgba(10, 15, 25, 0.85);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(5, 116, 197, 0.3);
+      backdrop-filter: blur(4px);
+    }
+    .ve-title-overlay {
+      position: absolute;
+      bottom: 15%;
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+      letter-spacing: 0.08em;
+      pointer-events: none;
+    }
+
+    /* VU Meters Right of Monitor */
+    .ve-vu-meter-side {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 2px;
+      background: rgba(10,13,18,0.75);
+      padding: 4px 3px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .ve-vu-channel {
+      width: 3px;
+      height: 90px;
+      background: #1F2937;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .ve-vu-fill {
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to top, #10B981 60%, #F59E0B 85%, #EF4444 100%);
+      transition: height 0.08s ease;
+    }
+
+    /* Compact Transport Controls */
+    .ve-transport-bar {
+      height: 38px;
+      background: #14171D;
+      border-top: 1px solid #262B36;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+    .ve-transport-btns {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ve-tr-btn {
+      background: #1A1D24;
+      border: 1px solid #262B36;
+      color: #E5E7EB;
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.72rem;
+      transition: all 0.2s ease;
+    }
+    .ve-tr-btn:hover { background: #0574C5; color: #FFFFFF; border-color: #0574C5; }
+    .ve-tr-btn.btn-play {
+      width: 30px;
+      height: 30px;
+      background: #0574C5;
+      color: #FFFFFF;
+      border-color: #0574C5;
+      box-shadow: 0 3px 10px rgba(5,116,197,0.3);
+    }
+
+    .ve-scrubber-wrap {
+      flex: 1;
+      max-width: 280px;
+      margin: 0 14px;
+      display: flex;
+      align-items: center;
+    }
+    .ve-scrubber-input {
+      width: 100%;
+      accent-color: #0574C5;
+      cursor: pointer;
+      height: 4px;
+    }
+
+    /* PANEL 3: LUMETRI COLOR & SCOPES (RIGHT) */
+    .ve-panel-color {
+      background: #12151B;
+      border-left: 1px solid #262B36;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .ve-color-body {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ve-lut-preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+    .ve-lut-btn {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 6px 4px;
+      background: #181C23;
+      border: 1px solid #262B36;
+      color: #9CA3AF;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .ve-lut-btn:hover, .ve-lut-btn.active {
+      background: rgba(5,116,197,0.15);
+      border-color: #0574C5;
+      color: #0574C5;
+    }
+    
+    .ve-slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #161920;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #262B36;
+    }
+    .ve-slider-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ve-slider-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: #9CA3AF;
+    }
+    .ve-slider-val { color: #0574C5; font-weight: 700; }
+    .ve-slider {
+      width: 100%;
+      accent-color: #0574C5;
+      cursor: pointer;
+      height: 3px;
+    }
+
+    .ve-btn-reset-grade {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px;
+      background: transparent;
+      border: 1px dashed #374151;
+      color: #9CA3AF;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ve-btn-reset-grade:hover { border-color: #EF4444; color: #EF4444; }
+
+    /* PANEL 4: MULTI-TRACK COMPACT TIMELINE (BOTTOM) */
+    .ve-panel-timeline {
+      grid-column: 1 / -1;
+      background: #0E1015;
+      border-top: 1px solid #262B36;
+      display: flex;
+      flex-direction: column;
+      height: 150px;
+    }
+    .ve-timeline-toolbar {
+      height: 26px;
+      background: #14171D;
+      border-bottom: 1px solid #262B36;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+    .ve-tools-left {
+      display: flex;
+      gap: 4px;
+    }
+    .ve-tool-btn {
+      width: 22px;
+      height: 20px;
+      background: #1E222A;
+      border: 1px solid #262B36;
+      color: #9CA3AF;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .ve-tool-btn.active, .ve-tool-btn:hover { background: #0574C5; color: #FFFFFF; border-color: #0574C5; }
+
+    .ve-timeline-area {
+      flex: 1;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+    .ve-track-headers {
+      width: 110px;
+      background: #12151B;
+      border-right: 1px solid #262B36;
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+    }
+    .ve-track-hdr {
+      height: 22px;
+      border-bottom: 1px solid #262B36;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: #9CA3AF;
+      font-weight: 700;
+    }
+
+    .ve-tracks-viewport {
+      flex: 1;
+      position: relative;
+      overflow-x: auto;
+      background: #0B0D11;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Time Ruler */
+    .ve-time-ruler {
+      height: 18px;
+      background: #12151B;
+      border-bottom: 1px solid #262B36;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .ve-ruler-ticks {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 0 16px;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: #6B7280;
+    }
+
+    /* Animated Playhead Line */
+    .ve-playhead-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 35%;
+      width: 2px;
+      background: #FF3B30;
+      z-index: 10;
+      pointer-events: none;
+      transition: left 0.05s linear;
+    }
+    .ve-playhead-head {
+      position: absolute;
+      top: 0; left: -5px;
+      width: 12px; height: 10px;
+      background: #FF3B30;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    /* Track Lanes */
+    .ve-track-lane {
+      height: 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .ve-clip-block {
+      position: absolute;
+      height: 18px;
+      border-radius: 3px;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      cursor: pointer;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .ve-clip-title { background: #8B5CF6; }
+    .ve-clip-lumetri { background: #F97316; }
+    .ve-clip-v1 { background: #0574C5; }
+    .ve-clip-v2 { background: #0284C7; }
+    .ve-clip-v3 { background: #6366F1; }
+    .ve-clip-audio1 { background: #059669; }
+    .ve-clip-audio2 { background: #0D9488; }
+
+    /* ==========================================================================
+       VIDEO SHOWCASE SECTION (PORTFOLIO GALLERY)
+       ========================================================================== */
+
+    .video-showcase-section {
+      padding: 80px 8% 100px 8%;
+      background: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .v-showcase-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .v-showcase-title-group { display: flex; flex-direction: column; gap: 10px; }
+    .v-showcase-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .v-showcase-headline {
+      font-family: 'Syne', var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
       font-weight: 800;
       line-height: 0.95;
       letter-spacing: -0.03em;
       color: var(--text-primary);
     }
-    .showreel-desc {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      max-width: 340px;
-      font-weight: 400;
-      align-self: flex-end;
-    }
-    .showreel-video-wrap {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 40px 100px rgba(5,116,197,0.08);
-    }
-    .showreel-video-wrap video { width: 100%; display: block; border-radius: 12px; }
-    .work-cta-section {
-      padding: 160px 8% 140px;
-      background: var(--bg-color);
-      position: relative;
-      overflow: hidden;
-    }
-    .work-cta-section::before {
-      content: '';
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 50%;
-      background: radial-gradient(ellipse 80% 80% at 100% 50%, rgba(5,116,197,0.06), transparent);
-      pointer-events: none;
-    }
-    .work-cta-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 32px;
+
+    /* Filter Strip Buttons */
+    .v-filter-strip {
       display: flex;
       align-items: center;
-      gap: 16px;
-    }
-    .work-cta-eyebrow::before {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 1px;
-      background: var(--text-muted);
-    }
-    .work-cta-headline {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.8rem, 6vw, 6rem);
-      font-weight: 800;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      color: var(--text-primary);
-      margin-bottom: 60px;
-    }
-    .work-cta-headline em { font-style: normal; color: #0574C5; }
-    .work-cta-actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-    .work-cta-primary {
-      display: inline-flex;
-      align-items: center;
       gap: 12px;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.8rem;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 40px;
+    }
+    .vf-btn {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      text-decoration: none;
-      color: #FFFFFF;
-      background: #0574C5;
-      padding: 18px 40px;
-      border-radius: 4px;
-      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 8px 30px rgba(5,116,197,0.25);
-    }
-    .work-cta-primary:hover { background: #035aa3; transform: translateY(-3px); box-shadow: 0 16px 40px rgba(5,116,197,0.35); }
-    .work-cta-secondary {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
       color: var(--text-secondary);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 4px;
-      transition: color 0.3s ease, border-color 0.3s ease;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s ease;
     }
-    .work-cta-secondary:hover { color: #0574C5; border-color: #0574C5; }
-    .work-project-row.hidden { display: none; }
-    @media (max-width: 900px) {
-      .work-roster-header { display: none; }
-      .work-project-row { grid-template-columns: 50px 1fr; grid-template-rows: auto auto; gap: 12px; }
-      .row-category, .row-link-indicator { display: none; }
-      .work-stats-strip { flex-direction: column; gap: 0; }
-      .work-stat-item { border-right: none; border-bottom: 1px solid var(--border-color); padding: 32px 0; }
-      .work-stat-item:last-child { border-bottom: none; }
+    .vf-btn:hover { color: var(--accent-color); border-color: var(--accent-color); }
+    .vf-btn.active {
+      background: var(--accent-color);
+      color: #FFFFFF;
+      border-color: var(--accent-color);
+      box-shadow: 0 4px 16px rgba(5,116,197,0.25);
+    }
+
+    /* Premium Grid Layout */
+    .v-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    /* Non-Generic Luxury Video Cards */
+    .v-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s ease;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .v-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(5, 116, 197, 0.18);
+      border-color: var(--accent-color);
+    }
+    .v-card-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #0B0D11;
+      overflow: hidden;
+    }
+    .v-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease;
+    }
+    .v-card:hover .v-card-img {
+      transform: scale(1.05);
+      filter: brightness(1.05);
+    }
+    .v-card-overlay-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #FFFFFF;
+      background: rgba(10, 25, 47, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 3px 8px;
+      border-radius: 4px;
+      backdrop-filter: blur(8px);
+    }
+    .v-card-timecode {
+      position: absolute;
+      bottom: 12px; right: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #0574C5;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(5, 116, 197, 0.4);
+    }
+    .v-card-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0.85);
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 25px rgba(5, 116, 197, 0.4);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .v-card:hover .v-card-play-btn {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .v-card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .v-card-title {
+      font-family: 'Syne', var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      transition: color 0.3s ease;
+    }
+    .v-card:hover .v-card-title { color: var(--accent-color); }
+    .v-card-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .v-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-color);
+    }
+    .v-tag {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: rgba(5, 116, 197, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+    .v-tag.software-tag {
+      color: var(--accent-color);
+      border-color: rgba(5, 116, 197, 0.3);
+    }
+
+    /* Modal Lightbox Player */
+    .nle-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 10, 18, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4%;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .nle-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nle-modal-content {
+      width: 100%;
+      max-width: 960px;
+      background: #14171D;
+      border: 1px solid #262B36;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+    }
+    .nle-modal-header {
+      padding: 12px 18px;
+      background: #1A1D24;
+      border-bottom: 1px solid #262B36;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+    .nle-modal-close {
+      background: none;
+      border: none;
+      color: #9CA3AF;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .nle-modal-close:hover { color: #FF4D4D; }
+    .nle-modal-body {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+    .nle-modal-body video {
+      width: 100%; height: 100%; display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .ve-workspace-body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .ve-panel-bin, .ve-panel-color { border: none; border-bottom: 1px solid #262B36; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Preloader Screen -->
   <div class="loader-container" id="preloader">
     <div class="loader-content">
       <div class="loader-logo">VANSH ARORA</div>
@@ -403,187 +1062,452 @@
     </div>
   </div>
 
+  <!-- Navigation Bar -->
   <nav class="navbar" aria-label="Main Navigation">
     <a href="index.html" class="nav-logo" id="navLogo">VANSH</a>
     <div class="nav-links">
       <a href="index.html" class="nav-link">About</a>
-      <a href="work.html" class="nav-link active">Work</a>
-      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="work.html" class="nav-link active">Video Editing</a>
+      <a href="skills.html" class="nav-link">Web Dev</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta">Let's Talk <span class="cta-arrow">↗</span></a>
   </nav>
 
+  <!-- Work Page Hero Section -->
   <header class="work-page-hero reveal-element">
-    <div class="work-hero-eyebrow">SELECTED WORK — 2024 / 26</div>
-    <h1 class="work-hero-headline">CASE<br><em>STUDIES</em></h1>
+    <div class="work-hero-eyebrow">01 — VIDEO EDITING &amp; POST-PRODUCTION STUDIO</div>
+    <h1 class="work-hero-headline">VIDEO EDITING<br><em>STUDIO.</em></h1>
     <div class="work-hero-meta">
-      <p class="work-hero-desc">A curated collection of web applications, WebGL visual experiences, and cinematic video editing projects engineered with structural precision and fluid motion.</p>
-      <div class="work-hero-count">
-        <span class="work-hero-count-num">06</span>
-        <span class="work-hero-count-label">Projects Listed</span>
+      <p class="work-hero-desc">Interactive NLE Editing Suite, 10-Bit Log Color Grading Engine, Multi-Track Timeline &amp; Cinematic Post-Production Showcase engineered by Vansh Arora.</p>
+      <div class="work-hero-stats-group">
+        <div class="work-hero-count">
+          <span class="work-hero-count-num">50+</span>
+          <span class="work-hero-count-label">Videos Cut</span>
+        </div>
+        <div class="work-hero-count">
+          <span class="work-hero-count-num">4K/8K</span>
+          <span class="work-hero-count-label">ProRes 4444</span>
+        </div>
       </div>
+    </div>
+
+    <div class="studio-quick-nav">
+      <a href="#editing-studio-suite" class="sq-btn active">🎬 Editing Studio Suite</a>
+      <a href="#lumetri-color-engine" class="sq-btn">🎨 Lumetri Color Grade</a>
+      <a href="#video-showcase-gallery" class="sq-btn">⚡ Selected Cuts Roster</a>
     </div>
   </header>
 
-  <div class="work-filter-strip reveal-element delay-100">
-    <button class="wf-btn active" data-filter="all">ALL</button>
-    <button class="wf-btn" data-filter="webdev">WEB DEVELOPMENT</button>
-    <button class="wf-btn" data-filter="fullstack">FULL-STACK &amp; WEBGL</button>
-    <button class="wf-btn" data-filter="video">VIDEO &amp; MOTION</button>
-  </div>
-
   <main>
 
-    <section class="work-roster" aria-label="Projects Roster">
-
-      <div class="work-roster-header">
-        <span class="roster-col-label">No.</span>
-        <span class="roster-col-label">Project</span>
-        <span class="roster-col-label">Discipline</span>
-        <span class="roster-col-label">View</span>
+    <!-- SECTION 2: INTERACTIVE VIDEO EDITING STUDIO (COMPACT LOW PROFILE HEIGHT) -->
+    <section class="editing-studio-section reveal-element" id="editing-studio-suite" aria-label="Interactive Video Editing Studio">
+      <div class="ve-section-header">
+        <div class="ve-title-group">
+          <span class="ve-section-tag">INTERACTIVE SUITE</span>
+          <h2 class="ve-section-heading">VIDEO EDITING WORKSPACE</h2>
+        </div>
+        <div class="ve-status-badge">
+          <span class="ve-status-dot"></span> 4K DCI SEQUENCE ACTIVE · 59.94 FPS
+        </div>
       </div>
 
-      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element" data-category="webdev">
-        <span class="row-num">01</span>
-        <div class="row-main">
-          <h2 class="row-title">AURA</h2>
-          <div class="row-tags">
-            <span class="row-tag">HTML5</span>
-            <span class="row-tag">CSS3</span>
-            <span class="row-tag">Vanilla JS</span>
-            <span class="row-tag">WebGL</span>
+      <!-- Video Editing Workspace Container -->
+      <div class="ve-studio-wrapper">
+        
+        <!-- App Titlebar -->
+        <div class="ve-app-bar">
+          <div class="ve-app-left">
+            <div class="ve-window-dots">
+              <span class="ve-dot ve-dot-red"></span>
+              <span class="ve-dot ve-dot-yellow"></span>
+              <span class="ve-dot ve-dot-green"></span>
+            </div>
+            <div class="ve-app-title">
+              <span class="ve-badge-nle">NLE</span> VANSH ARORA STUDIO — <em>Video_Editing_Master_Sequence.nle</em>
+            </div>
           </div>
-        </div>
-        <div class="row-category">Web Development<br>&amp; Motion Design</div>
-        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
-        <img class="row-hover-preview" src="assets/projects/aura.png" alt="AURA preview">
-      </a>
-
-      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-50" data-category="fullstack">
-        <span class="row-num">02</span>
-        <div class="row-main">
-          <h2 class="row-title">VORTEX</h2>
-          <div class="row-tags">
-            <span class="row-tag">React</span>
-            <span class="row-tag">Node.js</span>
-            <span class="row-tag">Three.js</span>
-            <span class="row-tag">MongoDB</span>
+          <div class="ve-workspace-tabs">
+            <button class="ve-ws-tab">Assembly</button>
+            <button class="ve-ws-tab active">Editing ★</button>
+            <button class="ve-ws-tab" id="tabLumetriTrigger">Color (Lumetri)</button>
+            <button class="ve-ws-tab">Effects</button>
+            <button class="ve-ws-tab">Audio</button>
           </div>
+          <div class="ve-app-specs">4K PRORES 4444 HQ · 10-BIT LOG</div>
         </div>
-        <div class="row-category">Full-Stack<br>&amp; Video Editing</div>
-        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
-        <img class="row-hover-preview" src="assets/projects/vortex.png" alt="VORTEX preview">
-      </a>
 
-      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-100" data-category="video">
-        <span class="row-num">03</span>
-        <div class="row-main">
-          <h2 class="row-title">CHRONOS</h2>
-          <div class="row-tags">
-            <span class="row-tag">Video Editing</span>
-            <span class="row-tag">Color Grading</span>
-            <span class="row-tag">After Effects</span>
+        <!-- Studio Main Grid Layout -->
+        <div class="ve-workspace-body">
+          
+          <!-- PANEL 1: MEDIA BIN & LAYERS (LEFT) -->
+          <div class="ve-panel-bin">
+            <div class="ve-panel-header">
+              <span class="active-tab">Project: Vansh_Master</span>
+              <span>Layer Bin</span>
+            </div>
+            <div class="ve-bin-tree">
+              
+              <div class="ve-asset-item active" data-clip="neon">
+                <div class="ve-asset-left">
+                  <span class="ve-asset-icon">🎬</span>
+                  <div class="ve-asset-info">
+                    <span class="ve-asset-name">Neon_Syndicate_4K.mov</span>
+                    <span class="ve-asset-meta">3840x2160 · 60fps · ProRes</span>
+                  </div>
+                </div>
+                <div class="ve-layer-controls">
+                  <button class="ve-btn-icon active" title="Toggle Layer Visibility">👁</button>
+                </div>
+              </div>
+
+              <div class="ve-asset-item" data-clip="hypercar">
+                <div class="ve-asset-left">
+                  <span class="ve-asset-icon">🎬</span>
+                  <div class="ve-asset-info">
+                    <span class="ve-asset-name">Apex_Hypercar_120fps.mov</span>
+                    <span class="ve-asset-meta">3840x2160 · 120fps · RAW</span>
+                  </div>
+                </div>
+                <div class="ve-layer-controls">
+                  <button class="ve-btn-icon active" title="Toggle Layer Visibility">👁</button>
+                </div>
+              </div>
+
+              <div class="ve-asset-item" data-clip="chronos">
+                <div class="ve-asset-left">
+                  <span class="ve-asset-icon">🎬</span>
+                  <div class="ve-asset-info">
+                    <span class="ve-asset-name">Chronos_Film_8K.r3d</span>
+                    <span class="ve-asset-meta">8192x4320 · 24fps · RED</span>
+                  </div>
+                </div>
+                <div class="ve-layer-controls">
+                  <button class="ve-btn-icon active" title="Toggle Layer Visibility">👁</button>
+                </div>
+              </div>
+
+              <div class="ve-asset-item">
+                <div class="ve-asset-left">
+                  <span class="ve-asset-icon">🎨</span>
+                  <div class="ve-asset-info">
+                    <span class="ve-asset-name">Lumetri_Adj_Layer.lut</span>
+                    <span class="ve-asset-meta">V2 · Cinematic Grade</span>
+                  </div>
+                </div>
+                <div class="ve-layer-controls">
+                  <button class="ve-btn-icon active" title="Toggle Layer Visibility" id="btnToggleGradeLayer">👁</button>
+                </div>
+              </div>
+
+              <div class="ve-asset-item">
+                <div class="ve-asset-left">
+                  <span class="ve-asset-icon">✍️</span>
+                  <div class="ve-asset-info">
+                    <span class="ve-asset-name">Kinetic_Text_Title.mogrt</span>
+                    <span class="ve-asset-meta">V3 · Title Overlay</span>
+                  </div>
+                </div>
+                <div class="ve-layer-controls">
+                  <button class="ve-btn-icon active" title="Toggle Title Visibility" id="btnToggleTitle">👁</button>
+                </div>
+              </div>
+
+            </div>
           </div>
-        </div>
-        <div class="row-category">Video Editing<br>&amp; Storytelling</div>
-        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
-        <img class="row-hover-preview" src="assets/projects/chronos.png" alt="CHRONOS preview">
-      </a>
 
-      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-150" data-category="webdev">
-        <span class="row-num">04</span>
-        <div class="row-main">
-          <h2 class="row-title">APEX MOTION SYSTEM</h2>
-          <div class="row-tags">
-            <span class="row-tag">TypeScript</span>
-            <span class="row-tag">Physics Engine</span>
-            <span class="row-tag">Canvas API</span>
+          <!-- PANEL 2: VIDEO CANVAS & MONITOR (CENTER) -->
+          <div class="ve-panel-monitor">
+            <div class="ve-panel-header">
+              <span class="active-tab">Program: Vansh_Master_Sequence</span>
+              <span>Fit: 100%</span>
+            </div>
+            
+            <div class="ve-monitor-screen">
+              <video class="ve-video-element" id="prMainVideo" poster="assets/projects/neon.jpg" loop muted playsinline>
+                <source src="assets/demo.mp4" type="video/mp4">
+              </video>
+              <div class="ve-monitor-overlay-guides">
+                <div class="ve-guide-cross"></div>
+              </div>
+              <div class="ve-monitor-timecode" id="prTimecode">00:01:42:15</div>
+              <div class="ve-title-overlay" id="prTitleOverlay">VANSH ARORA EDITS</div>
+
+              <!-- Live VU Audio Meters -->
+              <div class="ve-vu-meter-side">
+                <div class="ve-vu-channel"><div class="ve-vu-fill" id="vuLeft"></div></div>
+                <div class="ve-vu-channel"><div class="ve-vu-fill" id="vuRight"></div></div>
+              </div>
+            </div>
+
+            <!-- Transport Controls Bar -->
+            <div class="ve-transport-bar">
+              <div class="ve-transport-btns">
+                <button class="ve-tr-btn" id="prBtnPrev" title="Step Back">❚◀</button>
+                <button class="ve-tr-btn btn-play" id="prBtnPlay" title="Play/Pause">▶</button>
+                <button class="ve-tr-btn" id="prBtnNext" title="Step Forward">▶❚</button>
+              </div>
+
+              <div class="ve-scrubber-wrap">
+                <input type="range" class="ve-scrubber-input" id="prScrubber" min="0" max="100" value="35">
+              </div>
+
+              <div style="font-family: var(--font-mono); font-size: 0.6rem; color: #9CA3AF;">
+                FPS: <span style="color:#0574C5; font-weight:700;">59.94</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row-category">Motion<br>Engineering</div>
-        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
-        <img class="row-hover-preview" src="assets/projects/aura.png" alt="APEX preview">
-      </a>
 
-      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-200" data-category="fullstack">
-        <span class="row-num">05</span>
-        <div class="row-main">
-          <h2 class="row-title">ZENITH STORE</h2>
-          <div class="row-tags">
-            <span class="row-tag">Next.js</span>
-            <span class="row-tag">Node.js</span>
-            <span class="row-tag">MongoDB</span>
-            <span class="row-tag">Stripe</span>
+          <!-- PANEL 3: LUMETRI COLOR & SCOPES (RIGHT) -->
+          <div class="ve-panel-color" id="lumetri-color-engine">
+            <div class="ve-panel-header">
+              <span class="active-tab">Lumetri Color</span>
+              <span>Scopes</span>
+            </div>
+            <div class="ve-color-body">
+              
+              <div style="font-family: var(--font-mono); font-size: 0.58rem; color: #9CA3AF; text-transform: uppercase;">LUT PRESETS:</div>
+              <div class="ve-lut-preset-grid">
+                <button class="ve-lut-btn active" data-lut="teal-orange">TEAL &amp; ORANGE</button>
+                <button class="ve-lut-btn" data-lut="cyberpunk">CYBERPUNK</button>
+                <button class="ve-lut-btn" data-lut="kodak-film">KODAK 35MM</button>
+                <button class="ve-lut-btn" data-lut="noir">NOIR B&amp;W</button>
+              </div>
+
+              <!-- Color Sliders -->
+              <div class="ve-slider-group">
+                <div class="ve-slider-row">
+                  <div class="ve-slider-label-wrap">
+                    <span>EXPOSURE</span> <span class="ve-slider-val" id="valExposure">0.0</span>
+                  </div>
+                  <input type="range" class="ve-slider" id="slExposure" min="-50" max="50" value="0">
+                </div>
+
+                <div class="ve-slider-row">
+                  <div class="ve-slider-label-wrap">
+                    <span>CONTRAST</span> <span class="ve-slider-val" id="valContrast">100%</span>
+                  </div>
+                  <input type="range" class="ve-slider" id="slContrast" min="50" max="150" value="100">
+                </div>
+
+                <div class="ve-slider-row">
+                  <div class="ve-slider-label-wrap">
+                    <span>SATURATION</span> <span class="ve-slider-val" id="valSaturation">100%</span>
+                  </div>
+                  <input type="range" class="ve-slider" id="slSaturation" min="0" max="200" value="100">
+                </div>
+
+                <div class="ve-slider-row">
+                  <div class="ve-slider-label-wrap">
+                    <span>TEMPERATURE</span> <span class="ve-slider-val" id="valTemp">0</span>
+                  </div>
+                  <input type="range" class="ve-slider" id="slTemp" min="-30" max="30" value="0">
+                </div>
+              </div>
+
+              <button class="ve-btn-reset-grade" id="btnResetGrade">↺ RESET LUMETRI GRADE</button>
+
+            </div>
           </div>
-        </div>
-        <div class="row-category">Full-Stack<br>E-Commerce</div>
-        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
-        <img class="row-hover-preview" src="assets/projects/vortex.png" alt="ZENITH preview">
-      </a>
 
-      <a href="https://github.com/vansharora" target="_blank" class="work-project-row reveal-element delay-250" data-category="video">
-        <span class="row-num">06</span>
-        <div class="row-main">
-          <h2 class="row-title">NEBULA VISUALIZER</h2>
-          <div class="row-tags">
-            <span class="row-tag">Three.js</span>
-            <span class="row-tag">Web Audio API</span>
-            <span class="row-tag">GLSL Shaders</span>
+          <!-- PANEL 4: MULTI-TRACK COMPACT TIMELINE (BOTTOM) -->
+          <div class="ve-panel-timeline">
+            <div class="ve-timeline-toolbar">
+              <div class="ve-tools-left">
+                <button class="ve-tool-btn active" title="Selection Tool (V)">V</button>
+                <button class="ve-tool-btn" title="Track Select (A)">A</button>
+                <button class="ve-tool-btn" title="Ripple Edit (B)">B</button>
+                <button class="ve-tool-btn" title="Razor Tool (C)">C</button>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.6rem; color: #9CA3AF;">TIMELINE: 00:00:00:00 - 00:06:00:00</div>
+            </div>
+
+            <div class="ve-timeline-area">
+              <div class="ve-track-headers">
+                <div class="ve-track-hdr">V3 · TITLE</div>
+                <div class="ve-track-hdr">V2 · GRADE</div>
+                <div class="ve-track-hdr">V1 · VIDEO</div>
+                <div class="ve-track-hdr">A1 · AUDIO</div>
+                <div class="ve-track-hdr">A2 · SFX</div>
+              </div>
+
+              <div class="ve-tracks-viewport">
+                <!-- Time ruler -->
+                <div class="ve-time-ruler">
+                  <div class="ve-ruler-ticks">
+                    <span>00:00</span><span>00:01</span><span>00:02</span><span>00:03</span><span>00:04</span><span>00:05</span>
+                  </div>
+                  <div class="ve-playhead-line" id="prPlayhead">
+                    <div class="ve-playhead-head"></div>
+                  </div>
+                </div>
+
+                <!-- Track Lanes -->
+                <div class="ve-track-lane">
+                  <div class="ve-clip-block ve-clip-title" style="left: 10%; width: 45%;">✍ KINETIC_TITLE</div>
+                </div>
+                <div class="ve-track-lane">
+                  <div class="ve-clip-block ve-clip-lumetri" style="left: 5%; width: 85%;">🎨 LUMETRI_TEAL_ORANGE.LUT</div>
+                </div>
+                <div class="ve-track-lane">
+                  <div class="ve-clip-block ve-clip-v1" style="left: 5%; width: 28%;" data-clip="neon">🎬 NEON_SYNDICATE</div>
+                  <div class="ve-clip-block ve-clip-v2" style="left: 35%; width: 28%;" data-clip="hypercar">🎬 APEX_HYPERCAR</div>
+                  <div class="ve-clip-block ve-clip-v3" style="left: 65%; width: 25%;" data-clip="chronos">🎬 CHRONOS_FILM</div>
+                </div>
+                <div class="ve-track-lane">
+                  <div class="ve-clip-block ve-clip-audio1" style="left: 5%; width: 85%;">🎵 SPATIAL_AUDIO.WAV</div>
+                </div>
+                <div class="ve-track-lane">
+                  <div class="ve-clip-block ve-clip-audio2" style="left: 15%; width: 50%;">🔊 BASS_IMPACT.SFX</div>
+                </div>
+
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row-category">Audio &amp;<br>Motion Visuals</div>
-        <div class="row-link-indicator">VIEW <span class="row-arrow">↗</span></div>
-        <img class="row-hover-preview" src="assets/projects/chronos.png" alt="NEBULA preview">
-      </a>
 
+        </div>
+
+      </div>
     </section>
 
-    <div class="work-stats-strip reveal-element">
-      <div class="work-stat-item">
-        <span class="work-stat-num">06</span>
-        <span class="work-stat-label">Projects Shipped</span>
-      </div>
-      <div class="work-stat-item">
-        <span class="work-stat-num">100</span>
-        <span class="work-stat-label">Lighthouse Score</span>
-      </div>
-      <div class="work-stat-item">
-        <span class="work-stat-num">60fps</span>
-        <span class="work-stat-label">Animation Target</span>
-      </div>
-      <div class="work-stat-item">
-        <span class="work-stat-num">4K</span>
-        <span class="work-stat-label">Cinema Export</span>
-      </div>
-    </div>
-
-    <section class="work-showreel reveal-element" aria-label="Cinematic Showreel">
-      <div class="showreel-header">
-        <div class="showreel-title-group">
-          <span class="showreel-eyebrow">02 — CINEMATIC SHOWREEL</span>
-          <h2 class="showreel-headline">MOTION &amp;<br>EDITING</h2>
+    <!-- SECTION 3: VIDEO SHOWCASE GALLERY -->
+    <section class="video-showcase-section reveal-element" id="video-showcase-gallery" aria-label="Video Showcase Gallery">
+      
+      <div class="v-showcase-header">
+        <div class="v-showcase-title-group">
+          <span class="v-showcase-eyebrow">02 — POST-PRODUCTION ROSTER</span>
+          <h2 class="v-showcase-headline">SELECTED CUTS &amp; REELS</h2>
         </div>
-        <p class="showreel-desc">Character tracking kinetics, video editing precision, and visual storytelling capabilities — all in one frame.</p>
       </div>
-      <div class="showreel-video-wrap">
-        <video controls poster="assets/projects/vortex.png" loop muted playsinline>
-          <source src="assets_video.mp4" type="video/mp4">
-          Your browser does not support HTML5 video playback.
-        </video>
-      </div>
-    </section>
 
-    <section class="work-cta-section reveal-element">
-      <div class="work-cta-eyebrow">HAVE A PROJECT IN MIND?</div>
-      <h2 class="work-cta-headline">LET'S BUILD<br><em>SOMETHING</em><br>ICONIC.</h2>
-      <div class="work-cta-actions">
-        <a href="contact.html" class="work-cta-primary">GET IN TOUCH ↗</a>
-        <a href="index.html" class="work-cta-secondary">BACK TO HOME</a>
+      <!-- Filter Strip -->
+      <div class="v-filter-strip">
+        <button class="vf-btn active" data-filter="all">ALL WORKS</button>
+        <button class="vf-btn" data-filter="commercial">COMMERCIAL &amp; ADS</button>
+        <button class="vf-btn" data-filter="cinematic">CINEMATIC &amp; REELS</button>
+        <button class="vf-btn" data-filter="grading">COLOR GRADING</button>
+        <button class="vf-btn" data-filter="vfx">VFX &amp; MOTION</button>
       </div>
+
+      <!-- Video Cards Grid -->
+      <div class="v-showcase-grid">
+
+        <!-- Card 1 -->
+        <article class="v-card" data-category="commercial" data-video="assets/demo.mp4" data-title="NEON SYNDICATE">
+          <div class="v-card-media">
+            <img class="v-card-img" src="assets/projects/neon.jpg" alt="NEON SYNDICATE preview">
+            <span class="v-card-overlay-badge">4K PRORES 4444</span>
+            <span class="v-card-timecode">00:01:45:12</span>
+            <div class="v-card-play-btn">▶</div>
+          </div>
+          <div class="v-card-content">
+            <h3 class="v-card-title">NEON SYNDICATE</h3>
+            <p class="v-card-desc">Cyberpunk teaser edit featuring 10-bit Teal &amp; Orange color grading, kinetic typography, and impact sound design.</p>
+            <div class="v-card-tags">
+              <span class="v-tag software-tag">Video Editing</span>
+              <span class="v-tag software-tag">Motion GFX</span>
+              <span class="v-tag">60 FPS</span>
+              <span class="v-tag">Commercial</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="v-card" data-category="commercial" data-video="assets/demo.mp4" data-title="APEX HYPERCAR">
+          <div class="v-card-media">
+            <img class="v-card-img" src="assets/projects/hypercar.jpg" alt="APEX HYPERCAR preview">
+            <span class="v-card-overlay-badge">120 FPS SLOW-MO</span>
+            <span class="v-card-timecode">00:02:10:04</span>
+            <div class="v-card-play-btn">▶</div>
+          </div>
+          <div class="v-card-content">
+            <h3 class="v-card-title">APEX HYPERCAR</h3>
+            <p class="v-card-desc">High-speed automotive commercial cut with speed ramping, spatial audio sound design, and custom film LUT.</p>
+            <div class="v-card-tags">
+              <span class="v-tag software-tag">Video Editing</span>
+              <span class="v-tag software-tag">Color Grade</span>
+              <span class="v-tag">4K DCI</span>
+              <span class="v-tag">Speed Ramp</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="v-card" data-category="cinematic" data-video="assets/demo.mp4" data-title="CHRONOS">
+          <div class="v-card-media">
+            <img class="v-card-img" src="assets/projects/chronos.png" alt="CHRONOS preview">
+            <span class="v-card-overlay-badge">8K RED RAW</span>
+            <span class="v-card-timecode">00:04:12:08</span>
+            <div class="v-card-play-btn">▶</div>
+          </div>
+          <div class="v-card-content">
+            <h3 class="v-card-title">CHRONOS</h3>
+            <p class="v-card-desc">Cinematic short film post-production featuring 8K RAW processing, film grain emulation, and spatial Dolby Atmos audio.</p>
+            <div class="v-card-tags">
+              <span class="v-tag software-tag">Film Grade</span>
+              <span class="v-tag">24 FPS</span>
+              <span class="v-tag">Short Film</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="v-card" data-category="vfx" data-video="assets/demo.mp4" data-title="VORTEX">
+          <div class="v-card-media">
+            <img class="v-card-img" src="assets/projects/vortex.png" alt="VORTEX preview">
+            <span class="v-card-overlay-badge">KINETIC MOTION</span>
+            <span class="v-card-timecode">00:00:45:22</span>
+            <div class="v-card-play-btn">▶</div>
+          </div>
+          <div class="v-card-content">
+            <h3 class="v-card-title">VORTEX</h3>
+            <p class="v-card-desc">Brand motion graphics reel with character tracking, planar tracking, and GLSL visual shaders.</p>
+            <div class="v-card-tags">
+              <span class="v-tag software-tag">Motion GFX</span>
+              <span class="v-tag software-tag">VFX Tracking</span>
+              <span class="v-tag">Reel</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="v-card" data-category="grading" data-video="assets/demo.mp4" data-title="ZENITH VISUALS">
+          <div class="v-card-media">
+            <img class="v-card-img" src="assets/projects/aura.png" alt="ZENITH preview">
+            <span class="v-card-overlay-badge">AUDIO BEAT-SYNC</span>
+            <span class="v-card-timecode">00:03:30:16</span>
+            <div class="v-card-play-btn">▶</div>
+          </div>
+          <div class="v-card-content">
+            <h3 class="v-card-title">ZENITH VISUALS</h3>
+            <p class="v-card-desc">Music video editing with tight audio beat-syncing, chromatic aberration motion transitions, and spatial mastering.</p>
+            <div class="v-card-tags">
+              <span class="v-tag software-tag">Video Editing</span>
+              <span class="v-tag software-tag">Audio Master</span>
+              <span class="v-tag">Music Video</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
     </section>
 
   </main>
+
+  <!-- Modal Lightbox Video Player -->
+  <div class="nle-modal-overlay" id="nleModal">
+    <div class="nle-modal-content">
+      <div class="nle-modal-header">
+        <span id="modalProjectTitle">PROJECT PREVIEW</span>
+        <button class="nle-modal-close" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="nle-modal-body">
+        <video id="modalVideo" controls autoplay loop playsinline></video>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-copy">&copy; 2026 VANSH ARORA. ALL RIGHTS RESERVED.</div>
@@ -591,32 +1515,221 @@
   </footer>
 
   <script src="main.js"></script>
+  
+  <!-- Video Editing Studio Script -->
   <script>
-    const wfBtns = document.querySelectorAll('.wf-btn');
-    const projectRows = document.querySelectorAll('.work-project-row');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Studio Video & Scrubber Controls
+      const mainVideo = document.getElementById('prMainVideo');
+      const btnPlay = document.getElementById('prBtnPlay');
+      const scrubber = document.getElementById('prScrubber');
+      const playhead = document.getElementById('prPlayhead');
+      const timecode = document.getElementById('prTimecode');
+      const vuLeft = document.getElementById('vuLeft');
+      const vuRight = document.getElementById('vuRight');
+      const titleOverlay = document.getElementById('prTitleOverlay');
 
-    wfBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        wfBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        projectRows.forEach(row => {
-          if (filter === 'all' || row.dataset.category === filter) {
-            row.classList.remove('hidden');
-          } else {
-            row.classList.add('hidden');
+      // Lumetri Controls
+      const slExposure = document.getElementById('slExposure');
+      const slContrast = document.getElementById('slContrast');
+      const slSaturation = document.getElementById('slSaturation');
+      const slTemp = document.getElementById('slTemp');
+      const valExposure = document.getElementById('valExposure');
+      const valContrast = document.getElementById('valContrast');
+      const valSaturation = document.getElementById('valSaturation');
+      const valTemp = document.getElementById('valTemp');
+      const btnResetGrade = document.getElementById('btnResetGrade');
+      const lutBtns = document.querySelectorAll('.ve-lut-btn');
+
+      // Layer Toggles
+      const btnToggleTitle = document.getElementById('btnToggleTitle');
+
+      // State
+      let isPlaying = false;
+      let animationFrameId = null;
+
+      // Play / Pause Toggle
+      function togglePlay() {
+        if (!mainVideo) return;
+        if (mainVideo.paused) {
+          mainVideo.play().then(() => {
+            isPlaying = true;
+            btnPlay.textContent = '❚❚';
+            updateLoop();
+          }).catch(e => console.log('Autoplay prevented', e));
+        } else {
+          mainVideo.pause();
+          isPlaying = false;
+          btnPlay.textContent = '▶';
+          if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        }
+      }
+
+      if (btnPlay) btnPlay.addEventListener('click', togglePlay);
+
+      // Playback Update Loop
+      function updateLoop() {
+        if (!isPlaying || !mainVideo) return;
+
+        // Progress calculation
+        const duration = mainVideo.duration || 10;
+        const current = mainVideo.currentTime;
+        const pct = (current / duration) * 100;
+        
+        if (scrubber) scrubber.value = pct;
+        if (playhead) playhead.style.left = pct + '%';
+
+        // Format timecode
+        const mins = String(Math.floor(current / 60)).padStart(2, '0');
+        const secs = String(Math.floor(current % 60)).padStart(2, '0');
+        const frames = String(Math.floor((current % 1) * 60)).padStart(2, '0');
+        if (timecode) timecode.textContent = `00:${mins}:${secs}:${frames}`;
+
+        // VU meter animation
+        if (vuLeft && vuRight) {
+          vuLeft.style.height = (40 + Math.random() * 50) + '%';
+          vuRight.style.height = (40 + Math.random() * 50) + '%';
+        }
+
+        animationFrameId = requestAnimationFrame(updateLoop);
+      }
+
+      if (scrubber && mainVideo) {
+        scrubber.addEventListener('input', (e) => {
+          const val = e.target.value;
+          const duration = mainVideo.duration || 10;
+          mainVideo.currentTime = (val / 100) * duration;
+          if (playhead) playhead.style.left = val + '%';
+        });
+      }
+
+      // Clip Switching logic
+      const assetItems = document.querySelectorAll('[data-clip]');
+      const clipPosters = {
+        'neon': { poster: 'assets/projects/neon.jpg', title: 'NEON SYNDICATE' },
+        'hypercar': { poster: 'assets/projects/hypercar.jpg', title: 'APEX HYPERCAR' },
+        'chronos': { poster: 'assets/projects/chronos.png', title: 'CHRONOS FILM' }
+      };
+
+      assetItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const clipKey = item.dataset.clip;
+          assetItems.forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          if (clipPosters[clipKey] && mainVideo) {
+            mainVideo.poster = clipPosters[clipKey].poster;
+            if (titleOverlay) titleOverlay.textContent = clipPosters[clipKey].title;
           }
         });
       });
-    });
 
-    projectRows.forEach(row => {
-      const preview = row.querySelector('.row-hover-preview');
-      if (!preview) return;
-      row.addEventListener('mousemove', (e) => {
-        preview.style.left = (e.clientX + 32) + 'px';
-        preview.style.top  = (e.clientY - 100) + 'px';
+      // Lumetri Filter Processing
+      function updateLumetriFilters() {
+        if (!mainVideo) return;
+        const exp = parseFloat(slExposure.value) / 50; // -1 to 1
+        const brightness = 1 + exp;
+        const contrast = parseFloat(slContrast.value) / 100;
+        const saturate = parseFloat(slSaturation.value) / 100;
+        const temp = parseFloat(slTemp.value);
+        
+        mainVideo.style.filter = `brightness(${brightness}) contrast(${contrast}) saturate(${saturate}) hue-rotate(${temp}deg)`;
+
+        if (valExposure) valExposure.textContent = (exp > 0 ? '+' : '') + exp.toFixed(1);
+        if (valContrast) valContrast.textContent = slContrast.value + '%';
+        if (valSaturation) valSaturation.textContent = slSaturation.value + '%';
+        if (valTemp) valTemp.textContent = slTemp.value;
+      }
+
+      [slExposure, slContrast, slSaturation, slTemp].forEach(sl => {
+        if (sl) sl.addEventListener('input', updateLumetriFilters);
       });
+
+      // LUT Preset Clicks
+      lutBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          lutBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const lut = btn.dataset.lut;
+          if (lut === 'teal-orange') {
+            slExposure.value = 5; slContrast.value = 120; slSaturation.value = 130; slTemp.value = -10;
+          } else if (lut === 'cyberpunk') {
+            slExposure.value = 10; slContrast.value = 130; slSaturation.value = 160; slTemp.value = 25;
+          } else if (lut === 'kodak-film') {
+            slExposure.value = -5; slContrast.value = 105; slSaturation.value = 110; slTemp.value = -15;
+          } else if (lut === 'noir') {
+            slExposure.value = 0; slContrast.value = 140; slSaturation.value = 0; slTemp.value = 0;
+          }
+          updateLumetriFilters();
+        });
+      });
+
+      if (btnResetGrade) {
+        btnResetGrade.addEventListener('click', () => {
+          slExposure.value = 0; slContrast.value = 100; slSaturation.value = 100; slTemp.value = 0;
+          updateLumetriFilters();
+        });
+      }
+
+      // Title Toggle
+      if (btnToggleTitle) {
+        btnToggleTitle.addEventListener('click', () => {
+          btnToggleTitle.classList.toggle('active');
+          if (titleOverlay) titleOverlay.style.display = btnToggleTitle.classList.contains('active') ? 'block' : 'none';
+        });
+      }
+
+      // Showcase Filter
+      const vfBtns = document.querySelectorAll('.vf-btn');
+      const vCards = document.querySelectorAll('.v-card');
+
+      vfBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          vfBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          vCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Modal Lightbox
+      const modal = document.getElementById('nleModal');
+      const modalVideo = document.getElementById('modalVideo');
+      const modalClose = document.getElementById('modalCloseBtn');
+      const modalTitle = document.getElementById('modalProjectTitle');
+
+      vCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          const videoSrc = card.dataset.video || 'assets/demo.mp4';
+          const title = card.dataset.title || 'PROJECT PREVIEW';
+          if (modalVideo) modalVideo.src = videoSrc;
+          if (modalTitle) modalTitle.textContent = title + ' — NLE PREVIEW';
+          if (modal) modal.classList.add('open');
+        });
+      });
+
+      if (modalClose) {
+        modalClose.addEventListener('click', () => {
+          if (modal) modal.classList.remove('open');
+          if (modalVideo) { modalVideo.pause(); modalVideo.src = ''; }
+        });
+      }
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('open');
+            if (modalVideo) { modalVideo.pause(); modalVideo.src = ''; }
+          }
+        });
+      }
+
     });
   </script>
 </body>

@@ -46,15 +46,25 @@
     <a href="index.html" class="nav-logo" id="navLogo">VANSH</a>
     <div class="nav-links">
       <a href="index.html" class="nav-link" id="navLinkAbout">About</a>
-      <a href="work.html" class="nav-link" id="navLinkWork">Work</a>
-      <a href="skills.html" class="nav-link" id="navLinkSkills">Skills</a>
+      <a href="work.html" class="nav-link" id="navLinkWork">Video Editing</a>
+      <a href="skills.html" class="nav-link" id="navLinkSkills">Web Dev</a>
       <a href="contact.html" class="nav-link" id="navLinkContact">Contact</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
     <a href="contact.html" class="nav-cta" id="navCta">Let's Talk <span class="cta-arrow">↗</span></a>
   </nav>
 
   <!-- Hero Section (Sticky Landing Page Pinned Beneath Scrolling Cards) -->
   <header class="hero" id="hero">
+
+    <!-- Atmospheric Ambient Volumetric Light Orbs -->
+    <div class="hero-ambient-orb" aria-hidden="true"></div>
+    <div class="hero-ambient-orb-secondary" aria-hidden="true"></div>
+    <div class="hero-light-streak" aria-hidden="true"></div>
 
     <!-- Premium Architectural Grid Overlay -->
     <div class="hero-grid-overlay" aria-hidden="true"></div>
@@ -62,22 +72,20 @@
     <!-- Animated Noise Vignette -->
     <div class="hero-vignette" aria-hidden="true"></div>
 
+
     <!-- Giant occluded background statement -->
     <div class="hero-typography" id="heroTypography">
-      <h1 class="hero-line hero-line-solid" id="heroLine1">BUILD</h1>
-      <h1 class="hero-line hero-line-solid" id="heroLine2">DIGITAL</h1>
-      <h1 class="hero-line hero-line-outline" id="heroLine3">CREATIVE</h1>
-      <h1 class="hero-line hero-line-outline" id="heroLine4">STORIES</h1>
-    </div>
-
-    <!-- New Character Animation from assets_video.mp4 -->
-    <div class="hero-character-container" id="heroCharacterContainer">
-      <canvas id="heroCharacterCanvas" width="540" height="960" class="hero-character-canvas"></canvas>
+      <h1 class="hero-line hero-line-solid" id="heroLine1"><span class="hero-line-inner">BUILD</span></h1>
+      <h1 class="hero-line hero-line-solid" id="heroLine2"><span class="hero-line-inner">DIGITAL</span></h1>
+      <h1 class="hero-line hero-line-outline" id="heroLine3"><span class="hero-line-inner">CREATIVE</span></h1>
+      <h1 class="hero-line hero-line-outline" id="heroLine4"><span class="hero-line-inner">STORIES</span></h1>
     </div>
 
     <!-- Hero Scroll Indicator -->
     <div class="hero-scroll-indicator" id="heroScroll">
-      SCROLL TO EXPLORE <span class="scroll-arrow">↓</span>
+      <span class="scroll-line"></span>
+      <span class="scroll-label">SCROLL TO EXPLORE</span>
+      <span class="scroll-arrow">↓</span>
     </div>
 
     <!-- Hero Personal Identity / Role Statement (Bottom Right) -->
@@ -154,15 +162,12 @@
             </div>
           </div>
 
-          <!-- Focus Tags — clean comma-separated line -->
+          <!-- Focus Tags — clean luxury pill tags -->
           <div class="about-focus-line">
-            Full-Stack Architecture
-            <span class="focus-dot">·</span>
-            GLSL &amp; Shaders
-            <span class="focus-dot">·</span>
-            Motion Graphics
-            <span class="focus-dot">·</span>
-            10-Bit Color Grading
+            <span class="about-focus-badge"><span class="badge-dot-cyan"></span>Full-Stack Architecture</span>
+            <span class="about-focus-badge"><span class="badge-dot-cyan"></span>GLSL &amp; Shaders</span>
+            <span class="about-focus-badge"><span class="badge-dot-cyan"></span>Motion Graphics</span>
+            <span class="about-focus-badge"><span class="badge-dot-cyan"></span>10-Bit Color Grading</span>
           </div>
         </div>
 
@@ -277,7 +282,7 @@
 
 
     <!-- ═══════════════════════════════════════════════════════
-         SECTION 03 — DISCIPLINES (Premium Bento Reveal)
+         SECTION 03 — DISCIPLINES (Premium Accordion Reveal)
          ═══════════════════════════════════════════════════════ -->
     <section class="disciplines-section" id="disciplines" aria-label="What I Do">
 
@@ -308,82 +313,125 @@
         </h2>
       </div>
 
-      <!-- Bento Grid -->
-      <div class="dis-bento">
+      <!-- Interactive Accordion Strips -->
+      <div class="craft-accordion" id="craftAccordion">
 
-        <!-- Panel A — Web & Code (tall left) -->
-        <div class="dis-panel dis-panel-web reveal-element" id="disPanelWeb">
-          <div class="dis-panel-inner">
-            <div class="dis-panel-top">
-              <span class="dis-panel-index">01</span>
-              <span class="dis-panel-tag">DIGITAL ENGINEERING</span>
+        <!-- Strip 01 — Web & Code -->
+        <div class="craft-strip is-active" data-index="0">
+          <div class="craft-strip-bg"></div>
+          <div class="craft-strip-collapsed">
+            <span class="craft-strip-num">01</span>
+            <span class="craft-strip-vertical-title">WEB & CODE</span>
+          </div>
+          <div class="craft-strip-expanded">
+            <div class="craft-strip-head">
+              <span class="craft-strip-index">01</span>
+              <span class="craft-strip-tag">DIGITAL ENGINEERING</span>
             </div>
-            <div class="dis-panel-content">
-              <h3 class="dis-panel-title">WEB &amp;<br>CODE</h3>
-              <p class="dis-panel-desc">Architecting zero-bloat reactive systems — from low-latency Node APIs to real-time WebGL shaders running at a locked 60 fps.</p>
-              <div class="dis-skills-grid">
-                <span class="dis-skill">React 19</span>
-                <span class="dis-skill">Next.js</span>
-                <span class="dis-skill">TypeScript</span>
-                <span class="dis-skill">Three.js</span>
-                <span class="dis-skill">Node.js</span>
-                <span class="dis-skill">GLSL</span>
-                <span class="dis-skill">MongoDB</span>
-                <span class="dis-skill">Tailwind</span>
-              </div>
+            <h3 class="craft-strip-title">WEB &amp;<br>CODE</h3>
+            <p class="craft-strip-desc">Architecting zero-bloat reactive systems — from low-latency Node APIs to real-time WebGL shaders running at a locked 60 fps.</p>
+            <div class="craft-strip-skills">
+              <span class="craft-pill">React 19</span>
+              <span class="craft-pill">Next.js</span>
+              <span class="craft-pill">TypeScript</span>
+              <span class="craft-pill">Three.js</span>
+              <span class="craft-pill">Node.js</span>
+              <span class="craft-pill">GLSL</span>
+              <span class="craft-pill">MongoDB</span>
+              <span class="craft-pill">Tailwind</span>
             </div>
-            <div class="dis-panel-stat">
-              <span class="dis-stat-val" data-target="100">0</span><span class="dis-stat-unit">/100</span>
-              <span class="dis-stat-lbl">Lighthouse Score</span>
+            <div class="craft-strip-metric">
+              <span class="craft-metric-val" data-target="100">0</span><span class="craft-metric-unit">/100</span>
+              <span class="craft-metric-label">Lighthouse Score</span>
             </div>
-            <div class="dis-panel-glow dis-glow-blue"></div>
           </div>
         </div>
 
-        <!-- Panel B — Right column: two stacked blocks -->
-        <div class="dis-panel-col">
-
-          <!-- Panel B1 — Stats Row -->
-          <div class="dis-panel dis-panel-stats reveal-element delay-100">
-            <div class="dis-stat-block">
-              <span class="dis-stat-num" data-target="60">0</span><span class="dis-stat-sfx">fps</span>
-              <span class="dis-stat-label">Canvas Physics</span>
+        <!-- Strip 02 — Motion & Edit -->
+        <div class="craft-strip" data-index="1">
+          <div class="craft-strip-bg"></div>
+          <div class="craft-strip-collapsed">
+            <span class="craft-strip-num">02</span>
+            <span class="craft-strip-vertical-title">MOTION & EDIT</span>
+          </div>
+          <div class="craft-strip-expanded">
+            <div class="craft-strip-head">
+              <span class="craft-strip-index">02</span>
+              <span class="craft-strip-tag">CINEMATIC PRODUCTION</span>
             </div>
-            <div class="dis-stat-divider"></div>
-            <div class="dis-stat-block">
-              <span class="dis-stat-num" data-target="4">0</span><span class="dis-stat-sfx">K</span>
-              <span class="dis-stat-label">Cinema Export</span>
+            <h3 class="craft-strip-title">MOTION<br>&amp; EDIT</h3>
+            <p class="craft-strip-desc">Crafting high-impact video experiences, custom motion graphics, 10-bit color LUT workflows, spatial sound design, and AI-driven media pipelines.</p>
+            <div class="craft-strip-skills">
+              <span class="craft-pill">Premiere Pro</span>
+              <span class="craft-pill">After Effects</span>
+              <span class="craft-pill">Color Grade</span>
+              <span class="craft-pill">Sound FX</span>
+              <span class="craft-pill">Motion GFX</span>
+              <span class="craft-pill">ComfyUI</span>
             </div>
-            <div class="dis-stat-divider"></div>
-            <div class="dis-stat-block">
-              <span class="dis-stat-num" data-target="10">0</span><span class="dis-stat-sfx">-Bit</span>
-              <span class="dis-stat-label">Color Grade</span>
+            <div class="craft-strip-metric">
+              <span class="craft-metric-val" data-target="4">0</span><span class="craft-metric-unit">K</span>
+              <span class="craft-metric-label">Cinema Export</span>
             </div>
           </div>
+        </div>
 
-          <!-- Panel B2 — Motion & Editing (tall right) -->
-          <div class="dis-panel dis-panel-motion reveal-element delay-200" id="disPanelMotion">
-            <div class="dis-panel-inner">
-              <div class="dis-panel-top">
-                <span class="dis-panel-index">02</span>
-                <span class="dis-panel-tag">CINEMATIC PRODUCTION</span>
-              </div>
-              <div class="dis-panel-content">
-                <h3 class="dis-panel-title">MOTION<br>&amp; EDIT</h3>
-                <p class="dis-panel-desc">Crafting high-impact video experiences, custom motion graphics, 10-bit color LUT workflows, spatial sound design, and AI-driven media pipelines.</p>
-                <div class="dis-skills-grid">
-                  <span class="dis-skill">Premiere Pro</span>
-                  <span class="dis-skill">After Effects</span>
-                  <span class="dis-skill">Color Grade</span>
-                  <span class="dis-skill">Sound FX</span>
-                  <span class="dis-skill">Motion GFX</span>
-                  <span class="dis-skill">ComfyUI</span>
-                </div>
-              </div>
-              <div class="dis-panel-glow dis-glow-white"></div>
+        <!-- Strip 03 — UI / UX -->
+        <div class="craft-strip" data-index="2">
+          <div class="craft-strip-bg"></div>
+          <div class="craft-strip-collapsed">
+            <span class="craft-strip-num">03</span>
+            <span class="craft-strip-vertical-title">UI / UX DESIGN</span>
+          </div>
+          <div class="craft-strip-expanded">
+            <div class="craft-strip-head">
+              <span class="craft-strip-index">03</span>
+              <span class="craft-strip-tag">SPATIAL DESIGN</span>
+            </div>
+            <h3 class="craft-strip-title">UI /<br>UX</h3>
+            <p class="craft-strip-desc">Designing interfaces that feel alive — pixel-precise layouts, micro-interactions, spatial typography, and immersive scroll experiences.</p>
+            <div class="craft-strip-skills">
+              <span class="craft-pill">Figma</span>
+              <span class="craft-pill">Framer</span>
+              <span class="craft-pill">Responsive</span>
+              <span class="craft-pill">Design Systems</span>
+              <span class="craft-pill">Prototyping</span>
+              <span class="craft-pill">A11y</span>
+            </div>
+            <div class="craft-strip-metric">
+              <span class="craft-metric-val" data-target="60">0</span><span class="craft-metric-unit">fps</span>
+              <span class="craft-metric-label">Canvas Physics</span>
             </div>
           </div>
+        </div>
 
+        <!-- Strip 04 — Creative Tech -->
+        <div class="craft-strip" data-index="3">
+          <div class="craft-strip-bg"></div>
+          <div class="craft-strip-collapsed">
+            <span class="craft-strip-num">04</span>
+            <span class="craft-strip-vertical-title">CREATIVE TECH</span>
+          </div>
+          <div class="craft-strip-expanded">
+            <div class="craft-strip-head">
+              <span class="craft-strip-index">04</span>
+              <span class="craft-strip-tag">EXPERIMENTAL</span>
+            </div>
+            <h3 class="craft-strip-title">CREATIVE<br>TECH</h3>
+            <p class="craft-strip-desc">Pushing boundaries with WebGL shaders, generative art, AI-driven pipelines, and real-time 3D — where engineering meets imagination.</p>
+            <div class="craft-strip-skills">
+              <span class="craft-pill">WebGL</span>
+              <span class="craft-pill">GLSL Shaders</span>
+              <span class="craft-pill">Three.js</span>
+              <span class="craft-pill">ComfyUI</span>
+              <span class="craft-pill">Generative Art</span>
+              <span class="craft-pill">AI Pipelines</span>
+            </div>
+            <div class="craft-strip-metric">
+              <span class="craft-metric-val" data-target="10">0</span><span class="craft-metric-unit">-Bit</span>
+              <span class="craft-metric-label">Color Grade</span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -391,12 +439,10 @@
       <!-- Full-Width Closing Statement -->
       <div class="dis-closing reveal-element delay-300">
         <p class="dis-closing-text">EVERY PIXEL. EVERY FRAME. EVERY LINE OF CODE.</p>
-        <a href="work.html" class="dis-closing-cta">SEE THE WORK ↗</a>
+        <a href="work.html" class="dis-closing-cta">EXPLORE VIDEO EDITING ↗</a>
       </div>
 
     </section>
-
-
 
     <!-- ═══════════════════════════════════════════════════════════════
          SECTION 04 — EDITORIAL STUDIO COLLABORATION HUB
@@ -472,6 +518,10 @@
       WEB DEVELOPER &times; VIDEO EDITOR
     </div>
   </footer>
+
+  <!-- GSAP + ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <!-- Main JavaScript File -->
   <script src="main.js"></script>

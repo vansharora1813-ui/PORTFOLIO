@@ -1,288 +1,344 @@
 /* ==========================================================================
-   CHARACTER HEAD TRACKER — PREMIUM 2D PSEUDO-3D MOUSE TRACKING SYSTEM
+   INTERACTIVE 360° CHARACTER HEAD TRACKER & STATIC BODY CONTROLLER
    Vansh Arora Portfolio — character-tracker.js
-
-   Strategy:
-   - 9 "orientation anchor" frames selected from the 240-frame animation
-   - Each frame analytically mapped to (headX, headY) look direction
-   - Mouse normalized to [-1,1] relative to character head center
-   - Spring physics interpolate the "look direction" smoothly
-   - The NEAREST two anchor frames are blended on a Canvas via opacity crossfade
-   - Additional Canvas 2D transforms add pseudo-3D depth:
-       scaleX compression (face narrows when turning)
-       translateY shift (head bob on up/down look)
-       subtle pivot-based skew for 3D depth illusion
-   - Body region stays STABLE (drawn from a fixed front frame)
-   - Idle breathing + micro-drift when mouse is absent
-   - Mobile: smooth idle float animation
+   
+   Architecture:
+   - Body & Cargo/Shoes: 100% rock-solid and static from clean front frame (000deg).
+   - Head: 360° interactive rotation tracking horizontal cursor position (frames 00-35)
+     combined with vertical up/down gaze shift and 3D depth tilt.
+   - 60 FPS physics spring loop for organic, premium following motion without snapping.
+   - Idle breathing floating state when mouse is stationary.
    ========================================================================== */
 
 'use strict';
 
-class CharacterHeadTracker {
+class InteractiveCharacter360 {
   constructor(options) {
     options = options || {};
-    this.FRAME_BASE_PATH = options.framePath || 'assets/character_frames/';
-    this.CANVAS_W = 540;
-    this.CANVAS_H = 960;
-
-    // Head region in the 540x960 canvas
-    this.HEAD_BOTTOM = 400;  // px — approximate neck line
-    this.NECK_BLEND  = 60;   // px — overlap blend zone
-
-    /* ORIENTATION ANCHOR FRAMES
-       hx: horizontal look -1=far right, 0=center, +1=far left
-       hy: vertical look   -1=looking up, 0=center, +1=looking down
-       Derived from Python skin-tone analysis on original PNGs. */
-    this.ANCHORS = [
-      { file: 'frame_000.webp', hx:  0.00, hy:  0.00 },  // front neutral
-      { file: 'frame_019.webp', hx: -0.40, hy:  0.00 },  // 25% right
-      { file: 'frame_026.webp', hx: -0.70, hy:  0.00 },  // 50% right
-      { file: 'frame_033.webp', hx: -1.00, hy:  0.00 },  // max right
-      { file: 'frame_059.webp', hx: +0.40, hy:  0.00 },  // 25% left
-      { file: 'frame_067.webp', hx: +0.70, hy:  0.00 },  // 50% left
-      { file: 'frame_077.webp', hx: +1.00, hy:  0.00 },  // max left
-      { file: 'frame_119.webp', hx:  0.00, hy: -1.00 },  // looking up
-      { file: 'frame_176.webp', hx: -0.45, hy:  0.15 },  // slight right-down
-    ];
-
-    // Spring physics state
-    this.lookX = 0;
-    this.lookY = 0;
-    this.velX  = 0;
-    this.velY  = 0;
-    this.targetX = 0;
-    this.targetY = 0;
-
-    this.SPRING_K        = 0.055;
-    this.DAMPING         = 0.82;
-    this.IDLE_DRIFT_SPEED = 0.0004;
-
-    this.mouseActive = false;
-    this.lastMouseMoveTime = 0;
-    this.isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-
-    this.images = new Array(this.ANCHORS.length).fill(null);
+    this.totalFrames = 36;
+    this.frameDegreeStep = 10;
+    
+    this.basePath = options.basePath || 'assets/character/';
+    this.fileExtension = options.extension || '.png';
+    
+    // Native canvas coordinate resolution (720x1280)
+    this.CANVAS_W = 720;
+    this.CANVAS_H = 1280;
+    
+    // Anatomical split: Head is top 0-390px, Body is 370-1280px
+    this.HEAD_SPLIT_Y = 390;
+    this.NECK_BLEND_ZONE = 35;
+    
+    // Canvas & Context
+    this.canvas = null;
+    this.ctx = null;
+    this.container = options.container || null;
+    
+    // Preloaded image instances
+    this.images = new Array(this.totalFrames).fill(null);
     this.loadedCount = 0;
-    this.ready = false;
-
-    this.canvasEl = null;
-    this.ctx      = null;
-    this.rafId    = null;
-    this._lastTs  = 0;
-  }
-
-  init(canvasElement) {
-    this.canvasEl = canvasElement;
-    this.ctx = canvasElement.getContext('2d', { alpha: true, desynchronized: true });
-    canvasElement.width  = this.CANVAS_W;
-    canvasElement.height = this.CANVAS_H;
-    this.ctx.imageSmoothingEnabled = true;
-    this.ctx.imageSmoothingQuality = 'high';
-    this._preloadImages();
-    this._bindMouseEvents();
-    this._startLoop();
-  }
-
-  _preloadImages() {
-    var self = this;
-    this.ANCHORS.forEach(function(anchor, i) {
-      var img = new Image();
-      img.onload = function() {
-        self.images[i] = img;
-        self.loadedCount++;
-        if (i === 0) self._drawFrame(); // show front frame immediately
-        if (self.loadedCount === self.ANCHORS.length) self.ready = true;
-      };
-      img.onerror = function() { self.loadedCount++; };
-      img.src = self.FRAME_BASE_PATH + anchor.file;
-    });
-  }
-
-  _bindMouseEvents() {
-    if (this.isMobile) return;
-    var self = this;
-    document.addEventListener('mousemove', function(e) {
-      self._onMouseMove(e.clientX, e.clientY);
-    }, { passive: true });
-    document.addEventListener('mouseleave', function() {
-      self.mouseActive = false;
-    }, { passive: true });
-  }
-
-  _onMouseMove(cx, cy) {
-    var canvas = this.canvasEl;
-    if (!canvas) return;
-    var rect = canvas.getBoundingClientRect();
-
-    // Head center: horizontally centered, ~28% from canvas top (eye level)
-    var headCx = rect.left + rect.width  * 0.50;
-    var headCy = rect.top  + rect.height * 0.28;
-
-    var dx = cx - headCx;
-    var dy = cy - headCy;
-
-    // Influence radius
-    var radiusX = Math.max(rect.width  * 1.8, window.innerWidth  * 0.4);
-    var radiusY = Math.max(rect.height * 1.2, window.innerHeight * 0.35);
-
-    var nx = Math.max(-1, Math.min(1, dx / radiusX));
-    var ny = Math.max(-1, Math.min(1, dy / radiusY));
-
-    // Cubic ease-in-out for natural response
-    nx = this._ease(nx);
-    ny = this._ease(ny) * 0.7;
-
-    this.targetX = nx;
-    this.targetY = ny;
-    this.mouseActive = true;
+    this.isReady = false;
+    this.onLoadProgress = options.onProgress || null;
+    this.onReadyCallback = options.onReady || null;
+    
+    // Physics & Interaction State
+    this.targetX = 0; // [-1.0 = far left, 0 = center, +1.0 = far right]
+    this.targetY = 0; // [-1.0 = top/up, 0 = center, +1.0 = bottom/down]
+    this.currentX = 0;
+    this.currentY = 0;
+    this.velX = 0;
+    this.velY = 0;
+    
+    // Physics Damping Parameters
+    this.SPRING_K = 0.07;
+    this.DAMPING = 0.80;
+    
+    // Idle Animation
     this.lastMouseMoveTime = performance.now();
+    this.isMouseActive = false;
+    this.idleTime = 0;
+    
+    // Touch & Accessibility
+    this.isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Loop
+    this.rafId = null;
+    this.lastTs = performance.now();
+    this.scrollOffsetY = 0;
+    this.scaleFactor = 1.0;
+    this.opacity = 1.0;
   }
 
-  _ease(t) {
-    var s = t < 0 ? -1 : 1;
-    var a = Math.abs(t);
-    return s * (a < 0.5 ? 2 * a * a : 1 - Math.pow(-2 * a + 2, 2) / 2);
+  /**
+   * Initialize on the hero canvas element
+   */
+  init(canvasElement, containerElement) {
+    if (!canvasElement) return;
+    this.canvas = canvasElement;
+    this.container = containerElement || canvasElement.parentElement;
+    
+    this.canvas.width = this.CANVAS_W;
+    this.canvas.height = this.CANVAS_H;
+    this.ctx = this.canvas.getContext('2d', { alpha: true, desynchronized: true });
+    
+    if (this.ctx) {
+      this.ctx.imageSmoothingEnabled = true;
+      this.ctx.imageSmoothingQuality = 'high';
+    }
+
+    this.preloadFrames();
+    this.bindEvents();
+    this.startLoop();
   }
 
-  _computeBlend(lx, ly) {
-    var dists = this.ANCHORS.map(function(a, i) {
-      return { i: i, d: Math.sqrt(Math.pow(a.hx - lx, 2) + Math.pow(a.hy - ly, 2)) };
-    });
-    dists.sort(function(a, b) { return a.d - b.d; });
-    var best   = dists[0];
-    var second = dists[1];
-    var total  = best.d + second.d;
-    var t      = total < 0.0001 ? 0 : best.d / total;
-    return { idxA: best.i, idxB: second.i, t: t };
+  /**
+   * Preload all 36 frames
+   */
+  preloadFrames() {
+    for (let i = 0; i < this.totalFrames; i++) {
+      const frameNum = String(i).padStart(2, '0');
+      const degrees = String(i * this.frameDegreeStep).padStart(3, '0');
+      const filename = `frame_${frameNum}_${degrees}deg${this.fileExtension}`;
+      
+      const img = new Image();
+      img.onload = () => {
+        this.images[i] = img;
+        this.loadedCount++;
+        
+        // Draw front frame immediately
+        if (i === 0) this.drawFrame();
+        
+        if (this.onLoadProgress) {
+          this.onLoadProgress(this.loadedCount, this.totalFrames);
+        }
+        
+        if (this.loadedCount === this.totalFrames) {
+          this.isReady = true;
+          if (this.onReadyCallback) this.onReadyCallback();
+        }
+      };
+      
+      img.onerror = () => {
+        // Try fallback to webp if available
+        const fallbackImg = new Image();
+        fallbackImg.onload = () => {
+          this.images[i] = fallbackImg;
+          this.loadedCount++;
+          if (i === 0) this.drawFrame();
+          if (this.loadedCount === this.totalFrames) {
+            this.isReady = true;
+            if (this.onReadyCallback) this.onReadyCallback();
+          }
+        };
+        fallbackImg.src = `${this.basePath}frame_${frameNum}_${degrees}deg.webp`;
+      };
+      
+      img.src = `${this.basePath}${filename}`;
+    }
   }
 
-  _startLoop() {
-    var self = this;
-    var tick = function(ts) {
-      self.rafId = requestAnimationFrame(tick);
-      var dt = Math.min((ts - self._lastTs) / 16.667, 2.5);
-      self._lastTs = ts;
-      self._updatePhysics(dt, ts);
-      self._drawFrame();
+  /**
+   * Bind mouse & scroll listeners
+   */
+  bindEvents() {
+    if (this.prefersReducedMotion) return;
+
+    const onMouseMove = (e) => {
+      if (window.scrollY > window.innerHeight * 1.1) return;
+      
+      this.isMouseActive = true;
+      this.lastMouseMoveTime = performance.now();
+      
+      const winW = window.innerWidth;
+      const winH = window.innerHeight;
+      
+      // Calculate normalized offset from screen center [-1.0, 1.0]
+      const dx = (e.clientX - (winW * 0.5)) / (winW * 0.45);
+      const dy = (e.clientY - (winH * 0.45)) / (winH * 0.45);
+      
+      this.targetX = Math.max(-1.0, Math.min(1.0, dx));
+      this.targetY = Math.max(-1.0, Math.min(1.0, dy));
     };
-    this.rafId = requestAnimationFrame(tick);
-  }
 
-  _updatePhysics(dt, ts) {
-    var tX = this.targetX;
-    var tY = this.targetY;
-
-    var now = performance.now();
-    var timeSince = now - this.lastMouseMoveTime;
-
-    if (!this.mouseActive || timeSince > 2000) {
-      var idleAmt = Math.min(1, Math.max(0, (timeSince - 2000) / 1500));
-      var idleT   = ts * this.IDLE_DRIFT_SPEED;
-      var driftX  = Math.sin(idleT * 0.7) * 0.05 * idleAmt;
-      var driftY  = Math.cos(idleT * 0.5) * 0.03 * idleAmt;
-      tX = tX * (1 - idleAmt) + driftX;
-      tY = tY * (1 - idleAmt) + driftY;
-    }
-
-    var fx = -this.SPRING_K * (this.lookX - tX);
-    var fy = -this.SPRING_K * (this.lookY - tY);
-
-    this.velX = (this.velX + fx * dt) * Math.pow(this.DAMPING, dt);
-    this.velY = (this.velY + fy * dt) * Math.pow(this.DAMPING, dt);
-    this.lookX += this.velX * dt;
-    this.lookY += this.velY * dt;
-
-    this.lookX = Math.max(-1.05, Math.min(1.05, this.lookX));
-    this.lookY = Math.max(-1.05, Math.min(1.05, this.lookY));
-  }
-
-  _drawFrame() {
-    if (!this.ctx || !this.canvasEl) return;
-    var ctx = this.ctx;
-    var W   = this.CANVAS_W;
-    var H   = this.CANVAS_H;
-    var lx  = this.lookX;
-    var ly  = this.lookY;
-
-    if (!this.images[0]) { ctx.clearRect(0, 0, W, H); return; }
-
-    var blend = this._computeBlend(lx, ly);
-    var imgA  = this.images[blend.idxA];
-    var imgB  = this.images[blend.idxB];
-    var t     = blend.t;
-
-    // Head pseudo-3D transforms
-    var hShift = lx * 18;
-    var scaleX = 1 - Math.abs(lx) * 0.075;
-    var vShift = ly * 12;
-    var scaleY = 1 - Math.abs(ly) * 0.04;
-
-    var headH  = this.HEAD_BOTTOM;
-    var cx     = W / 2;
-    var cy     = headH * 0.28;  // pivot at eye level
-
-    ctx.clearRect(0, 0, W, H);
-
-    // ── PASS 1: STABLE BODY (front frame, no transform) ──────────────
-    var frontImg = this.images[0];
-    if (frontImg && frontImg.complete && frontImg.naturalWidth > 0) {
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(0, headH - this.NECK_BLEND, W, H - headH + this.NECK_BLEND);
-      ctx.clip();
-      ctx.drawImage(frontImg, 0, 0, W, H);
-      ctx.restore();
-    }
-
-    // ── PASS 2: TRANSFORMED HEAD (blended between two nearest anchors) ──
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(0, 0, W, headH + 2); // +2px to avoid sub-pixel gap at seam
-    ctx.clip();
-
-    // Apply pseudo-3D head transform centred on face/eye pivot
-    ctx.translate(cx + hShift, cy + vShift);
-    ctx.scale(scaleX, scaleY);
-    ctx.translate(-cx, -cy);
-
-    // Primary frame
-    if (imgA && imgA.complete && imgA.naturalWidth > 0) {
-      ctx.globalAlpha = 1.0;
-      ctx.drawImage(imgA, 0, 0, W, H);
-    }
-    // Blended secondary frame
-    if (imgB && imgB !== imgA && imgB.complete && imgB.naturalWidth > 0 && t > 0.02) {
-      ctx.globalAlpha = t;
-      ctx.drawImage(imgB, 0, 0, W, H);
-    }
-    ctx.globalAlpha = 1.0;
-    ctx.restore();
-
-    // ── PASS 3: NECK SEAM SMOOTHER ───────────────────────────────────
-    // Soft erase bottom of head region to blend with body seamlessly
-    var seamTop    = headH - this.NECK_BLEND;
-    var seamBottom = headH + 5;
-    var grad = ctx.createLinearGradient(0, seamTop, 0, seamBottom);
-    grad.addColorStop(0,   'rgba(0,0,0,0)');
-    grad.addColorStop(0.5, 'rgba(0,0,0,0)');
-    grad.addColorStop(1,   'rgba(0,0,0,0)');
-    // The seam blend is handled by the overlapping clip regions, not an erase
-    // (transparent background means the body layer shows through perfectly)
-  }
-
-  setVisible(visible) {
-    if (!visible) {
-      this.mouseActive = false;
+    const onMouseLeave = () => {
+      this.isMouseActive = false;
       this.targetX = 0;
       this.targetY = 0;
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    document.addEventListener('mouseleave', onMouseLeave, { passive: true });
+
+    // Reduced motion preference
+    window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+      this.prefersReducedMotion = e.matches;
+      if (this.prefersReducedMotion) {
+        this.targetX = 0;
+        this.targetY = 0;
+        this.currentX = 0;
+        this.currentY = 0;
+        this.drawFrame();
+      }
+    });
+  }
+
+  /**
+   * 60 FPS Loop
+   */
+  startLoop() {
+    const loop = (timestamp) => {
+      this.rafId = requestAnimationFrame(loop);
+      
+      const dt = Math.min((timestamp - this.lastTs) / 16.667, 2.0);
+      this.lastTs = timestamp;
+      
+      if (!this.prefersReducedMotion) {
+        this.updatePhysics(dt, timestamp);
+      }
+      
+      this.drawFrame();
+    };
+    
+    this.rafId = requestAnimationFrame(loop);
+  }
+
+  /**
+   * Physics spring simulation & idle breathing
+   */
+  updatePhysics(dt, timestamp) {
+    const now = performance.now();
+    const timeSinceMove = now - this.lastMouseMoveTime;
+    
+    let tX = this.targetX;
+    let tY = this.targetY;
+    
+    // Idle breathing & micro drift when cursor is idle
+    if (!this.isMouseActive || timeSinceMove > 1000 || this.isTouchDevice) {
+      this.idleTime += dt * 0.03;
+      const idleFloatY = Math.sin(this.idleTime * 1.6) * 0.08;
+      const idleDriftX = Math.sin(this.idleTime * 0.7) * 0.03;
+      tY = tY * 0.5 + idleFloatY;
+      tX = tX * 0.5 + idleDriftX;
     }
+    
+    // Spring physics integration
+    const fx = -this.SPRING_K * (this.currentX - tX);
+    const fy = -this.SPRING_K * (this.currentY - tY);
+    
+    this.velX = (this.velX + fx * dt) * Math.pow(this.DAMPING, dt);
+    this.velY = (this.velY + fy * dt) * Math.pow(this.DAMPING, dt);
+    
+    this.currentX += this.velX * dt;
+    this.currentY += this.velY * dt;
+    
+    this.currentX = Math.max(-1.0, Math.min(1.0, this.currentX));
+    this.currentY = Math.max(-1.0, Math.min(1.0, this.currentY));
+    
+    // Update container perspective tilt subtly
+    if (this.container) {
+      const tiltX = -this.currentY * 5; // vertical pitch
+      const tiltY = this.currentX * 7;  // horizontal yaw
+      const floatY = this.currentY * 6;  // subtle body lift
+      this.container.style.transform = `translateX(-50%) translateY(${floatY + this.scrollOffsetY}px) scale(${this.scaleFactor}) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      this.container.style.opacity = this.opacity;
+    }
+  }
+
+  /**
+   * Convert normalized horizontal lookX to nearest rotation frame
+   * - Center (lookX = 0) -> Frame 00 (000deg)
+   * - Look Right (lookX > 0) -> Frames 01 to 09 (010deg to 090deg)
+   * - Look Left (lookX < 0) -> Frames 35 down to 27 (350deg down to 270deg)
+   */
+  getHeadFrameIndex(lookX) {
+    if (Math.abs(lookX) < 0.04) return 0;
+    
+    if (lookX > 0) {
+      // Look Right: 0..+1.0 maps across frames 0 to 9 (up to 90 degrees)
+      const f = Math.round(lookX * 9);
+      return Math.min(9, Math.max(0, f));
+    } else {
+      // Look Left: 0..-1.0 maps across frames 36 down to 27
+      const f = Math.round(Math.abs(lookX) * 9);
+      if (f === 0) return 0;
+      return (36 - f) % 36;
+    }
+  }
+
+  /**
+   * Draw static base body (cargo & shoes intact) + dynamic rotating head
+   */
+  drawFrame() {
+    if (!this.ctx || !this.canvas) return;
+    const ctx = this.ctx;
+    const W = this.CANVAS_W;
+    const H = this.CANVAS_H;
+    
+    ctx.clearRect(0, 0, W, H);
+    
+    const baseImg = this.images[0];
+    if (!baseImg || !baseImg.complete) return;
+    
+    const splitY = this.HEAD_SPLIT_Y;
+    const blendZone = this.NECK_BLEND_ZONE;
+    
+    // -----------------------------------------------------------------
+    // PASS 1: STATIC ROCK-SOLID BODY (Jacket, Cargo Pants, Shoes)
+    // -----------------------------------------------------------------
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(0, splitY - blendZone, W, H - (splitY - blendZone));
+    ctx.clip();
+    ctx.drawImage(baseImg, 0, 0, W, H);
+    ctx.restore();
+    
+    // -----------------------------------------------------------------
+    // PASS 2: RESPONSIVE 360° HEAD (Horizontal Turn + Vertical Gaze)
+    // -----------------------------------------------------------------
+    const headFrameIdx = this.getHeadFrameIndex(this.currentX);
+    const headImg = this.images[headFrameIdx] || baseImg;
+    
+    if (headImg && headImg.complete) {
+      ctx.save();
+      ctx.beginPath();
+      // Clip head region with soft overlap at the collar
+      ctx.rect(0, 0, W, splitY + 4);
+      ctx.clip();
+      
+      // Vertical Up/Down Gaze kinematics + subtle horizontal translation
+      const vShift = this.currentY * 14;      // up/down head translation (looking up/down)
+      const hShift = this.currentX * 6;       // subtle horizontal head center shift
+      const vScale = 1.0 - Math.abs(this.currentY) * 0.025; // perspective head height adjust
+      const hScale = 1.0 - Math.abs(this.currentX) * 0.02;  // subtle profile narrowing
+      
+      const pivotX = W * 0.5;
+      const pivotY = 280; // Eye/Nose center level
+      
+      // Apply smooth 2D/3D head transformation
+      ctx.translate(pivotX + hShift, pivotY + vShift);
+      ctx.scale(hScale, vScale);
+      ctx.translate(-pivotX, -pivotY);
+      
+      ctx.drawImage(headImg, 0, 0, W, H);
+      ctx.restore();
+    }
+  }
+
+  /**
+   * Update scroll offset from external scroll handler
+   */
+  setScrollState(offsetY, scale, opacity) {
+    this.scrollOffsetY = offsetY;
+    this.scaleFactor = scale;
+    this.opacity = opacity;
   }
 
   destroy() {
-    if (this.rafId) cancelAnimationFrame(this.rafId);
+    if (this.rafId) {
+      cancelAnimationFrame(this.rafId);
+    }
   }
 }
 
-// Export for use in main.js (non-module compatible attach to window)
-window.CharacterHeadTracker = CharacterHeadTracker;
+window.InteractiveCharacter360 = InteractiveCharacter360;
