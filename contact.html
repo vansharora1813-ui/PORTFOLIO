@@ -5,19 +5,590 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary SEO Tags -->
-  <title>Contact & Collaborate — Vansh Arora</title>
-  <meta name="title" content="Contact & Collaborate — Vansh Arora">
-  <meta name="description" content="Get in touch with Vansh Arora for web development, WebGL interactive applications, motion design, and video editing inquiries.">
-  <meta name="keywords" content="Contact Vansh Arora, Hire Web Developer, Hire Video Editor, Freelance Creative Developer">
+  <title>Contact &amp; Start a Project — Vansh Arora</title>
+  <meta name="title" content="Contact &amp; Start a Project — Vansh Arora">
+  <meta name="description" content="Direct project inquiry and collaboration portal for Vansh Arora. Web Development, Three.js, and Cinematic Video Editing. Direct WhatsApp and Email dispatch.">
+  <meta name="keywords" content="Contact Vansh Arora, Hire Web Developer, WhatsApp 7658018963, vansharora1813@gmail.com, Creative Developer India">
   <meta name="author" content="Vansh Arora">
   
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- CSS Stylesheet -->
+  <!-- Core Portfolio Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ==========================================================================
+       ULTRA-CLEAN MINIMALIST CONTACT (BLUE GRADIENT PALETTE)
+       High Breathing Space — Clean Inputs — Standalone Marquee Cards
+       ========================================================================== */
+
+    :root {
+      --font-code: 'Fira Code', 'Space Mono', monospace;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --blue-deep-navy: #062144;
+      --blue-royal: #0574C5;
+      --blue-azure: #0E92DC;
+      --blue-ice: #EBF4FC;
+      --blue-ice-border: rgba(195, 224, 245, 0.7);
+      --blue-surface-glass: rgba(255, 255, 255, 0.94);
+      --blue-text-primary: #062144;
+      --blue-text-secondary: #1E3A5F;
+      --blue-text-muted: #5B7A9F;
+    }
+
+    /* Background: Exact Landing Page Vertical Blue Gradient */
+    body {
+      background: linear-gradient(
+        180deg,
+        #0574C5 0%,
+        #0576C6 8%,
+        #0879C9 15%,
+        #077CCB 23%,
+        #0880CE 31%,
+        #0A84D1 38%,
+        #0D87D4 46%,
+        #0B8BD6 54%,
+        #0C8ED9 61%,
+        #0E92DC 69%,
+        #1096DF 76%,
+        #139AE3 84%,
+        #169CE5 92%,
+        #15A0E5 100%
+      ) !important;
+      min-height: 100vh;
+      color: var(--blue-text-primary);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Layout Wrapper */
+    .contact-layout-wrapper {
+      position: relative;
+      z-index: 2;
+      padding: 120px 6% 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    /* Header */
+    .contact-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 50px;
+    }
+
+    .status-strip-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 18px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      margin-bottom: 20px;
+    }
+
+    .status-dot-white {
+      width: 7px;
+      height: 7px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #FFFFFF;
+    }
+
+    .status-text {
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+
+    .clock-badge {
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #EBF4FC;
+      border-left: 1px solid rgba(255, 255, 255, 0.3);
+      padding-left: 12px;
+    }
+
+    .contact-title-main {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .contact-title-main span {
+      color: #EBF4FC;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .contact-subtitle {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: #E1F0FF;
+      line-height: 1.6;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* Dual-Zone Grid (Left Cards ~28% | Right Form ~72%) */
+    .contact-zone-grid {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Left Column: Small, Compact Cards */
+    .left-cards-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .compact-info-card {
+      background: var(--blue-surface-glass);
+      border: 1px solid var(--blue-ice-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      box-shadow: 0 8px 20px rgba(6, 33, 68, 0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .compact-info-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--blue-azure);
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-code);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--blue-azure);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .card-headline {
+      font-family: var(--font-heading);
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--blue-deep-navy);
+      margin-bottom: 2px;
+    }
+
+    .card-value {
+      font-family: var(--font-code);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue-royal);
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+
+    .card-btn-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .card-mini-btn {
+      flex: 1;
+      background: var(--blue-ice);
+      border: 1px solid rgba(14, 146, 220, 0.2);
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-family: var(--font-code);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--blue-deep-navy);
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-mini-btn:hover {
+      background: var(--blue-royal);
+      border-color: var(--blue-royal);
+      color: #FFFFFF;
+    }
+
+    .compact-social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .social-compact-item {
+      background: var(--blue-ice);
+      border: 1px solid rgba(14, 146, 220, 0.2);
+      border-radius: 6px;
+      padding: 7px 8px;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--blue-deep-navy);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+
+    .social-compact-item:hover {
+      background: var(--blue-royal);
+      color: #FFFFFF;
+      border-color: var(--blue-royal);
+    }
+
+    /* Right Column: Clean, Spacious, Minimalist Form (~70%) */
+    .master-form-card {
+      background: var(--blue-surface-glass);
+      border: 1.5px solid var(--blue-ice-border);
+      border-radius: 20px;
+      padding: 38px 44px;
+      box-shadow: 0 16px 40px rgba(6, 33, 68, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .form-header-bar {
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--blue-ice-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-header-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--blue-deep-navy);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .form-header-sub {
+      font-family: var(--font-code);
+      font-size: 0.7rem;
+      color: var(--blue-azure);
+      font-weight: 600;
+    }
+
+    .clean-form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-family: var(--font-code);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--blue-text-secondary);
+      text-transform: uppercase;
+    }
+
+    .clean-input,
+    .clean-textarea {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1.5px solid #D5E2EE;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--blue-deep-navy);
+      outline: none;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .clean-input::placeholder,
+    .clean-textarea::placeholder {
+      color: #8CA3BA;
+      font-size: 0.88rem;
+    }
+
+    .clean-input:focus,
+    .clean-textarea:focus {
+      border-color: var(--blue-royal);
+      box-shadow: 0 0 0 3px rgba(5, 116, 197, 0.14);
+    }
+
+    .clean-textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Clean Buttons */
+    .form-actions-row {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn-submit-whatsapp {
+      background: var(--blue-royal);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-align: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(5, 116, 197, 0.28);
+    }
+
+    .btn-submit-whatsapp:hover {
+      background: #035AA3;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(5, 116, 197, 0.38);
+    }
+
+    .btn-submit-email {
+      background: #FFFFFF;
+      color: var(--blue-deep-navy);
+      border: 1.5px solid var(--blue-deep-navy);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      text-transform: uppercase;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .btn-submit-email:hover {
+      background: var(--blue-deep-navy);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       FAQ STREAM (CLEAN WHITE FLOATING CARDS — ZERO LIGHT BLUE BOXES)
+       ========================================================================== */
+    .faq-stream-section {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .faq-stream-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .faq-stream-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .faq-stream-hint {
+      font-family: var(--font-code);
+      font-size: 0.68rem;
+      color: #E1F0FF;
+      margin-top: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Marquee Stage: Zero box, completely transparent */
+    .faq-stage-transparent {
+      position: relative;
+      max-width: 780px;
+      margin: 0 auto;
+      height: 320px;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
+
+    .faq-stream-track {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      animation: marqueeStreamUp 22s linear infinite;
+    }
+
+    .faq-stage-transparent:hover .faq-stream-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeStreamUp {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+
+    /* Individual Question Card: Pure Clean Crisp White Card */
+    .faq-single-card {
+      background: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(4, 28, 60, 0.12);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq-single-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(4, 28, 60, 0.18);
+    }
+
+    .faq-single-header {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+
+    .faq-single-q {
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--blue-deep-navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-badge-num {
+      font-family: var(--font-code);
+      font-size: 0.65rem;
+      color: var(--blue-royal);
+      font-weight: 700;
+    }
+
+    .faq-toggle-cross {
+      font-family: var(--font-code);
+      font-size: 1rem;
+      color: var(--blue-royal);
+      font-weight: 700;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-single-card.opened .faq-toggle-cross {
+      transform: rotate(45deg);
+    }
+
+    .faq-single-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 20px;
+      font-family: var(--font-body);
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: var(--blue-text-secondary);
+      background: #FFFFFF;
+    }
+
+    .faq-single-card.opened .faq-single-answer {
+      max-height: 200px;
+      padding: 10px 20px 16px;
+      border-top: 1px solid #EEF2F6;
+    }
+
+    /* Minimal Toast */
+    .minimal-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--blue-deep-navy);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-family: var(--font-code);
+      font-size: 0.75rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--blue-azure);
+      transform: translateY(80px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 9999;
+    }
+
+    .minimal-toast.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 900px) {
+      .contact-zone-grid {
+        grid-template-columns: 1fr;
+      }
+      .master-form-card {
+        padding: 24px 20px;
+      }
+      .form-row-2col {
+        grid-template-columns: 1fr;
+      }
+      .form-actions-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -35,177 +606,285 @@
   <nav class="navbar" aria-label="Main Navigation">
     <a href="index.html" class="nav-logo" id="navLogo">VANSH</a>
     <div class="nav-links">
-      <a href="index.html" class="nav-link">About</a>
-      <a href="work.html" class="nav-link">Video Editing</a>
-      <a href="skills.html" class="nav-link">Web Dev</a>
-      <a href="contact.html" class="nav-link active">Contact</a>
+      <a href="index.html" class="nav-link" id="navLinkAbout">About</a>
+      <a href="work.html" class="nav-link" id="navLinkWork">Video Editing</a>
+      <a href="skills.html" class="nav-link" id="navLinkSkills">Web Dev</a>
+      <a href="contact.html" class="nav-link active" id="navLinkContact">Contact</a>
     </div>
-    <a href="contact.html" class="nav-cta">Let's Talk <span class="cta-arrow">↗</span></a>
+    <a href="contact.html" class="nav-cta" id="navCta">Let's Talk <span class="cta-arrow">↗</span></a>
   </nav>
 
-  <!-- Subpage Hero Header -->
-  <header class="page-hero">
-    <div class="page-hero-content reveal-element">
-      <span class="page-tag">01 — GET IN TOUCH</span>
-      <h1 class="page-title">LET'S BUILD SOMETHING<br>EXTRAORDINARY.</h1>
-      <p class="page-subtitle">Have a project in mind, need a high-performance web experience, or looking for motion editing work? Fill out the project request form or send a direct email.</p>
-    </div>
-  </header>
+  <!-- Page Layout Wrapper -->
+  <main class="contact-layout-wrapper">
 
-  <main style="padding: 0 8%;">
-    <section aria-label="Contact Section Layout">
-      <div class="contact-page-grid">
-        
-        <!-- Left Side: Contact Information & Status -->
-        <div class="contact-info-card reveal-element">
-          <div class="status-pill">
-            <span class="status-dot"></span>
-            AVAILABLE FOR NEW PROJECTS
-          </div>
+    <!-- Top Header -->
+    <header class="contact-header">
+      <div class="status-strip-pill">
+        <span class="status-dot-white"></span>
+        <span class="status-text">AVAILABLE FOR NEW PROJECTS</span>
+        <span class="clock-badge" id="liveIndiaClock">IST 00:00:00 • NEW DELHI</span>
+      </div>
 
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Direct Email</div>
-            <div class="contact-detail-val">vansharora.contact@gmail.com</div>
-            <button class="copy-email-btn" id="copyEmailBtn">
-              COPY EMAIL TO CLIPBOARD 📋
+      <h1 class="contact-title-main">
+        LET'S START A <span>PROJECT</span>
+      </h1>
+      <p class="contact-subtitle">
+        Web Applications (React/Next.js/Three.js) &amp; Cinematic Video Editing.
+      </p>
+    </header>
+
+    <!-- Zone Grid: Left Cards ~28% | Right Clean Form ~72% -->
+    <div class="contact-zone-grid">
+
+      <!-- LEFT COLUMN: Compact Mini Cards -->
+      <aside class="left-cards-column" aria-label="Direct Contact Channels">
+
+        <!-- WhatsApp Quick Card -->
+        <div class="compact-info-card">
+          <div class="card-eyebrow">DIRECT LINE</div>
+          <div class="card-headline">WhatsApp</div>
+          <div class="card-value">+91 76580 18963</div>
+          <div class="card-btn-group">
+            <a href="https://wa.me/917658018963?text=Hi%20Vansh,%20I%20would%20like%20to%20discuss%20a%20new%20project." target="_blank" class="card-mini-btn">
+              Chat ↗
+            </a>
+            <button type="button" class="card-mini-btn" onclick="copyText('+917658018963', 'WhatsApp number copied')">
+              Copy
             </button>
-          </div>
-
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Location</div>
-            <div class="contact-detail-val">India (Available Worldwide Remote)</div>
-          </div>
-
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Specializations</div>
-            <div class="contact-detail-val" style="font-size: 0.95rem; color: var(--text-secondary);">
-              • Web Development (React / Next.js)<br>
-              • Motion Design &amp; WebGL Physics<br>
-              • Video Editing &amp; Color Grading<br>
-              • Full-Stack Architecture
-            </div>
-          </div>
-
-          <div class="contact-detail-item">
-            <div class="contact-detail-label">Connect on Socials</div>
-            <div class="social-links-grid">
-              <a href="https://github.com/vansharora" target="_blank" class="social-pill">GitHub ↗</a>
-              <a href="https://linkedin.com" target="_blank" class="social-pill">LinkedIn ↗</a>
-              <a href="https://twitter.com" target="_blank" class="social-pill">Twitter / X ↗</a>
-              <a href="https://youtube.com" target="_blank" class="social-pill">YouTube ↗</a>
-            </div>
           </div>
         </div>
 
-        <!-- Right Side: Interactive Inquiry Form -->
-        <div class="contact-form-card reveal-element delay-100">
-          <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; margin-bottom: 24px;">SEND A PROJECT INQUIRY</h2>
+        <!-- Email Quick Card -->
+        <div class="compact-info-card">
+          <div class="card-eyebrow">INBOX</div>
+          <div class="card-headline">Direct Email</div>
+          <div class="card-value">vansharora1813@gmail.com</div>
+          <div class="card-btn-group">
+            <a href="mailto:vansharora1813@gmail.com?subject=Project%20Inquiry%20—%20Vansh%20Arora" class="card-mini-btn">
+              Email ↗
+            </a>
+            <button type="button" class="card-mini-btn" onclick="copyText('vansharora1813@gmail.com', 'Email copied')">
+              Copy
+            </button>
+          </div>
+        </div>
 
-          <form id="contactForm">
-            <div class="form-row">
+        <!-- Operations Card -->
+        <div class="compact-info-card">
+          <div class="card-eyebrow">OPERATIONS</div>
+          <div class="card-headline">New Delhi, India</div>
+          <div style="font-family: var(--font-body); font-size: 0.78rem; color: var(--blue-text-secondary); line-height: 1.4;">
+            IST (UTC+5:30) • Available worldwide remote.
+          </div>
+        </div>
+
+        <!-- Social Channels -->
+        <div class="compact-info-card">
+          <div class="card-eyebrow" style="margin-bottom: 8px;">PROFILES</div>
+          <div class="compact-social-grid">
+            <a href="https://github.com/vansharora" target="_blank" class="social-compact-item">
+              <span>GitHub</span> <span>↗</span>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-compact-item">
+              <span>LinkedIn</span> <span>↗</span>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-compact-item">
+              <span>Twitter/X</span> <span>↗</span>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="social-compact-item">
+              <span>YouTube</span> <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT COLUMN: Spacious & Minimalist Clean Form (~70%) -->
+      <section class="master-form-card" aria-label="Project Inquiry Form">
+        <div class="form-header-bar">
+          <div class="form-header-title">PROJECT INQUIRY</div>
+          <div class="form-header-sub">DIRECT DISPATCH</div>
+        </div>
+
+        <form id="projectForm" onsubmit="event.preventDefault(); submitToWhatsApp();">
+          
+          <div class="clean-form-grid">
+            
+            <div class="form-row-2col">
               <div class="form-group">
-                <label class="form-label" for="clientName">YOUR NAME *</label>
-                <input type="text" id="clientName" class="form-input" placeholder="e.g. Alex Morgan" required>
+                <label class="form-label" for="clientName">Your Name / Organization *</label>
+                <input type="text" id="clientName" class="clean-input" placeholder="e.g. Alex Vance / Studio" required>
               </div>
               <div class="form-group">
-                <label class="form-label" for="clientEmail">YOUR EMAIL *</label>
-                <input type="email" id="clientEmail" class="form-input" placeholder="alex@company.com" required>
+                <label class="form-label" for="clientContact">Email or Phone Number *</label>
+                <input type="text" id="clientContact" class="clean-input" placeholder="e.g. alex@studio.com / +1..." required>
               </div>
             </div>
 
-            <div class="form-row">
+            <div class="form-row-2col">
               <div class="form-group">
-                <label class="form-label" for="serviceType">SERVICE NEEDED *</label>
-                <select id="serviceType" class="form-select" required>
-                  <option value="" disabled selected>Select service type...</option>
-                  <option value="webdev">Web Development &amp; Frontend</option>
-                  <option value="fullstack">Full-Stack Web Application</option>
-                  <option value="video">Video Editing &amp; Motion Design</option>
-                  <option value="custom">Complete Creative Package</option>
-                </select>
+                <label class="form-label" for="serviceNeeded">Service Required</label>
+                <input type="text" id="serviceNeeded" class="clean-input" placeholder="e.g. Web Development / Video Editing / Full App">
               </div>
               <div class="form-group">
-                <label class="form-label" for="budgetRange">ESTIMATED BUDGET</label>
-                <select id="budgetRange" class="form-select">
-                  <option value="" disabled selected>Select budget range...</option>
-                  <option value="500-1500">$500 – $1,500</option>
-                  <option value="1500-3000">$1,500 – $3,000</option>
-                  <option value="3000-5000">$3,000 – $5,000</option>
-                  <option value="5000+">$5,000+</option>
-                </select>
+                <label class="form-label" for="budgetRange">Estimated Budget</label>
+                <input type="text" id="budgetRange" class="clean-input" placeholder="e.g. $1k - $3k / Flexible">
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="projectDetails">PROJECT DETAILS &amp; GOALS *</label>
-              <textarea id="projectDetails" class="form-textarea" rows="5" placeholder="Tell me about your project goals, scope, desired timeline, or reference links..." required></textarea>
+              <label class="form-label" for="projectBrief">Project Goals &amp; Scope *</label>
+              <textarea id="projectBrief" class="clean-textarea" placeholder="Describe what you want to build, timeline, or links to references..." required></textarea>
             </div>
 
-            <button type="submit" class="form-submit-btn">
-              SEND PROJECT INQUIRY ↗
-            </button>
-
-            <div class="form-success-msg" id="formSuccessMsg">
-              Thank you! Your project inquiry has been received. I will get back to you within 24 hours.
+            <div class="form-actions-row">
+              <button type="button" class="btn-submit-whatsapp" onclick="submitToWhatsApp()">
+                SEND VIA WHATSAPP (7658018963) ↗
+              </button>
+              <button type="button" class="btn-submit-email" onclick="submitToEmail()">
+                SEND VIA EMAIL ↗
+              </button>
             </div>
-          </form>
+
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+
+    <!-- STANDALONE MARQUEE FAQ (NO WRAPPER CARD) -->
+    <section class="faq-stream-section" aria-label="Frequently Asked Questions">
+      <div class="faq-stream-header">
+        <h2 class="faq-stream-title">FAQ</h2>
+        <div class="faq-stream-hint">HOVER TO PAUSE • CLICK TO EXPAND</div>
+      </div>
+
+      <!-- Transparent Stage: Only small individual floating question cards -->
+      <div class="faq-stage-transparent" id="faqStage">
+        <div class="faq-stream-track" id="faqTrack">
+
+          <!-- Card 1 -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">01</span>
+                What types of projects do you take on?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              I specialize in high-performance web development (React, Next.js, Three.js/WebGL interactive applications) and cinematic video editing with color grading, pacing, and visual storytelling.
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">02</span>
+                What is the typical turnaround timeline?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              Standard landing pages and video packages typically take 5 to 10 business days. Complex WebGL platforms or full-stack applications require 2 to 4 weeks based on features.
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">03</span>
+                How are payments and deposits structured?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              Standard engagements use a 50% deposit upon kickoff and 50% upon final sign-off and deployment. Milestone schedules are available for larger multi-phase builds.
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">04</span>
+                How does remote collaboration work across time zones?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              I collaborate seamlessly across global timezones (US EST/PST, Europe CET, and APAC) with regular async updates, staging deployments, and video syncs.
+            </div>
+          </div>
+
+          <!-- Duplicated for continuous smooth marquee stream -->
+          <!-- Card 1 Dupl -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">01</span>
+                What types of projects do you take on?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              I specialize in high-performance web development (React, Next.js, Three.js/WebGL interactive applications) and cinematic video editing with color grading, pacing, and visual storytelling.
+            </div>
+          </div>
+
+          <!-- Card 2 Dupl -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">02</span>
+                What is the typical turnaround timeline?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              Standard landing pages and video packages typically take 5 to 10 business days. Complex WebGL platforms or full-stack applications require 2 to 4 weeks based on features.
+            </div>
+          </div>
+
+          <!-- Card 3 Dupl -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">03</span>
+                How are payments and deposits structured?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              Standard engagements use a 50% deposit upon kickoff and 50% upon final sign-off and deployment. Milestone schedules are available for larger multi-phase builds.
+            </div>
+          </div>
+
+          <!-- Card 4 Dupl -->
+          <div class="faq-single-card" onclick="toggleFaqCard(this)">
+            <div class="faq-single-header">
+              <div class="faq-single-q">
+                <span class="faq-badge-num">04</span>
+                How does remote collaboration work across time zones?
+              </div>
+              <span class="faq-toggle-cross">+</span>
+            </div>
+            <div class="faq-single-answer">
+              I collaborate seamlessly across global timezones (US EST/PST, Europe CET, and APAC) with regular async updates, staging deployments, and video syncs.
+            </div>
+          </div>
+
         </div>
-
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section reveal-element" aria-label="Frequently Asked Questions">
-      <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-        <span class="section-tag">02 — FAQ</span>
-        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
-      </div>
-
-      <div class="faq-list">
-        
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>What types of projects do you specialize in?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            I specialize in high-end creative web development (React, Next.js, WebGL micro-interactions) as well as professional cinematic video editing and motion graphics for brands and creators.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>What is your typical project timeline?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Standard web landing pages or motion design assets typically take 1–2 weeks. Comprehensive full-stack web applications take 3–5 weeks depending on scope and feature complexity.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Can you collaborate with existing engineering or design teams?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            Yes! I frequently join existing dev teams as a specialized frontend/motion engineer or collaborate directly with design leads to implement complex UI/UX animations.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How do project payments work?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            We typically work on a 50% deposit upfront and 50% upon final sign-off and deployment, with milestone schedules available for larger full-stack developments.
-          </div>
-        </div>
-
-      </div>
-    </section>
   </main>
+
+  <!-- Minimal Toast Notification -->
+  <div class="minimal-toast" id="miniToast">Notification</div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -217,7 +896,112 @@
     </div>
   </footer>
 
-  <!-- Main JavaScript File -->
+  <!-- Contact Script -->
+  <script>
+    // Live India Clock
+    function tickClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-US', {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      const el = document.getElementById('liveIndiaClock');
+      if (el) el.textContent = `IST ${timeStr} • NEW DELHI`;
+    }
+    setInterval(tickClock, 1000);
+    tickClock();
+
+    // Message Text Builder
+    function buildMessage() {
+      const name = document.getElementById('clientName').value.trim() || "[Your Name]";
+      const contact = document.getElementById('clientContact').value.trim() || "[Your Contact]";
+      const service = document.getElementById('serviceNeeded').value.trim() || "Web / Video Project";
+      const budget = document.getElementById('budgetRange').value.trim() || "Flexible";
+      const brief = document.getElementById('projectBrief').value.trim() || "[Project Brief]";
+
+      return `PROJECT INQUIRY — VANSH ARORA\n` +
+             `━━━━━━━━━━━━━━━━━━━━\n` +
+             `Client: ${name}\n` +
+             `Contact: ${contact}\n` +
+             `Service: ${service}\n` +
+             `Budget: ${budget}\n` +
+             `Brief: ${brief}\n` +
+             `━━━━━━━━━━━━━━━━━━━━\n` +
+             `Dispatched via vansharora.dev`;
+    }
+
+    // Direct WhatsApp Dispatch (7658018963)
+    function submitToWhatsApp() {
+      const name = document.getElementById('clientName').value.trim();
+      const contact = document.getElementById('clientContact').value.trim();
+
+      if (!name || !contact) {
+        showToast("Please enter Name and Contact");
+        document.getElementById('clientName').focus();
+        return;
+      }
+
+      const text = buildMessage();
+      const url = `https://wa.me/917658018963?text=${encodeURIComponent(text)}`;
+      showToast("Opening WhatsApp...");
+      window.open(url, '_blank');
+    }
+
+    // Direct Email Dispatch (vansharora1813@gmail.com)
+    function submitToEmail() {
+      const name = document.getElementById('clientName').value.trim() || "Client";
+      const text = buildMessage();
+      const subject = encodeURIComponent(`Project Inquiry from ${name} — Vansh Arora`);
+      const body = encodeURIComponent(text);
+      const mailtoUrl = `mailto:vansharora1813@gmail.com?subject=${subject}&body=${body}`;
+
+      showToast("Opening Email Client...");
+      window.location.href = mailtoUrl;
+    }
+
+    // Clipboard & Toast Helper
+    let toastTimer;
+    function showToast(msg) {
+      const toast = document.getElementById('miniToast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('active');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('active');
+      }, 2500);
+    }
+
+    function copyText(text, successMsg = "Copied") {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(successMsg);
+      }).catch(() => {
+        showToast("Text: " + text);
+      });
+    }
+
+    // Individual FAQ Card Toggle
+    function toggleFaqCard(card) {
+      const isOpened = card.classList.contains('opened');
+      const track = document.getElementById('faqTrack');
+
+      if (!isOpened) {
+        card.classList.add('opened');
+        if (track) track.style.animationPlayState = 'paused';
+      } else {
+        card.classList.remove('opened');
+        const anyOpen = document.querySelector('.faq-single-card.opened');
+        if (!anyOpen && track) {
+          track.style.animationPlayState = '';
+        }
+      }
+    }
+  </script>
+
+  <!-- Core Scripts -->
   <script src="main.js"></script>
 </body>
 </html>
