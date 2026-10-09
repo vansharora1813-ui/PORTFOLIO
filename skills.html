@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary SEO Tags -->
-  <title>Technical Stack &amp; Creative Suite ΓÇö Vansh Arora</title>
-  <meta name="title" content="Technical Stack &amp; Creative Suite ΓÇö Vansh Arora">
-  <meta name="description" content="Dual-zone creative studio showcasing Web Development architecture, WebGL/Three.js engineering, cinematic video editing, and motion design mastery by Vansh Arora.">
-  <meta name="keywords" content="Vansh Arora, Web Developer, Video Editor, Three.js, React 19, NLE Timeline, Color Grading, DaVinci Resolve, Motion Design, Creative Technologist">
+  <title>Web Development &amp; Architecture — Vansh Arora</title>
+  <meta name="title" content="Web Development &amp; Architecture — Vansh Arora">
+  <meta name="description" content="Technical lab showcasing Web Development architecture, React 19, Next.js 15, Three.js/WebGL engineering, and full-stack systems by Vansh Arora.">
+  <meta name="keywords" content="Vansh Arora, Web Developer, Creative Developer, React 19, Next.js, Three.js, WebGL, GLSL, TypeScript, Full-Stack Architecture">
   <meta name="author" content="Vansh Arora">
   
-  <!-- Google Fonts -->
+  <!-- Google Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Creative+Stories&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- Core Portfolio Stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -26,27 +25,44 @@
 
   <style>
     /* ==========================================================================
-       PREMIUM DUAL-ZONE SKILLS PAGE ($100K STUDIO ARCHITECTURE)
+       PREMIUM WEB DEV LAB ARCHITECTURE
        Palette: Sky Blue #C3E0F5 / Royal Blue #0574C5 / Obsidian #0A192F / Pure White
        ========================================================================== */
 
     :root {
+      --font-heading: 'Syne', 'Outfit', sans-serif;
+      --font-body: 'Instrument Sans', 'Inter', -apple-system, sans-serif;
+      --font-mono: 'Space Mono', 'Fira Code', monospace;
       --font-code: 'Fira Code', 'Space Mono', monospace;
+      
+      --bg-color: #C3E0F5;
+      --bg-surface: #FFFFFF;
+      --bg-alt: #B3D6F2;
+      --accent-color: #0574C5;
+      --text-primary: #0A192F;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+      --border-color: rgba(151, 197, 236, 0.7);
+
       --obsidian-surface: #070F1E;
       --obsidian-panel: #0C172B;
       --obsidian-card: #101F38;
       --obsidian-border: rgba(56, 189, 248, 0.22);
       --cyan-glow: #38BDF8;
       --cyan-bright: #00E5FF;
-      --electric-blue: #0574C5;
-      --gold-accent: #F59E0B;
-      --emerald-accent: #10B981;
-      --rose-accent: #F43F5E;
-      --glass-light: rgba(255, 255, 255, 0.75);
-      --glass-border: rgba(151, 197, 236, 0.65);
     }
 
-    /* Background 3D Canvas ΓÇö Middle wireframe circle */
+    /* Explicit blue background matching landing page */
+    body {
+      background-color: var(--bg-color) !important;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Background 3D Canvas — White Wireframe Globe */
     #skills3dCanvas {
       position: fixed;
       top: 0;
@@ -55,75 +71,29 @@
       height: 100vh;
       pointer-events: none;
       z-index: 1;
-      opacity: 0.85;
+      opacity: 0.55;
     }
 
-    /* Ambient Architectural Grid ΓÇö removed per user request */
-    /* Floating Ambient Glyphs ΓÇö removed per user request */
-
-    /* Explicit light sky-blue background matching index.html */
-    body {
-      background-color: #C3E0F5 !important;
-    }
-
-    /* Page Container ΓÇö Normal flow below main navbar (transparent so 3D middle circle shows) */
+    /* Page Container */
     .skills-experience-wrapper {
       position: relative;
       z-index: 2;
-      padding-top: 0 !important;
+      padding-top: 0;
       background: transparent;
     }
 
     /* ==========================================================================
-       HERO SECTION ΓÇö DUAL COCKPIT STATEMENT (FULL VIEWPORT LANDING)
+       HERO BANNER — SPACIOUS & EDITORIAL (NO HUD STATS CARD)
        ========================================================================== */
     .skills-hero-banner {
-      min-height: 100vh;
+      min-height: 85vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 110px 8% 50px;
+      padding: 140px 8% 70px;
       position: relative;
       box-sizing: border-box;
       background: transparent;
-    }
-
-    /* Scroll Indicator Cue to next page */
-    .skills-scroll-cue {
-      margin-top: 36px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: var(--accent-color);
-      opacity: 0.85;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      user-select: none;
-      width: fit-content;
-    }
-    .skills-scroll-cue:hover {
-      opacity: 1;
-      transform: translateY(2px);
-    }
-    .skills-scroll-cue .scroll-cue-chevron {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: rgba(5, 116, 197, 0.1);
-      border: 1.5px solid rgba(5, 116, 197, 0.35);
-      font-size: 0.8rem;
-      animation: bounceCue 2s infinite ease-in-out;
-    }
-    @keyframes bounceCue {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
     }
 
     .skills-hero-meta-row {
@@ -131,7 +101,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
       flex-wrap: wrap;
     }
 
@@ -139,11 +109,11 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 7px 18px;
-      background: rgba(255, 255, 255, 0.85);
+      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.9);
       border: 1.5px solid var(--border-color);
       border-radius: 100px;
-      box-shadow: 0 4px 18px rgba(5, 116, 197, 0.1);
+      box-shadow: 0 4px 20px rgba(5, 116, 197, 0.1);
       backdrop-filter: blur(12px);
     }
 
@@ -155,6 +125,7 @@
       box-shadow: 0 0 10px #10B981;
       animation: pulseGreen 2s ease-in-out infinite;
     }
+
     @keyframes pulseGreen {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.3); opacity: 0.7; }
@@ -165,29 +136,34 @@
       font-size: 0.72rem;
       font-weight: 700;
       color: var(--text-primary);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
     .skills-telemetry-hud {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
       font-family: var(--font-mono);
       font-size: 0.68rem;
       letter-spacing: 0.14em;
-      color: var(--text-muted);
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.65);
+      padding: 6px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(8px);
     }
 
     .skills-hero-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
       font-weight: 900;
-      line-height: 0.95;
+      line-height: 0.96;
       letter-spacing: -0.04em;
       color: var(--text-primary);
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin: 0 0 28px 0;
     }
 
     .skills-hero-title .title-accent {
@@ -195,10 +171,11 @@
       font-weight: 900;
       color: transparent;
       -webkit-text-stroke: 2.2px var(--accent-color);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       display: inline-block;
       transition: all 0.3s ease;
     }
+
     .skills-hero-title .title-accent:hover {
       color: rgba(5, 116, 197, 0.12);
     }
@@ -208,36 +185,69 @@
       color: transparent;
       transition: color 0.3s ease;
     }
-    .skills-hero-title .title-stroke:hover {
-      color: rgba(5, 116, 197, 0.15);
-    }
-
-    .skills-hero-intro {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: flex-end;
-      padding-bottom: 30px;
-      border-bottom: none;
-    }
 
     .skills-hero-desc {
-  font-family: 'Creative Stories', 'Outfit', 'Space Grotesk', 'Instrument Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.4rem, 1.7vw, 1.6rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: #334155;
-  line-height: 1.6;
-  max-width: 480px;
-}
+      font-family: var(--font-body);
+      font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 0 44px 0;
+    }
 
-    /* Minor Thematic Web Dev & Video Editing Particles */
+    /* Scroll Indicator Cue */
+    .skills-scroll-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      width: fit-content;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 16px rgba(5, 116, 197, 0.06);
+    }
+
+    .skills-scroll-cue:hover {
+      background: #FFFFFF;
+      transform: translateY(2px);
+      box-shadow: 0 6px 20px rgba(5, 116, 197, 0.12);
+    }
+
+    .skills-scroll-cue .scroll-cue-chevron {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(5, 116, 197, 0.12);
+      border: 1.5px solid rgba(5, 116, 197, 0.35);
+      font-size: 0.8rem;
+      animation: bounceCue 2s infinite ease-in-out;
+    }
+
+    @keyframes bounceCue {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* Floating Thematic Tech Badges in Hero */
     .skills-hero-particles-container {
       position: absolute;
       inset: 0;
       pointer-events: none;
       overflow: hidden;
-      z-index: 0; /* send to background */
+      z-index: 0;
     }
 
     .hero-minor-particle {
@@ -246,13 +256,12 @@
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: #0574C5;
+      color: var(--accent-color);
       background: rgba(255, 255, 255, 0.85);
       border: 1px solid rgba(151, 197, 236, 0.7);
       border-radius: 100px;
       padding: 5px 14px;
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 4px 16px rgba(5, 116, 197, 0.08);
       user-select: none;
       opacity: 0.85;
@@ -260,247 +269,57 @@
       align-items: center;
       gap: 6px;
     }
+
     .hero-minor-particle::before {
       content: '';
       display: inline-block;
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: #0574C5;
+      background: var(--accent-color);
     }
 
-    /* Safe perimeter coordinates - strictly outside all text, nav, badges, and cards */
-    .p-node-1 { top: 22%; left: 3%; animation: floatParticleA 9s ease-in-out infinite alternate; }
-    .p-node-2 { top: 13%; right: 4%; animation: floatParticleB 11s ease-in-out infinite alternate; }
-    .p-node-3 { top: 88%; left: 6%; animation: floatParticleC 8s ease-in-out infinite alternate; }
-    .p-node-4 { top: 88%; right: 6%; animation: floatParticleA 10s ease-in-out infinite alternate; }
-    .p-node-5 { top: 48%; right: 2%; animation: floatParticleB 12s ease-in-out infinite alternate; }
+    .p-node-1 { top: 18%; right: 6%; animation: floatParticleA 10s ease-in-out infinite alternate; }
+    .p-node-2 { top: 46%; right: 4%; animation: floatParticleB 12s ease-in-out infinite alternate; }
+    .p-node-3 { bottom: 12%; right: 12%; animation: floatParticleC 9s ease-in-out infinite alternate; }
 
     @keyframes floatParticleA {
       0% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(-6px) translateX(3px); }
-      100% { transform: translateY(4px) translateX(-3px); }
+      50% { transform: translateY(-8px) translateX(4px); }
+      100% { transform: translateY(5px) translateX(-4px); }
     }
 
     @keyframes floatParticleB {
       0% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(6px) translateX(-4px); }
-      100% { transform: translateY(-5px) translateX(3px); }
+      50% { transform: translateY(8px) translateX(-5px); }
+      100% { transform: translateY(-6px) translateX(3px); }
     }
 
     @keyframes floatParticleC {
       0% { transform: translateY(0px) translateX(0px); }
-      100% { transform: translateY(-7px) translateX(4px); }
-    }
-
-    /* Studio Metrics HUD Card (Solid, Static, No Animations, No Gradients) */
-    .skills-hud-stats-wrapper {
-      position: relative;
-    }
-
-    .skills-hud-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      background: #FFFFFF;
-      border: 1.5px solid rgba(5, 116, 197, 0.22);
-      border-radius: 18px;
-      padding: 18px 20px;
-      box-shadow: 0 8px 28px rgba(5, 116, 197, 0.08);
-      position: relative;
-      user-select: none;
-    }
-
-    /* Clean studio metrics label pill */
-    .hud-stat-interactive-pill {
-      position: absolute;
-      top: -10px;
-      right: 18px;
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #0574C5;
-      background: #FFFFFF;
-      border: 1px solid rgba(5, 116, 197, 0.25);
-      padding: 3px 10px;
-      border-radius: 100px;
-      box-shadow: 0 2px 8px rgba(5, 116, 197, 0.08);
-      pointer-events: none;
-    }
-
-    .hud-stat-box {
-      text-align: center;
-      padding: 4px 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .hud-stat-box:not(:last-child) {
-      border-right: 1.5px solid rgba(151, 197, 236, 0.55);
-    }
-
-    .hud-stat-val {
-      font-family: var(--font-heading);
-      font-size: 1.55rem;
-      font-weight: 900;
-      color: var(--text-primary);
-      line-height: 1;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-    .hud-stat-val span {
-      color: var(--accent-color);
-      font-size: 1.05rem;
-      font-weight: 800;
-    }
-
-    .hud-stat-lbl {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: #64748B;
-      text-transform: uppercase;
-      margin-top: 6px;
-      white-space: nowrap;
+      100% { transform: translateY(-10px) translateX(5px); }
     }
 
     /* ==========================================================================
-       ZONE CONTROLLER / DUAL COCKPIT SWITCHER (STATIC IN-FLOW, NOT FIXED)
+       MAIN LAB WORKSPACE & SECTIONS
        ========================================================================== */
-    .skills-zone-nav-container {
-      position: relative;
-      top: auto;
-      z-index: 10;
-      padding: 18px 8%;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(195, 224, 245, 0.9);
-      border-top: 1.5px solid rgba(151, 197, 236, 0.7);
-      border-bottom: 1.5px solid rgba(151, 197, 236, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(5, 116, 197, 0.06);
-    }
-
-    .skills-zone-tabs {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 6px;
-      border-radius: 100px;
-      border: 1.5px solid var(--border-color);
-      box-shadow: 0 4px 20px rgba(5, 116, 197, 0.1);
-      gap: 6px;
-    }
-
-    .zone-btn {
-      appearance: none;
-      border: none;
-      background: transparent;
-      padding: 10px 24px;
-      border-radius: 100px;
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: var(--text-secondary);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-    }
-
-    .zone-btn .zone-num {
-      opacity: 0.6;
-      font-size: 0.68rem;
-    }
-
-    .zone-btn:hover {
-      color: var(--accent-color);
-      background: rgba(5, 116, 197, 0.07);
-    }
-
-    .zone-btn.active {
-      background: var(--accent-color);
-      color: #FFFFFF;
-      box-shadow: 0 8px 24px rgba(5, 116, 197, 0.35);
-    }
-
-    .zone-btn.active .zone-num {
-      opacity: 0.9;
-      color: var(--cyan-bright);
-    }
-
-    .zone-actions-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .haptic-sound-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1.5px solid var(--border-color);
-      padding: 8px 16px;
-      border-radius: 100px;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .haptic-sound-toggle:hover {
-      border-color: var(--accent-color);
-      color: var(--accent-color);
-    }
-    .haptic-sound-toggle.muted {
-      opacity: 0.6;
-    }
-
-    /* Main Dual Zone Grid Container */
     .skills-zones-layout {
-      padding: 50px 8% 80px;
+      padding: 40px 8% 90px;
       display: flex;
       flex-direction: column;
       gap: 90px;
     }
 
-    /* Individual Zone Section */
     .zone-section {
       position: relative;
-      scroll-margin-top: 100px;
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    .zone-section.zone-dimmed {
-      opacity: 0.18;
-      filter: blur(3px) grayscale(50%);
-      pointer-events: none;
-      transform: scale(0.98);
-    }
-
-    .zone-section.zone-focused {
-      opacity: 1;
-      filter: none;
-      transform: scale(1);
+      scroll-margin-top: 90px;
     }
 
     .zone-header-banner {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       gap: 30px;
       flex-wrap: wrap;
     }
@@ -517,6 +336,7 @@
       gap: 12px;
       margin-bottom: 12px;
     }
+
     .zone-badge-tag::before {
       content: '';
       display: block;
@@ -527,13 +347,15 @@
 
     .zone-main-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+      font-size: clamp(2.2rem, 4.4vw, 3.8rem);
       font-weight: 900;
       letter-spacing: -0.03em;
       text-transform: uppercase;
       color: var(--text-primary);
       line-height: 1;
+      margin: 0;
     }
+
     .zone-main-title em {
       font-style: normal;
       -webkit-text-stroke: 1.5px var(--accent-color);
@@ -541,16 +363,17 @@
     }
 
     .zone-header-meta {
-      max-width: 380px;
+      max-width: 440px;
       text-align: right;
       font-family: var(--font-body);
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
       line-height: 1.6;
+      margin: 0;
     }
 
     /* ==========================================================================
-       ZONE 01: CREATIVE WEB ENGINEERING & GLASS IDE
+       SECTION 01: GLASS IDE CONSOLE & LIVE 3D PREVIEW
        ========================================================================== */
     .zone-web-workspace {
       display: grid;
@@ -583,6 +406,7 @@
       display: flex;
       gap: 8px;
     }
+
     .ide-dot {
       width: 12px;
       height: 12px;
@@ -600,6 +424,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .ide-branch-meta span {
       color: var(--cyan-glow);
     }
@@ -627,168 +452,178 @@
       white-space: nowrap;
       transition: all 0.25s ease;
     }
+
     .ide-tab-btn:hover {
       color: rgba(255, 255, 255, 0.85);
       background: rgba(255, 255, 255, 0.03);
     }
+
     .ide-tab-btn.active {
       color: #FFFFFF;
       background: var(--obsidian-surface);
       border-bottom: 2px solid var(--cyan-glow);
       font-weight: 600;
     }
+
     .ide-tab-icon {
       font-size: 0.7rem;
       color: var(--cyan-glow);
     }
 
-    /* Editor Body */
     .ide-editor-body {
       padding: 24px;
       font-family: var(--font-code);
       font-size: 0.84rem;
       line-height: 1.7;
-      color: #E2E8F0;
-      overflow-x: auto;
       min-height: 380px;
-      background: var(--obsidian-surface);
-      position: relative;
+      color: #E2E8F0;
+      overflow-y: auto;
     }
 
     .code-line {
       display: flex;
-      gap: 20px;
-      white-space: pre;
+      gap: 18px;
+      opacity: 0;
     }
+
     .code-ln {
-      color: #475569;
+      color: rgba(255, 255, 255, 0.25);
+      font-family: var(--font-code);
+      font-size: 0.75rem;
       user-select: none;
+      min-width: 22px;
       text-align: right;
-      min-width: 24px;
-      font-size: 0.78rem;
     }
+
     .code-text {
-      flex: 1;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
 
-    /* Syntax Highlighting */
-    .kw { color: #38BDF8; font-weight: 600; } /* Keyword */
-    .fn { color: #818CF8; font-weight: 600; } /* Function */
-    .str { color: #34D399; } /* String */
-    .type { color: #FBBF24; } /* Type */
-    .cm { color: #64748B; font-style: italic; } /* Comment */
-    .num { color: #F472B6; } /* Number */
-    .op { color: #94A3B8; } /* Operator */
+    .kw { color: #F43F5E; font-weight: 600; }
+    .fn { color: #38BDF8; }
+    .type { color: #34D399; }
+    .str { color: #FDE047; }
+    .num { color: #FB923C; }
+    .cm { color: rgba(255, 255, 255, 0.35); font-style: italic; }
 
-    /* Live Output & Action Strip */
     .ide-terminal-drawer {
-      background: #050B16;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 16px 20px;
+      background: var(--obsidian-panel);
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
       flex-wrap: wrap;
+      gap: 12px;
     }
 
     .ide-terminal-logs {
       font-family: var(--font-code);
-      font-size: 0.74rem;
-      color: #94A3B8;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.6);
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
+
     .ide-log-highlight {
-      color: #10B981;
+      color: #27C93F;
       font-weight: 600;
     }
 
     .ide-run-btn {
       appearance: none;
-      border: 1px solid var(--cyan-glow);
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--cyan-bright);
-      padding: 8px 18px;
-      border-radius: 8px;
+      border: none;
+      background: var(--accent-color);
+      color: #FFFFFF;
       font-family: var(--font-code);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.12em;
+      padding: 8px 18px;
+      border-radius: 8px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(5, 116, 197, 0.35);
     }
+
     .ide-run-btn:hover {
-      background: var(--cyan-glow);
-      color: #070F1E;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+      background: #035AA3;
       transform: translateY(-1px);
     }
 
-    /* Right Side: 3D WebGL Mesh Visualizer & Telemetry */
+    /* Right Side: Interactive 3D Mesh Preview & Specs */
     .ide-preview-side {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
 
     .web-interactive-preview {
-      background: var(--obsidian-surface);
-      border: 1.5px solid var(--obsidian-border);
-      border-radius: 24px;
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(10, 25, 47, 0.25);
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(5, 116, 197, 0.08);
     }
 
     .preview-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .preview-title {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      color: var(--cyan-glow);
-      text-transform: uppercase;
       font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--text-primary);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
+    .preview-title span {
+      color: var(--accent-color);
+      animation: pulseGreen 2s infinite;
+    }
+
     .preview-fps {
-      font-family: var(--font-code);
-      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
       color: #10B981;
       background: rgba(16, 185, 129, 0.1);
       padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 6px;
+      border: 1px solid rgba(16, 185, 129, 0.25);
     }
 
     .webgl-canvas-box {
       width: 100%;
-      height: 220px;
+      height: 200px;
+      background: #070F1E;
       border-radius: 14px;
-      background: radial-gradient(circle at center, #0B1933 0%, #050B16 100%);
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(56, 189, 248, 0.15);
       cursor: grab;
     }
+
     .webgl-canvas-box:active {
       cursor: grabbing;
+    }
+
+    .webgl-canvas-box canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
     }
 
     .webgl-hint {
@@ -798,11 +633,14 @@
       font-family: var(--font-mono);
       font-size: 0.6rem;
       letter-spacing: 0.12em;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 8px;
+      border-radius: 6px;
       pointer-events: none;
     }
 
-    /* Performance Telemetry Panels */
+    /* Precision Spec Sheets */
     .web-spec-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -810,35 +648,33 @@
     }
 
     .web-spec-card {
-      background: rgba(255, 255, 255, 0.8);
+      background: #FFFFFF;
       border: 1.5px solid var(--border-color);
-      border-radius: 20px;
-      padding: 22px 20px;
-      box-shadow: 0 10px 30px rgba(5, 116, 197, 0.08);
-      backdrop-filter: blur(14px);
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 8px 24px rgba(5, 116, 197, 0.06);
+      transition: all 0.3s ease;
     }
+
     .web-spec-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(5, 116, 197, 0.12);
       border-color: var(--accent-color);
-      box-shadow: 0 18px 40px rgba(5, 116, 197, 0.16);
     }
 
     .spec-cat-label {
       font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.18em;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
       color: var(--accent-color);
       text-transform: uppercase;
-      font-weight: 700;
       margin-bottom: 6px;
     }
 
     .spec-item-name {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--text-primary);
       margin-bottom: 10px;
@@ -846,1258 +682,271 @@
 
     .spec-details-list {
       list-style: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
       gap: 6px;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      color: var(--text-secondary);
     }
+
     .spec-details-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .spec-details-list li::before {
-      content: 'Γû╣';
-      color: var(--accent-color);
-      font-size: 0.8rem;
-    }
-
-    /* ==========================================================================
-       ZONE 02: CINEMA & MOTION SUITE ΓÇö ULTRA-PREMIUM CINEMATIC DESIGN
-       ========================================================================== */
-
-    /* Ambient cinematic atmosphere for the entire cinema zone */
-    #zoneCinema {
-      position: relative;
-      overflow: visible;
-    }
-    #zoneCinema::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      left: -6%;
-      right: -6%;
-      bottom: -60px;
-      background:
-        radial-gradient(ellipse 75% 55% at 20% 15%, rgba(5, 116, 197, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 50% at 85% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 35% at 55% 50%, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: -1;
-      border-radius: 48px;
-    }
-
-    /* Zone 02 Header Banner Override ΓÇö Cinematic Prestige */
-    #zoneCinema .zone-header-banner {
-      margin-bottom: 52px;
-      position: relative;
-      padding-bottom: 28px;
-    }
-    #zoneCinema .zone-header-banner::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 120px;
-      height: 2px;
-      background: linear-gradient(90deg, #0574C5 0%, #8B5CF6 60%, transparent 100%);
-      animation: shimmerLine 3s ease-in-out infinite;
-    }
-    @keyframes shimmerLine {
-      0%, 100% { width: 120px; opacity: 0.7; }
-      50% { width: 200px; opacity: 1; }
-    }
-
-    #zoneCinema .zone-badge-tag {
-      color: #8B5CF6;
-      letter-spacing: 0.28em;
-      font-size: 0.68rem;
-    }
-    #zoneCinema .zone-badge-tag::before {
-      background: linear-gradient(90deg, #8B5CF6, #0574C5);
-      width: 32px;
-      height: 2.5px;
-      border-radius: 2px;
-    }
-
-    #zoneCinema .zone-main-title {
-      font-size: clamp(2.6rem, 5vw, 4.6rem);
-      letter-spacing: -0.04em;
-      background: linear-gradient(135deg, #0F172A 0%, #1E293B 45%, #0574C5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    #zoneCinema .zone-main-title em {
-      -webkit-text-stroke: 2px #8B5CF6;
-      -webkit-text-fill-color: transparent;
-      background: none;
-    }
-
-    #zoneCinema .zone-header-meta {
-      color: #475569;
-      font-size: 0.92rem;
-      line-height: 1.7;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-    }
-
-    .zone-cinema-workspace {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-    }
-
-    /* Top Split: 4K Preview Monitor + 3-Way Color Wheels */
-    .cinema-deck-top {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 28px;
-      animation: fadeInCinema 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
-    }
-    @keyframes fadeInCinema {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* 4K Program Monitor ΓÇö Premium Cinema Grade */
-    .cinema-monitor-card {
-      background: linear-gradient(145deg, #070F1E 0%, #0A1628 40%, #0D1A30 100%);
-      border: 1px solid rgba(139, 92, 246, 0.18);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow:
-        0 40px 100px rgba(5, 15, 35, 0.55),
-        0 0 0 1px rgba(56, 189, 248, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .cinema-monitor-card:hover {
-      box-shadow:
-        0 50px 120px rgba(5, 15, 35, 0.65),
-        0 0 0 1px rgba(139, 92, 246, 0.22),
-        0 0 60px rgba(5, 116, 197, 0.08);
-      transform: translateY(-2px);
-    }
-
-    .monitor-header {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(12, 23, 43, 0.96) 100%);
-      padding: 14px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(139, 92, 246, 0.12);
-      backdrop-filter: blur(12px);
-    }
-
-    .monitor-hud-status {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: #E2E8F0;
-    }
-
-    .rec-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #EF4444;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-    }
-    .rec-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #EF4444;
-      box-shadow: 0 0 10px #EF4444;
-      animation: pulseRed 1.2s ease-in-out infinite;
-    }
-    @keyframes pulseRed {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .monitor-timecode-display {
-      font-family: var(--font-code);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--cyan-bright);
-      letter-spacing: 0.12em;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 5px 16px;
-      border-radius: 8px;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      box-shadow: 0 0 20px rgba(0, 229, 255, 0.1), inset 0 0 12px rgba(0, 0, 0, 0.4);
-      text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
-    }
-
-    /* Monitor Viewport Screen & Real Video Integration */
-    .monitor-viewport-screen {
-      position: relative;
-      aspect-ratio: 2.39 / 1;
-      width: 100%;
-      background: #030712;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    #cinemaVideoElement {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-      transition: filter 0.08s ease;
-    }
-
-    .cinema-color-tint-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 2;
-      mix-blend-mode: soft-light;
-      opacity: 0;
-      transition: background-color 0.08s ease, opacity 0.08s ease;
-    }
-
-    .monitor-play-badge {
-      position: absolute;
-      z-index: 8;
-      bottom: 16px;
-      left: 18px;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #FFFFFF;
-      background: rgba(0, 0, 0, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 5px 12px;
-      border-radius: 6px;
-      backdrop-filter: blur(8px);
-      pointer-events: none;
-      transition: all 0.25s ease;
-    }
-
-    /* Monitor Overlays */
-    .monitor-grid-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 4;
-      pointer-events: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .monitor-grid-overlay.active {
-      opacity: 1;
-    }
-    .monitor-grid-overlay > div {
-      border: 1px dashed rgba(56, 189, 248, 0.25);
-    }
-
-    .monitor-crosshair {
-      position: absolute;
-      z-index: 4;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 24px;
-      height: 24px;
-      pointer-events: none;
-      opacity: 0.6;
-    }
-    .monitor-crosshair::before, .monitor-crosshair::after {
-      content: '';
-      position: absolute;
-      background: var(--cyan-glow);
-    }
-    .monitor-crosshair::before { top: 11px; left: 0; width: 24px; height: 2px; }
-    .monitor-crosshair::after { top: 0; left: 11px; width: 2px; height: 24px; }
-
-    /* Monitor Footer Controls ΓÇö Premium Glass Bar */
-    .monitor-bottom-bar {
-      background: linear-gradient(180deg, rgba(12, 23, 43, 0.96) 0%, rgba(7, 15, 30, 0.98) 100%);
-      padding: 12px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid rgba(139, 92, 246, 0.1);
-      backdrop-filter: blur(12px);
-    }
-
-    .monitor-btn-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .monitor-btn {
-      appearance: none;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.04);
-      color: #CBD5E1;
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-      backdrop-filter: blur(6px);
-    }
-    .monitor-btn:hover {
-      background: rgba(5, 116, 197, 0.2);
-      border-color: rgba(56, 189, 248, 0.4);
-      color: #FFFFFF;
-      box-shadow: 0 0 12px rgba(5, 116, 197, 0.15);
-      transform: translateY(-1px);
-    }
-    .monitor-btn.active {
-      background: linear-gradient(135deg, #0574C5 0%, #8B5CF6 100%);
-      border-color: rgba(139, 92, 246, 0.6);
-      color: #FFFFFF;
-      box-shadow: 0 4px 16px rgba(5, 116, 197, 0.3);
-    }
-
-    /* Color Grading 3-Way Suite ΓÇö Premium DaVinci-Inspired Panel */
-    .color-grading-panel {
-      background: linear-gradient(155deg, #070F1E 0%, #0B1628 50%, #0E192E 100%);
-      border: 1px solid rgba(139, 92, 246, 0.15);
-      border-radius: 20px;
-      padding: 26px;
-      box-shadow:
-        0 40px 100px rgba(5, 15, 35, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .color-grading-panel:hover {
-      box-shadow:
-        0 50px 120px rgba(5, 15, 35, 0.6),
-        0 0 50px rgba(139, 92, 246, 0.06);
-      transform: translateY(-2px);
-    }
-    .color-grading-panel::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 20%;
-      right: 20%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 50%, transparent 100%);
-      pointer-events: none;
-    }
-
-    .color-panel-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(139, 92, 246, 0.1);
-      padding-bottom: 14px;
-      margin-bottom: 22px;
-    }
-
-    .color-panel-title {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    /* 3 Color Wheels Container (Live Interactive Pucks) */
-    .color-wheels-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .wheel-item {
-      text-align: center;
-    }
-
-    .wheel-disc {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      margin: 0 auto 10px;
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.15) 22%, transparent 58%),
-                  conic-gradient(#FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF, #FF0000);
-      position: relative;
-      box-shadow:
-        inset 0 0 18px rgba(0, 0, 0, 0.9),
-        0 0 18px rgba(0, 0, 0, 0.5),
-        0 0 32px rgba(139, 92, 246, 0.08);
-      cursor: crosshair;
-      user-select: none;
-      touch-action: none;
-      border: 1.5px solid rgba(255, 255, 255, 0.15);
-      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-    }
-    .wheel-disc:hover {
-      border-color: rgba(255, 255, 255, 0.3);
-      box-shadow:
-        inset 0 0 18px rgba(0, 0, 0, 0.9),
-        0 0 22px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(139, 92, 246, 0.15);
-      transform: scale(1.04);
-    }
-    .wheel-disc:active {
-      box-shadow:
-        inset 0 0 18px rgba(0, 0, 0, 0.9),
-        0 0 20px rgba(56, 189, 248, 0.5),
-        0 0 50px rgba(139, 92, 246, 0.2);
-      border-color: var(--cyan-glow);
-      transform: scale(1.06);
-    }
-
-    .wheel-ring-guides {
-      position: absolute;
-      inset: 8px;
-      border-radius: 50%;
-      border: 1px dashed rgba(255, 255, 255, 0.25);
-      pointer-events: none;
-    }
-
-    .wheel-puck {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      border: 2px solid #000000;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 0 1px rgba(0, 0, 0, 0.4);
-      pointer-events: none;
-      transition: box-shadow 0.15s ease;
-    }
-
-    .wheel-label {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      font-weight: 700;
-      color: #94A3B8;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: color 0.2s ease;
-    }
-    .wheel-item:hover .wheel-label {
-      color: #CBD5E1;
-    }
-
-    .wheel-val-readout {
-      font-family: var(--font-code);
-      font-size: 0.6rem;
-      color: var(--cyan-glow);
-      margin-top: 4px;
-      opacity: 0.85;
-      transition: opacity 0.2s ease;
-    }
-    .wheel-item:hover .wheel-val-readout {
-      opacity: 1;
-    }
-
-    /* Sliders Strip */
-    .color-sliders-strip {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background: var(--obsidian-panel);
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .slider-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .slider-lbl {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: #94A3B8;
-      min-width: 75px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .slider-input {
-      flex: 1;
-      accent-color: var(--cyan-glow);
-      height: 4px;
-      cursor: pointer;
-    }
-    .slider-val {
-      font-family: var(--font-code);
-      font-size: 0.7rem;
-      color: var(--cyan-bright);
-      min-width: 38px;
-      text-align: right;
-    }
-
-    /* ==========================================================================
-       AUTHENTIC ADOBE PREMIERE PRO CC TIMELINE CONSOLE ΓÇö CINEMATIC DEPTH
-       ========================================================================== */
-    .nle-timeline-console.premiere-pro-theme {
-      background: linear-gradient(180deg, #181B22 0%, #14171E 100%);
-      border: 1px solid rgba(139, 92, 246, 0.15);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow:
-        0 40px 100px rgba(5, 15, 35, 0.55),
-        0 0 0 1px rgba(56, 189, 248, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-      position: relative;
-      animation: fadeInCinema 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.15s both;
-      transition: box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .nle-timeline-console.premiere-pro-theme:hover {
-      box-shadow:
-        0 50px 120px rgba(5, 15, 35, 0.65),
-        0 0 0 1px rgba(139, 92, 246, 0.2),
-        0 0 50px rgba(5, 116, 197, 0.06);
-      transform: translateY(-2px);
-    }
-    .nle-timeline-console.premiere-pro-theme::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 15%;
-      right: 15%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.35) 50%, transparent 100%);
-      z-index: 10;
-      pointer-events: none;
-    }
-
-    /* Premiere Transport Bar & Toolset */
-    .timeline-transport-bar {
-      background: #11141A;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1.5px solid #232834;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .premiere-tools-cluster {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .premiere-app-badge {
-      font-family: var(--font-heading);
-      font-size: 0.72rem;
-      font-weight: 900;
-      color: #00E5FF;
-      background: #002844;
-      border: 1px solid #005F99;
-      padding: 4px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      margin-right: 6px;
-    }
-
-    .premiere-tool-btn {
-      width: 30px;
-      height: 30px;
-      border-radius: 4px;
-      background: #1A1F2B;
-      border: 1px solid #283042;
-      color: #A0AEC0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.15s ease;
-    }
-    .premiere-tool-btn:hover {
-      color: #FFFFFF;
-      background: #252D3E;
-    }
-    .premiere-tool-btn.active {
-      color: #FFFFFF;
-      background: #0574C5;
-      border-color: #38BDF8;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
-    }
-
-    .transport-buttons {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .transport-btn {
-      appearance: none;
-      border: 1px solid #283042;
-      background: #1A1F2B;
-      color: #E2E8F0;
-      width: 34px;
-      height: 34px;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      font-family: var(--font-body);
       font-size: 0.82rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .transport-btn:hover {
-      background: #0574C5;
-      border-color: #38BDF8;
-      color: #FFFFFF;
-    }
-    .transport-btn.btn-play {
-      background: #0574C5;
-      border-color: #38BDF8;
-      width: 42px;
-      box-shadow: 0 0 14px rgba(5, 116, 197, 0.45);
-    }
-
-    .transport-readouts {
+      color: var(--text-secondary);
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 8px;
     }
 
-    .timeline-seq-name {
-      font-family: var(--font-code);
-      font-size: 0.68rem;
-      color: #94A3B8;
-      background: #0F131A;
-      padding: 4px 10px;
-      border-radius: 4px;
-      border: 1px solid #232834;
-    }
-
-    .fps-badge {
-      font-family: var(--font-code);
-      font-size: 0.68rem;
-      color: var(--emerald-accent);
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-
-    /* Audio Spectrum in Transport */
-    .audio-meter-box {
-      display: flex;
-      align-items: flex-end;
-      gap: 2.5px;
-      height: 22px;
-      padding: 0 6px;
-    }
-    .audio-bar {
-      width: 3px;
-      background: #10B981;
-      height: 30%;
-      border-radius: 1px;
-      transition: height 0.08s ease;
-    }
-
-    /* Timeline Ruler & Track Stage */
-    .timeline-ruler-track-wrapper {
-      position: relative;
-      padding: 0 16px 20px;
-      background: #0C0F16;
-      overflow-x: auto;
-      user-select: none;
-    }
-
-    .timeline-ruler {
-      height: 32px;
-      position: relative;
-      border-bottom: 1.5px solid #232834;
-      cursor: pointer;
-      background: #11151F;
-    }
-
-    .ruler-workarea-bar {
-      position: absolute;
-      top: 0;
-      left: 0%;
-      width: 100%;
-      height: 4px;
-      background: #0574C5;
-      box-shadow: 0 0 6px rgba(5, 116, 197, 0.5);
-    }
-
-    .ruler-ticks {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding-bottom: 4px;
-    }
-    .ruler-tick-item {
-      font-family: var(--font-code);
-      font-size: 0.62rem;
-      color: #64748B;
-      position: relative;
-    }
-    .ruler-tick-item::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      width: 1px;
-      height: 5px;
-      background: #334155;
-    }
-
-    /* Premiere Playhead CTI */
-    .timeline-playhead {
-      position: absolute;
-      top: 0;
-      bottom: 20px;
-      left: 32%;
-      width: 2px;
-      background: #00E5FF;
-      z-index: 50;
-      pointer-events: none;
-      box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
-    }
-    .playhead-head {
-      position: absolute;
-      top: 0;
-      left: -7px;
-      width: 16px;
-      height: 16px;
-      background: #00E5FF;
-      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-      pointer-events: auto;
-      cursor: grab;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
-    }
-    .playhead-head:active {
-      cursor: grabbing;
-    }
-
-    /* Snapping Guide & Drag Tooltip */
-    .timeline-snap-guide {
-      position: absolute;
-      top: 32px;
-      bottom: 20px;
-      width: 1px;
-      background: #FF0055;
-      z-index: 45;
-      display: none;
-      pointer-events: none;
-      box-shadow: 0 0 8px #FF0055;
-    }
-
-    .timeline-drag-tooltip {
-      position: fixed;
-      z-index: 999;
-      background: #000000;
-      border: 1px solid #38BDF8;
-      color: #FFFFFF;
-      font-family: var(--font-code);
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 4px 8px;
-      border-radius: 4px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8);
-      pointer-events: none;
-      display: none;
-      transform: translate(-50%, -130%);
-    }
-
-    /* Premiere Pro Tracks Stack */
-    .timeline-tracks-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-top: 8px;
-      position: relative;
-    }
-
-    .pr-tracks-split-bar {
-      height: 6px;
-      background: #1A202C;
-      border-top: 1px solid #2D3748;
-      border-bottom: 1px solid #2D3748;
-      margin: 2px 0;
-      position: relative;
-    }
-    .pr-tracks-split-bar::before {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 60px;
-      width: 30px;
-      height: 2px;
-      background: #4A5568;
-      border-radius: 2px;
-    }
-
-    .track-lane {
-      display: flex;
-      align-items: stretch;
-      height: 42px;
-      gap: 6px;
-      position: relative;
-      transition: background 0.15s ease;
-    }
-    .track-lane.drag-target-lane {
-      background: rgba(56, 189, 248, 0.08);
-      border-radius: 4px;
-    }
-
-    /* Premiere Pro Track Header Controls */
-    .track-header-badge.pr-header {
-      width: 140px;
-      flex-shrink: 0;
-      background: #141824;
-      border: 1px solid #232838;
-      border-radius: 4px;
-      padding: 4px 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: var(--font-mono);
-      user-select: none;
-    }
-    .track-header-badge.pr-header.active-target {
-      border-left: 3px solid #0574C5;
-      background: #171E2E;
-    }
-
-    .pr-track-id-group {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pr-track-target-btn {
-      font-family: var(--font-heading);
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: #94A3B8;
-      background: #1E2536;
-      border: 1px solid #2D374E;
-      padding: 2px 5px;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    .pr-track-target-btn.active {
-      color: #FFFFFF;
-      background: #0574C5;
-      border-color: #38BDF8;
-    }
-
-    .pr-track-title {
-      font-size: 0.6rem;
-      font-weight: 700;
-      color: #E2E8F0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 55px;
-    }
-
-    .pr-track-controls {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .pr-icon-btn, .pr-audio-btn {
-      font-size: 0.62rem;
-      color: #64748B;
-      cursor: pointer;
-      padding: 2px;
-      transition: color 0.15s ease;
-      user-select: none;
-    }
-    .pr-icon-btn.active, .pr-audio-btn.active {
-      color: #38BDF8;
-    }
-    .pr-audio-btn {
-      font-weight: 800;
-      font-family: var(--font-code);
-      background: #1E2536;
-      border: 1px solid #2D374E;
-      padding: 1px 4px;
-      border-radius: 2px;
-    }
-    .pr-audio-btn.btn-mute.active {
-      background: #EF4444;
-      color: #FFFFFF;
-      border-color: #EF4444;
-    }
-    .pr-audio-btn.btn-solo.active {
-      background: #F59E0B;
-      color: #000000;
-      border-color: #F59E0B;
-    }
-
-    /* Track Clips Container (Droppable Area) */
-    .track-clips-container {
-      flex: 1;
-      height: 100%;
-      background: #0E121B;
-      border: 1px solid #1A202C;
-      border-radius: 4px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Adobe Premiere Pro CC Clips (Fully 2D Draggable Up/Down/Left/Right) */
-    .timeline-clip.pr-clip {
-      position: absolute;
-      top: 2px;
-      bottom: 2px;
-      border-radius: 3px;
-      border: 1px solid rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 3px 6px;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      overflow: hidden;
-      cursor: grab;
-      user-select: none;
-      touch-action: none;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 6px rgba(0, 0, 0, 0.4);
-      transition: box-shadow 0.15s ease, filter 0.15s ease;
-    }
-    .timeline-clip.pr-clip:hover {
-      filter: brightness(1.15);
-      border-color: #FFFFFF;
-    }
-    .timeline-clip.pr-clip.is-dragging {
-      cursor: grabbing;
-      opacity: 0.85;
-      z-index: 100 !important;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 0 2px #00E5FF;
-      filter: brightness(1.25);
-      transition: none;
-    }
-
-    /* Authentic Premiere Pro Color Palettes */
-    .clip-iris { background: #8257A6; }
-    .clip-teal { background: #189F7A; }
-    .clip-lavender { background: #6B46C1; }
-    .clip-forest { background: #2E8B57; }
-    .clip-cerulean { background: #2072A7; }
-    .clip-darkgreen { background: #1C6B48; }
-    .clip-mango { background: #C46A28; }
-
-    .pr-clip-header {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .pr-clip-fx {
-      font-family: var(--font-heading);
+    .spec-details-list li::before {
+      content: '✦';
       font-size: 0.55rem;
+      color: var(--accent-color);
+    }
+
+    /* ==========================================================================
+       SECTION 02: FULL-STACK ARCHITECTURE MATRIX (4 PILLARS)
+       ========================================================================== */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .matrix-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 10px 30px rgba(5, 116, 197, 0.06);
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .matrix-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-color);
+      box-shadow: 0 18px 45px rgba(5, 116, 197, 0.14);
+    }
+
+    .matrix-num {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
       font-weight: 900;
-      color: #A0AEC0;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 1px 3px;
-      border-radius: 2px;
-    }
-    .pr-clip-fx.active {
-      color: #000000;
-      background: #F6E05E;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+      line-height: 1;
     }
 
-    .pr-clip-title {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    .matrix-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin: 0 0 10px 0;
+      letter-spacing: -0.02em;
     }
 
-    .pr-clip-keyframe-line {
-      width: 100%;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.4);
-      position: relative;
+    .matrix-desc {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+    }
+
+    .matrix-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
       margin-top: auto;
     }
-    .pr-clip-keyframe-line::after {
-      content: 'Γùå';
-      position: absolute;
-      top: -5px;
-      left: 45%;
-      font-size: 0.5rem;
-      color: #FFFFFF;
-    }
 
-    .pr-clip-thumb-strip {
-      position: absolute;
-      inset: 0;
-      opacity: 0.12;
-      background-image: repeating-linear-gradient(90deg, #FFFFFF 0px, #FFFFFF 20px, transparent 20px, transparent 22px);
-      pointer-events: none;
+    .matrix-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      background: rgba(5, 116, 197, 0.08);
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(5, 116, 197, 0.18);
     }
-
-    /* Audio Waveform Canvas */
-    .pr-waveform-canvas-wrap {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.4;
-      display: flex;
-      align-items: center;
-    }
-    .pr-waveform-canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Trim Handles */
-    .pr-clip-handle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 6px;
-      cursor: ew-resize;
-      background: rgba(0, 0, 0, 0.2);
-    }
-    .pr-clip-handle.handle-left { left: 0; border-right: 1px solid rgba(255, 255, 255, 0.3); }
-    .pr-clip-handle.handle-right { right: 0; border-left: 1px solid rgba(255, 255, 255, 0.3); }
 
     /* ==========================================================================
-       ZONE 03: THE CONVERGENCE & LIVE PRODUCTION PIPELINE
+       SECTION 03: ENGINEERING PIPELINE & ARSENAL
        ========================================================================== */
     .skills-convergence-section {
-      background: rgba(255, 255, 255, 0.85);
+      background: #FFFFFF;
       border: 1.5px solid var(--border-color);
-      border-radius: 32px;
-      padding: 60px 50px;
-      box-shadow: 0 25px 70px rgba(5, 116, 197, 0.1);
-      backdrop-filter: blur(20px);
-      position: relative;
-      overflow: hidden;
+      border-radius: 28px;
+      padding: 50px 48px;
+      box-shadow: 0 15px 45px rgba(5, 116, 197, 0.08);
     }
 
     .convergence-header {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 50px;
+      margin-bottom: 36px;
     }
 
     .convergence-tag {
       font-family: var(--font-mono);
       font-size: 0.72rem;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       color: var(--accent-color);
-      text-transform: uppercase;
       font-weight: 700;
-      margin-bottom: 12px;
-      display: inline-block;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
     }
 
     .convergence-title {
       font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-size: clamp(2rem, 3.8vw, 3rem);
       font-weight: 900;
       letter-spacing: -0.03em;
-      text-transform: uppercase;
       color: var(--text-primary);
-      margin-bottom: 16px;
+      text-transform: uppercase;
+      margin: 0 0 12px 0;
     }
 
     .convergence-desc {
       font-family: var(--font-body);
-      font-size: 1.05rem;
+      font-size: 0.98rem;
       color: var(--text-secondary);
       line-height: 1.65;
+      max-width: 640px;
+      margin: 0;
     }
 
-    /* Pipeline 4-Stage Simulator */
     .pipeline-interactive-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
-      margin-bottom: 50px;
-      position: relative;
+      margin-bottom: 48px;
     }
 
     .pipeline-stage-card {
-      background: #FFFFFF;
-      border: 1.5px solid rgba(151, 197, 236, 0.7);
-      border-radius: 20px;
-      padding: 30px 24px;
-      position: relative;
-      transition: all 0.35s ease;
+      background: var(--bg-alt);
+      border: 1.5px solid rgba(151, 197, 236, 0.6);
+      border-radius: 18px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
+
     .pipeline-stage-card:hover {
-      transform: translateY(-6px);
+      background: #FFFFFF;
       border-color: var(--accent-color);
-      box-shadow: 0 16px 40px rgba(5, 116, 197, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(5, 116, 197, 0.12);
     }
 
     .stage-index {
-      font-family: var(--font-mono);
+      font-family: var(--font-heading);
       font-size: 1.6rem;
       font-weight: 900;
-      color: rgba(5, 116, 197, 0.25);
-      margin-bottom: 14px;
-      line-height: 1;
+      color: var(--accent-color);
+      margin-bottom: 8px;
     }
 
     .stage-title {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--text-primary);
-      margin-bottom: 10px;
+      margin: 0 0 8px 0;
     }
 
     .stage-desc {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 16px;
+      line-height: 1.55;
+      margin: 0 0 16px 0;
     }
 
     .stage-tech-tag {
-      display: inline-block;
       font-family: var(--font-mono);
       font-size: 0.64rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: var(--accent-color);
-      background: rgba(5, 116, 197, 0.08);
-      padding: 4px 10px;
-      border-radius: 100px;
+      margin-top: auto;
     }
 
-    /* Complete Arsenal Tag Cloud */
+    /* Complete Tech Arsenal Badges Cluster */
     .arsenal-badge-cluster {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      max-width: 1000px;
-      margin: 0 auto;
+      gap: 10px;
     }
 
     .arsenal-badge {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.9);
+      background: #FFFFFF;
       border: 1.5px solid var(--border-color);
       padding: 8px 18px;
       border-radius: 100px;
+      box-shadow: 0 3px 12px rgba(5, 116, 197, 0.05);
+      transition: all 0.25s ease;
       cursor: default;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-      box-shadow: 0 4px 12px rgba(5, 116, 197, 0.05);
     }
+
     .arsenal-badge:hover {
       background: var(--accent-color);
       color: #FFFFFF;
       border-color: var(--accent-color);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 24px rgba(5, 116, 197, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(5, 116, 197, 0.25);
     }
 
     /* ==========================================================================
-       BOTTOM COLLABORATION CALLOUT
+       SECTION 04: COLLABORATION INVITATION
        ========================================================================== */
     .skills-collab-section {
-      background: linear-gradient(135deg, var(--accent-color) 0%, #035AA3 100%);
-      border-radius: 32px;
-      padding: 70px 60px;
+      background: var(--accent-color);
+      border-radius: 28px;
+      padding: 50px 48px;
       color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 40px;
-      box-shadow: 0 30px 80px rgba(5, 116, 197, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .skills-collab-section::after {
-      content: '';
-      position: absolute;
-      right: -10%;
-      top: -50%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-      border-radius: 50%;
+      flex-wrap: wrap;
+      box-shadow: 0 20px 60px rgba(5, 116, 197, 0.3);
     }
 
     .collab-left h2 {
       font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-size: clamp(2rem, 3.8vw, 3rem);
       font-weight: 900;
-      line-height: 1.05;
-      text-transform: uppercase;
       letter-spacing: -0.03em;
-      margin-bottom: 14px;
+      margin: 0 0 12px 0;
+      line-height: 1.05;
     }
 
     .collab-left p {
       font-family: var(--font-body);
-      font-size: 1.1rem;
+      font-size: 1rem;
       opacity: 0.9;
-      max-width: 550px;
+      max-width: 540px;
       line-height: 1.6;
+      margin: 0;
     }
 
     .collab-right {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       gap: 12px;
-      flex-shrink: 0;
     }
 
     .collab-btn {
@@ -2112,24 +961,25 @@
       text-transform: uppercase;
       padding: 18px 38px;
       border-radius: 100px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
       transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
       display: inline-flex;
       align-items: center;
       gap: 10px;
     }
+
     .collab-btn:hover {
-      background: var(--bg-color);
-      color: var(--text-primary);
+      background: #0A192F;
+      color: #FFFFFF;
       transform: translateY(-4px);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
     }
 
     .collab-note {
       font-family: var(--font-mono);
       font-size: 0.65rem;
       letter-spacing: 0.15em;
-      opacity: 0.65;
+      opacity: 0.8;
     }
 
     /* ==========================================================================
@@ -2137,22 +987,22 @@
        ========================================================================== */
     @media (max-width: 1100px) {
       .zone-web-workspace { grid-template-columns: 1fr; }
-      .cinema-deck-top { grid-template-columns: 1fr; }
+      .matrix-grid { grid-template-columns: 1fr 1fr; }
       .pipeline-interactive-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
-      .skills-hero-banner { padding: 90px 6% 40px; min-height: 100vh; }
-      .skills-zone-nav-container { padding: 14px 6%; top: auto; flex-direction: column; align-items: flex-start; }
-      .skills-zones-layout { padding: 30px 6% 60px; gap: 60px; }
-      .skills-hero-intro { grid-template-columns: 1fr; }
+      .skills-hero-banner { padding: 110px 6% 40px; min-height: auto; }
+      .skills-zones-layout { padding: 20px 6% 60px; gap: 60px; }
       .web-spec-grid { grid-template-columns: 1fr; }
+      .matrix-grid { grid-template-columns: 1fr; }
       .pipeline-interactive-grid { grid-template-columns: 1fr; }
-      .track-header-badge { width: 80px; font-size: 0.58rem; }
+      .skills-convergence-section { padding: 32px 24px; }
+      .skills-collab-section { padding: 36px 24px; }
     }
 
     /* ==========================================================================
-       NAVBAR TEXT COLOR ΓÇö DARK BLUE FOR SKILLS PAGE
+       NAVBAR TEXT OVERRIDES FOR HIGH-CONTRAST PRESTIGE
        ========================================================================== */
     .navbar .nav-logo {
       color: #0A192F !important;
@@ -2191,10 +1041,8 @@
 </head>
 <body>
 
-  <!-- Three.js Ambient 3D Dynamic Background Canvas -->
+  <!-- Three.js Ambient 3D White Wireframe Dynamic Background Globe -->
   <canvas id="skills3dCanvas"></canvas>
-
-  <!-- Background grids and floating glyphs removed per user request -->
 
   <!-- Preloader Screen -->
   <div class="loader-container" id="preloader">
@@ -2211,8 +1059,8 @@
     <a href="index.html" class="nav-logo" id="navLogo">VANSH</a>
     <div class="nav-links">
       <a href="index.html" class="nav-link">About</a>
-      <a href="work.html" class="nav-link">Work</a>
-      <a href="skills.html" class="nav-link active">Skills</a>
+      <a href="work.html" class="nav-link">Video Editing</a>
+      <a href="skills.html" class="nav-link active">Web Dev</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta">Let's Talk <span class="cta-arrow">&#x2197;</span></a>
@@ -2221,108 +1069,61 @@
   <div class="skills-experience-wrapper">
 
     <!-- ======================================================================
-         HERO SECTION: DUAL COCKPIT STATEMENT
+         HERO SECTION: EDITORIAL WEB DEV STATEMENT (SPACIOUS BREATHING ROOM)
          ====================================================================== -->
     <header class="skills-hero-banner">
-      <!-- Minor Web Dev & Video Editing Thematic Floating Particles -->
+      <!-- Thematic Floating Tech Badges -->
       <div class="skills-hero-particles-container" aria-hidden="true">
-        <span class="hero-minor-particle p-node-2">PRORES 4K</span>
-        <span class="hero-minor-particle p-node-3">{ three.js }</span>
-        <span class="hero-minor-particle p-node-4">60 FPS GLSL</span>
-        <span class="hero-minor-particle p-node-5">10-BIT LUT</span>
+        <span class="hero-minor-particle p-node-1">{ three.js / glsl }</span>
+        <span class="hero-minor-particle p-node-2">REACT 19 + NEXT 15</span>
+        <span class="hero-minor-particle p-node-3">60 FPS ENGINE</span>
       </div>
 
       <div class="skills-hero-meta-row">
         <div class="skills-hero-badge">
           <span class="skills-badge-dot"></span>
-          <span class="skills-badge-text">DUAL DISCIPLINE COCKPIT // 2026.v2</span>
+          <span class="skills-badge-text">WEB ENGINEERING // ARCHITECTURE &amp; LAB</span>
         </div>
         <div class="skills-telemetry-hud">
-          <span>LATENCY: 1.2MS</span>
-          <span>┬╖</span>
-          <span>FPS: 60.0 LOCKED</span>
-          <span>┬╖</span>
-          <span>COLOR: 10-BIT DCI-P3</span>
+          <span>REACT 19</span>
+          <span>·</span>
+          <span>NEXT.JS 15</span>
+          <span>·</span>
+          <span>TYPESCRIPT</span>
+          <span>·</span>
+          <span>THREE.JS / GLSL</span>
         </div>
       </div>
 
       <h1 class="skills-hero-title">
-        CODE <span class="title-stroke">&times;</span> CINEMA<br>
-        <span class="title-accent">ARCHITECT</span>
+        WEB DEV <span class="title-stroke">&amp;</span><br>
+        <span class="title-accent">ENGINEERING</span>
       </h1>
 
-      <div class="skills-hero-intro">
-          <p class="skills-hero-desc">
-            HighΓÇæperformance web engineering meets cinematic visual rhythmΓÇödelivering unforgettable digital prestige.
-          </p>
-
-        <!-- Interactive 3D HUD Stats Deck -->
-        <div class="skills-hud-stats-perspective-wrapper">
-          <div class="skills-hud-stats" id="hudStatsCard" role="button" tabindex="0" title="Click to engage 3D HUD Cockpit Tilt">
-            <span class="hud-stat-interactive-pill"><span class="pill-pulse"></span> 3D HUD DECK</span>
-            <div class="hud-stat-box">
-              <div class="hud-stat-val">50<span>+</span></div>
-              <div class="hud-stat-lbl">Shipped</div>
-            </div>
-            <div class="hud-stat-box">
-              <div class="hud-stat-val">60<span>fps</span></div>
-              <div class="hud-stat-lbl">Standard</div>
-            </div>
-            <div class="hud-stat-box">
-              <div class="hud-stat-val">100<span>%</span></div>
-              <div class="hud-stat-lbl">Precision</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p class="skills-hero-desc">
+        Architecting zero-bloat reactive applications, high-performance WebGL shaders, full-stack microservices, and design systems locked at 60 fps.
+      </p>
 
       <!-- Scroll Indicator to Next Page / Workspaces -->
-      <div class="skills-scroll-cue" id="skillsScrollCue" role="button" tabindex="0" title="Scroll down to Workspaces &amp; Zone Selector">
-        <span class="scroll-cue-text">SCROLL TO EXPLORE WORKSPACES</span>
+      <div class="skills-scroll-cue" id="skillsScrollCue" role="button" tabindex="0" title="Scroll down to Web Dev Lab">
+        <span class="scroll-cue-text">EXPLORE ARCHITECTURE LAB</span>
         <span class="scroll-cue-chevron">&#x2193;</span>
       </div>
     </header>
 
     <!-- ======================================================================
-         ZONE CONTROLLER / WORKSPACE MODE SWITCHER (IN-FLOW)
+         MAIN WEB DEV WORKSPACES & BENCHMARKS
          ====================================================================== -->
-    <section class="skills-zone-nav-container" aria-label="Zone Selector">
-      <div class="skills-zone-tabs" role="tablist">
-        <button class="zone-btn active" id="btnZoneAll" role="tab" aria-selected="true">
-          <span class="zone-num">00</span>
-          <span>DUAL PERSPECTIVE</span>
-        </button>
-        <button class="zone-btn" id="btnZoneWeb" role="tab" aria-selected="false">
-          <span class="zone-num">01</span>
-          <span>WEB DEV LAB</span>
-        </button>
-        <button class="zone-btn" id="btnZoneCinema" role="tab" aria-selected="false">
-          <span class="zone-num">02</span>
-          <span>CINEMA SUITE</span>
-        </button>
-      </div>
-
-      <div class="zone-actions-right">
-        <button class="haptic-sound-toggle" id="btnAudioToggle" title="Toggle audio cues">
-          <span id="soundIcon">≡ƒöè</span>
-          <span id="soundStatusText">HAPTICS: ON</span>
-        </button>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         DUAL ZONE WORKSPACES
-         ====================================================================== -->
-    <main class="skills-zones-layout">
+    <main class="skills-zones-layout" id="skillsMainContent">
 
       <!-- ====================================================================
-           ZONE 01: CREATIVE WEB ENGINEERING WORKSPACE
+           SECTION 01: CREATIVE WEB ENGINEERING WORKSPACE & LIVE IDE
            ==================================================================== -->
       <section class="zone-section" id="zoneWebDev" aria-labelledby="webDevTitle">
         <div class="zone-header-banner">
           <div>
-            <div class="zone-badge-tag">ZONE 01 // DIGITAL ARCHITECTURE</div>
-            <h2 class="zone-main-title" id="webDevTitle">CREATIVE <em>WEB</em> DEV</h2>
+            <div class="zone-badge-tag">01 // DIGITAL ARCHITECTURE</div>
+            <h2 class="zone-main-title" id="webDevTitle">LIVE <em>CODE</em> LAB</h2>
           </div>
           <p class="zone-header-meta">
             Bespoke frontend engines, low-latency microservices, 3D WebGL physics simulations, and design systems engineered for scale.
@@ -2340,23 +1141,23 @@
                 <span class="ide-dot ide-dot-green"></span>
               </div>
               <div class="ide-branch-meta">
-                <span>git: main*</span> ┬╖ UTF-8 ┬╖ TypeScript 5.5
+                <span>git: main*</span> · UTF-8 · TypeScript 5.5
               </div>
             </div>
 
             <!-- IDE Tabs -->
             <div class="ide-tabs-bar" role="tablist">
               <button class="ide-tab-btn active" data-tab="creative">
-                <span class="ide-tab-icon">ΓÜí</span> CreativeEngine.tsx
+                <span class="ide-tab-icon">⚡</span> CreativeEngine.tsx
               </button>
               <button class="ide-tab-btn" data-tab="shader">
-                <span class="ide-tab-icon">Γùå</span> RaymarchShader.glsl
+                <span class="ide-tab-icon">◈</span> RaymarchShader.glsl
               </button>
               <button class="ide-tab-btn" data-tab="physics">
-                <span class="ide-tab-icon">Γùê</span> PhysicsWorld.ts
+                <span class="ide-tab-icon">◉</span> PhysicsWorld.ts
               </button>
               <button class="ide-tab-btn" data-tab="edge">
-                <span class="ide-tab-icon">Γû▓</span> EdgeGateway.ts
+                <span class="ide-tab-icon">▲</span> EdgeGateway.ts
               </button>
             </div>
 
@@ -2369,12 +1170,12 @@
             <div class="ide-terminal-drawer">
               <div class="ide-terminal-logs">
                 <span>[vite:build]</span>
-                <span class="ide-log-highlight">Γ£ô 0 errors</span>
-                <span>┬╖ 16.6ms frame budget</span>
-                <span>┬╖ 100/100 Lighthouse</span>
+                <span class="ide-log-highlight">✓ 0 errors</span>
+                <span>· 16.6ms frame budget</span>
+                <span>· 100/100 Lighthouse</span>
               </div>
               <button class="ide-run-btn" id="btnExecuteCode">
-                <span>Γû╢ RUN BENCHMARK</span>
+                <span>▶ RUN BENCHMARK</span>
               </button>
             </div>
           </div>
@@ -2384,7 +1185,7 @@
             <div class="web-interactive-preview">
               <div class="preview-header">
                 <div class="preview-title">
-                  <span>ΓùÅ</span> LIVE 3D CANVAS SHADER
+                  <span>●</span> LIVE 3D CANVAS SHADER
                 </div>
                 <div class="preview-fps" id="previewFps">60.0 FPS</div>
               </div>
@@ -2392,7 +1193,7 @@
               <!-- WebGL Interactive Mini Canvas -->
               <div class="webgl-canvas-box" id="webglCanvasContainer">
                 <canvas id="interactiveWebglCanvas"></canvas>
-                <div class="webgl-hint">DRAG TO ORBIT 360┬░</div>
+                <div class="webgl-hint">DRAG TO ORBIT 360°</div>
               </div>
             </div>
 
@@ -2427,417 +1228,123 @@
       </section>
 
       <!-- ====================================================================
-           ZONE 02: CINEMATIC VIDEO EDITING & MOTION SUITE
+           SECTION 02: FULL-STACK ARCHITECTURE MATRIX (4 PILLARS)
            ==================================================================== -->
-      <section class="zone-section" id="zoneCinema" aria-labelledby="cinemaTitle">
+      <section class="zone-section" id="zoneMatrix" aria-labelledby="matrixTitle">
         <div class="zone-header-banner">
           <div>
-            <div class="zone-badge-tag">ZONE 02 // CINEMATIC DIRECTION</div>
-            <h2 class="zone-main-title" id="cinemaTitle">CINEMA &amp; <em>MOTION</em></h2>
+            <div class="zone-badge-tag">02 // CORE CAPABILITIES</div>
+            <h2 class="zone-main-title" id="matrixTitle">TECH <em>MATRIX</em></h2>
           </div>
           <p class="zone-header-meta">
-            Non-linear timeline editing, dynamic pacing, 10-bit log color science, bespoke motion graphics, and immersive sound engineering.
+            From client-side rendering pipelines to edge compute clusters — built with zero compromise on speed.
           </p>
         </div>
 
-        <div class="zone-cinema-workspace">
-
-          <!-- Top Section: 4K Program Monitor & 3-Way Color Wheels -->
-          <div class="cinema-deck-top">
-            
-            <!-- 4K Program Monitor with Real Demo Video -->
-            <div class="cinema-monitor-card">
-              <div class="monitor-header">
-                <div class="monitor-hud-status">
-                  <span class="rec-indicator"><span class="rec-dot"></span> REC ΓùÅ</span>
-                  <span>4K PRORES 4444 XQ</span>
-                  <span>┬╖</span>
-                  <span>DEMO_SEQUENCE.MP4</span>
-                </div>
-                <div class="monitor-timecode-display" id="monitorTimecode">00:04:18:24</div>
-              </div>
-
-              <div class="monitor-viewport-screen" id="monitorScreenContainer" title="Click to Play / Pause Video">
-                <video id="cinemaVideoElement" src="assets/demo.mp4" loop muted playsinline preload="auto"></video>
-                <div class="cinema-color-tint-overlay" id="cinemaTintOverlay"></div>
-                <canvas id="cinemaPreviewCanvas" style="display:none;"></canvas>
-                <div class="monitor-grid-overlay" id="monitorGrid">
-                  <div></div><div></div><div></div>
-                  <div></div><div></div><div></div>
-                  <div></div><div></div><div></div>
-                </div>
-                <div class="monitor-crosshair"></div>
-                <div class="monitor-play-badge" id="monitorPlayBadge">Γû╢ PLAY / PAUSE</div>
-              </div>
-
-              <div class="monitor-bottom-bar">
-                <div class="monitor-btn-group">
-                  <button class="monitor-btn" id="btnToggleGrid">GRID: 3x3</button>
-                  <button class="monitor-btn" id="btnToggleScope">SAFE MARGINS</button>
-                  <button class="monitor-btn" id="btnAudioMuteToggle">AUDIO: UNMUTE ≡ƒöê</button>
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 0.65rem; color: #94A3B8;">
-                  COLOR SCIENCE: ACEScc / REC.709
-                </div>
-              </div>
+        <div class="matrix-grid">
+          <div class="matrix-card">
+            <div>
+              <div class="matrix-num">01</div>
+              <h3 class="matrix-title">Modern Frontend</h3>
+              <p class="matrix-desc">Server-driven React 19 components, Next.js 15 SSR, granular code splitting, and zero-layout-shift UI.</p>
             </div>
-
-            <!-- 3-Way Color Grading Suite (Live Draggable Wheels) -->
-            <div class="color-grading-panel">
-              <div class="color-panel-header">
-                <div class="color-panel-title">3-WAY COLOR WHEELS &amp; LUT PIPELINE</div>
-                <button class="monitor-btn" id="btnResetGrade" title="Reset all grading wheels & sliders">RESET ALL</button>
-              </div>
-
-              <!-- Live Interactive Color Wheels -->
-              <div class="color-wheels-row">
-                <div class="wheel-item" data-wheel="lift">
-                  <div class="wheel-disc" id="wheelLift" title="Drag to adjust Shadow Color Tint (Lift)">
-                    <div class="wheel-ring-guides"></div>
-                    <div class="wheel-puck" id="puckLift"></div>
-                  </div>
-                  <div class="wheel-label">LIFT (SHADOWS)</div>
-                  <div class="wheel-val-readout" id="valLiftReadout">0┬░ ┬╖ 0%</div>
-                </div>
-
-                <div class="wheel-item" data-wheel="gamma">
-                  <div class="wheel-disc" id="wheelGamma" title="Drag to adjust Midtone Color Tint (Gamma)">
-                    <div class="wheel-ring-guides"></div>
-                    <div class="wheel-puck" id="puckGamma"></div>
-                  </div>
-                  <div class="wheel-label">GAMMA (MIDS)</div>
-                  <div class="wheel-val-readout" id="valGammaReadout">0┬░ ┬╖ 0%</div>
-                </div>
-
-                <div class="wheel-item" data-wheel="gain">
-                  <div class="wheel-disc" id="wheelGain" title="Drag to adjust Highlight Color Tint (Gain)">
-                    <div class="wheel-ring-guides"></div>
-                    <div class="wheel-puck" id="puckGain"></div>
-                  </div>
-                  <div class="wheel-label">GAIN (HIGHS)</div>
-                  <div class="wheel-val-readout" id="valGainReadout">0┬░ ┬╖ 0%</div>
-                </div>
-              </div>
-
-              <!-- Grading Sliders -->
-              <div class="color-sliders-strip">
-                <div class="slider-row">
-                  <span class="slider-lbl">TEMPERATURE</span>
-                  <input type="range" class="slider-input" id="sliderTemp" min="0" max="200" value="100">
-                  <span class="slider-val" id="valTemp">0</span>
-                </div>
-                <div class="slider-row">
-                  <span class="slider-lbl">CONTRAST</span>
-                  <input type="range" class="slider-input" id="sliderContrast" min="50" max="200" value="115">
-                  <span class="slider-val" id="valContrast">+15%</span>
-                </div>
-                <div class="slider-row">
-                  <span class="slider-lbl">SATURATION</span>
-                  <input type="range" class="slider-input" id="sliderSat" min="0" max="200" value="110">
-                  <span class="slider-val" id="valSat">+10%</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Authentic Adobe Premiere Pro CC Timeline Console (2D Draggable Layers Up/Down/Left/Right) -->
-          <div class="nle-timeline-console premiere-pro-theme">
-            <!-- Transport & Toolset Header -->
-            <div class="timeline-transport-bar">
-              <div class="premiere-tools-cluster">
-                <span class="premiere-app-badge">Pr 2026</span>
-                <div class="premiere-tool-btn active" title="Selection Tool (V)">Γåû</div>
-                <div class="premiere-tool-btn" title="Track Select Forward (A)">ΓçÑ</div>
-                <div class="premiere-tool-btn" title="Ripple Edit Tool (B)">ΓÑé</div>
-                <div class="premiere-tool-btn" title="Razor Cut Tool (C)">Γ£é</div>
-                <div class="premiere-tool-btn" title="Slip Tool (Y)">Γçä</div>
-              </div>
-
-              <div class="transport-buttons">
-                <button class="transport-btn" id="btnTimelineRewind" title="Rewind to Start (Home)">ΓÅ«</button>
-                <button class="transport-btn" id="btnTimelineStepBack" title="Step 1 Frame Back (Left Arrow)">ΓùÇ</button>
-                <button class="transport-btn btn-play" id="btnTimelinePlay" title="Play/Pause (Spacebar)">Γû╢</button>
-                <button class="transport-btn" id="btnTimelineStepFwd" title="Step 1 Frame Forward (Right Arrow)">Γû╢</button>
-                <button class="transport-btn" id="btnTimelineLoop" title="Toggle Loop (Ctrl+L)">≡ƒöü</button>
-              </div>
-
-              <div class="transport-readouts">
-                <div class="timeline-seq-name">SHOWREEL_VANSH_4K.PRPROJ</div>
-                <div class="fps-badge">60.00 FPS ┬╖ DROP-FRAME: OFF</div>
-                <!-- Real-time dynamic audio spectrum -->
-                <div class="audio-meter-box" id="audioMeter">
-                  <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
-                  <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
-                  <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
-                  <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Timeline Ruler & Tracks Stage -->
-            <div class="timeline-ruler-track-wrapper" id="timelineWrapper">
-              
-              <!-- Ruler -->
-              <div class="timeline-ruler" id="timelineRuler">
-                <div class="ruler-workarea-bar"></div>
-                <div class="ruler-ticks">
-                  <span class="ruler-tick-item">00:00:00</span>
-                  <span class="ruler-tick-item">00:01:00</span>
-                  <span class="ruler-tick-item">00:02:00</span>
-                  <span class="ruler-tick-item">00:03:00</span>
-                  <span class="ruler-tick-item">00:04:00</span>
-                  <span class="ruler-tick-item">00:05:00</span>
-                  <span class="ruler-tick-item">00:06:00</span>
-                </div>
-              </div>
-
-              <!-- Premiere Playhead CTI -->
-              <div class="timeline-playhead" id="timelinePlayhead">
-                <div class="playhead-head"></div>
-              </div>
-
-              <!-- Drag Snapping Guide Line -->
-              <div class="timeline-snap-guide" id="timelineSnapGuide"></div>
-
-              <!-- Dragging Floating Tooltip -->
-              <div class="timeline-drag-tooltip" id="timelineDragTooltip">Track: V1 | 00:01:14:08</div>
-
-              <!-- Multi-Track Stack (Adobe Premiere Pro CC Structure) -->
-              <div class="timeline-tracks-stack" id="tracksStack">
-                
-                <!-- Track V3: VFX -->
-                <div class="track-lane pr-track-video" data-track-id="V3" data-track-type="video">
-                  <div class="track-header-badge pr-header">
-                    <div class="pr-track-id-group">
-                      <span class="pr-track-target-btn">V3</span>
-                      <span class="pr-track-title">VFX_GLOW</span>
-                    </div>
-                    <div class="pr-track-controls">
-                      <span class="pr-icon-btn btn-eye active" title="Toggle Track Output">≡ƒæü</span>
-                      <span class="pr-icon-btn btn-sync active" title="Sync Lock">≡ƒöù</span>
-                      <span class="pr-icon-btn btn-lock" title="Lock Track">≡ƒöÆ</span>
-                    </div>
-                  </div>
-                  <div class="track-clips-container" data-track-id="V3">
-                    <div class="timeline-clip clip-iris pr-clip" data-clip-id="c1" style="left: 18%; width: 28%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">ANAMORPHIC_FLARE.AEP</span></div>
-                      <div class="pr-clip-keyframe-line"></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                    <div class="timeline-clip clip-teal pr-clip" data-clip-id="c2" style="left: 54%; width: 24%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">CHROMA_WARP.PR</span></div>
-                      <div class="pr-clip-keyframe-line"></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Track V2: Motion Graphics -->
-                <div class="track-lane pr-track-video" data-track-id="V2" data-track-type="video">
-                  <div class="track-header-badge pr-header">
-                    <div class="pr-track-id-group">
-                      <span class="pr-track-target-btn">V2</span>
-                      <span class="pr-track-title">MOGRT_3D</span>
-                    </div>
-                    <div class="pr-track-controls">
-                      <span class="pr-icon-btn btn-eye active" title="Toggle Track Output">≡ƒæü</span>
-                      <span class="pr-icon-btn btn-sync active" title="Sync Lock">≡ƒöù</span>
-                      <span class="pr-icon-btn btn-lock" title="Lock Track">≡ƒöÆ</span>
-                    </div>
-                  </div>
-                  <div class="track-clips-container" data-track-id="V2">
-                    <div class="timeline-clip clip-lavender pr-clip" data-clip-id="c3" style="left: 5%; width: 38%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">KINETIC_TITLE_3D.MOGRT</span></div>
-                      <div class="pr-clip-thumb-strip"></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                    <div class="timeline-clip clip-forest pr-clip" data-clip-id="c4" style="left: 48%; width: 32%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx">fx</span><span class="pr-clip-title">HUD_TELEMETRY_DATA</span></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Track V1: Primary 4K Log -->
-                <div class="track-lane pr-track-video" data-track-id="V1" data-track-type="video">
-                  <div class="track-header-badge pr-header active-target">
-                    <div class="pr-track-id-group">
-                      <span class="pr-track-target-btn active">V1</span>
-                      <span class="pr-track-title">4K_RAW_LOG</span>
-                    </div>
-                    <div class="pr-track-controls">
-                      <span class="pr-icon-btn btn-eye active" title="Toggle Track Output">≡ƒæü</span>
-                      <span class="pr-icon-btn btn-sync active" title="Sync Lock">≡ƒöù</span>
-                      <span class="pr-icon-btn btn-lock" title="Lock Track">≡ƒöÆ</span>
-                    </div>
-                  </div>
-                  <div class="track-clips-container" data-track-id="V1">
-                    <div class="timeline-clip clip-cerulean pr-clip" data-clip-id="c5" style="left: 0%; width: 32%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">A001_C004_DEMO.MP4</span></div>
-                      <div class="pr-clip-thumb-strip"></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                    <div class="timeline-clip clip-cerulean pr-clip" data-clip-id="c6" style="left: 33%; width: 36%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">A001_C009_SPEED_RAMP.MOV</span></div>
-                      <div class="pr-clip-thumb-strip"></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                    <div class="timeline-clip clip-cerulean pr-clip" data-clip-id="c7" style="left: 70%; width: 28%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx">fx</span><span class="pr-clip-title">A002_C015_WIDE_PERSPECTIVE.MOV</span></div>
-                      <div class="pr-clip-thumb-strip"></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Video / Audio Split Bar -->
-                <div class="pr-tracks-split-bar"></div>
-
-                <!-- Track A1: Master Dialogue -->
-                <div class="track-lane pr-track-audio" data-track-id="A1" data-track-type="audio">
-                  <div class="track-header-badge pr-header active-target">
-                    <div class="pr-track-id-group">
-                      <span class="pr-track-target-btn active">A1</span>
-                      <span class="pr-track-title">DIALOGUE</span>
-                    </div>
-                    <div class="pr-track-controls">
-                      <span class="pr-audio-btn btn-mute" title="Mute Track">M</span>
-                      <span class="pr-audio-btn btn-solo" title="Solo Track">S</span>
-                      <span class="pr-icon-btn btn-sync active" title="Sync Lock">≡ƒöù</span>
-                      <span class="pr-icon-btn btn-lock" title="Lock Track">≡ƒöÆ</span>
-                    </div>
-                  </div>
-                  <div class="track-clips-container" data-track-id="A1">
-                    <div class="timeline-clip clip-teal pr-clip pr-audio-clip" data-clip-id="c8" style="left: 2%; width: 95%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">LAV_MIC_DIALOGUE_MASTER.WAV</span></div>
-                      <div class="pr-waveform-canvas-wrap"><canvas class="pr-waveform-canvas"></canvas></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Track A2: Orchestra Score -->
-                <div class="track-lane pr-track-audio" data-track-id="A2" data-track-type="audio">
-                  <div class="track-header-badge pr-header">
-                    <div class="pr-track-id-group">
-                      <span class="pr-track-target-btn">A2</span>
-                      <span class="pr-track-title">SCORE_OST</span>
-                    </div>
-                    <div class="pr-track-controls">
-                      <span class="pr-audio-btn btn-mute" title="Mute Track">M</span>
-                      <span class="pr-audio-btn btn-solo" title="Solo Track">S</span>
-                      <span class="pr-icon-btn btn-sync active" title="Sync Lock">≡ƒöù</span>
-                      <span class="pr-icon-btn btn-lock" title="Lock Track">≡ƒöÆ</span>
-                    </div>
-                  </div>
-                  <div class="track-clips-container" data-track-id="A2">
-                    <div class="timeline-clip clip-darkgreen pr-clip pr-audio-clip" data-clip-id="c9" style="left: 0%; width: 98%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">SYNTH_ORCHESTRAL_OST_96K.WAV</span></div>
-                      <div class="pr-waveform-canvas-wrap"><canvas class="pr-waveform-canvas"></canvas></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Track A3: SFX & Foley -->
-                <div class="track-lane pr-track-audio" data-track-id="A3" data-track-type="audio">
-                  <div class="track-header-badge pr-header">
-                    <div class="pr-track-id-group">
-                      <span class="pr-track-target-btn">A3</span>
-                      <span class="pr-track-title">SFX_FOLEY</span>
-                    </div>
-                    <div class="pr-track-controls">
-                      <span class="pr-audio-btn btn-mute" title="Mute Track">M</span>
-                      <span class="pr-audio-btn btn-solo" title="Solo Track">S</span>
-                      <span class="pr-icon-btn btn-sync active" title="Sync Lock">≡ƒöù</span>
-                      <span class="pr-icon-btn btn-lock" title="Lock Track">≡ƒöÆ</span>
-                    </div>
-                  </div>
-                  <div class="track-clips-container" data-track-id="A3">
-                    <div class="timeline-clip clip-mango pr-clip pr-audio-clip" data-clip-id="c10" style="left: 14%; width: 22%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">SUB_IMPACT_HIT.WAV</span></div>
-                      <div class="pr-waveform-canvas-wrap"><canvas class="pr-waveform-canvas"></canvas></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                    <div class="timeline-clip clip-mango pr-clip pr-audio-clip" data-clip-id="c11" style="left: 42%; width: 18%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx">fx</span><span class="pr-clip-title">SPATIAL_SWOOSH.WAV</span></div>
-                      <div class="pr-waveform-canvas-wrap"><canvas class="pr-waveform-canvas"></canvas></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                    <div class="timeline-clip clip-mango pr-clip pr-audio-clip" data-clip-id="c12" style="left: 68%; width: 24%;" title="Drag to reposition in time or track">
-                      <div class="pr-clip-header"><span class="pr-clip-fx active">fx</span><span class="pr-clip-title">RISER_CLIMAX_02.WAV</span></div>
-                      <div class="pr-waveform-canvas-wrap"><canvas class="pr-waveform-canvas"></canvas></div>
-                      <div class="pr-clip-handle handle-left"></div>
-                      <div class="pr-clip-handle handle-right"></div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
+            <div class="matrix-tags">
+              <span class="matrix-tag">React 19</span>
+              <span class="matrix-tag">Next.js 15</span>
+              <span class="matrix-tag">TypeScript</span>
+              <span class="matrix-tag">Zustand</span>
             </div>
           </div>
 
+          <div class="matrix-card">
+            <div>
+              <div class="matrix-num">02</div>
+              <h3 class="matrix-title">Creative Tech</h3>
+              <p class="matrix-desc">Custom GLSL fragment shaders, Three.js scenes, procedural generation, and canvas physics engines.</p>
+            </div>
+            <div class="matrix-tags">
+              <span class="matrix-tag">Three.js</span>
+              <span class="matrix-tag">GLSL</span>
+              <span class="matrix-tag">WebGL</span>
+              <span class="matrix-tag">Canvas 2D</span>
+            </div>
+          </div>
+
+          <div class="matrix-card">
+            <div>
+              <div class="matrix-num">03</div>
+              <h3 class="matrix-title">Backend &amp; Cloud</h3>
+              <p class="matrix-desc">High-concurrency Node.js APIs, GraphQL endpoints, MongoDB clusters, and edge caching strategies.</p>
+            </div>
+            <div class="matrix-tags">
+              <span class="matrix-tag">Node.js</span>
+              <span class="matrix-tag">GraphQL</span>
+              <span class="matrix-tag">MongoDB</span>
+              <span class="matrix-tag">Edge Lambdas</span>
+            </div>
+          </div>
+
+          <div class="matrix-card">
+            <div>
+              <div class="matrix-num">04</div>
+              <h3 class="matrix-title">Performance Audit</h3>
+              <p class="matrix-desc">Sub-second First Contentful Paint, 100/100 Lighthouse benchmark lock, and strict WCAG accessibility.</p>
+            </div>
+            <div class="matrix-tags">
+              <span class="matrix-tag">100/100 LH</span>
+              <span class="matrix-tag">60 FPS</span>
+              <span class="matrix-tag">Vercel Edge</span>
+              <span class="matrix-tag">WCAG AA</span>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- ====================================================================
-           ZONE 03: THE CONVERGENCE & LIVE PRODUCTION PIPELINE
+           SECTION 03: THE WEB ENGINEERING PIPELINE & ARSENAL
            ==================================================================== -->
       <section class="skills-convergence-section" aria-label="Workflow and Complete Tech Arsenal">
         <div class="convergence-header">
-          <span class="convergence-tag">03 // UNIFIED PRODUCTION SYSTEM</span>
-          <h2 class="convergence-title">THE CONVERGENCE PIPELINE</h2>
+          <span class="convergence-tag">03 // ENGINEERING LIFECYCLE</span>
+          <h2 class="convergence-title">THE ARCHITECTURE PIPELINE</h2>
           <p class="convergence-desc">
-            Code and cinema aren't parallel tracks ΓÇö they feed into one unified creative engine. Experience the systematic 4-phase deployment standard.
+            A systematic 4-phase delivery framework translating high-level concepts into battle-tested production deployments.
           </p>
         </div>
 
         <div class="pipeline-interactive-grid">
           <div class="pipeline-stage-card">
             <div class="stage-index">01</div>
-            <h3 class="stage-title">Deconstruction &amp; Concept</h3>
-            <p class="stage-desc">Defining narrative cadence, technical constraints, visual moodboards, and mathematical coordinate frameworks.</p>
-            <span class="stage-tech-tag">FIGMA &amp; STORYBOARDS</span>
+            <h3 class="stage-title">Deconstruction &amp; Specs</h3>
+            <p class="stage-desc">Defining component hierarchy, data models, state flow diagrams, and mathematical coordinate frameworks.</p>
+            <span class="stage-tech-tag">FIGMA &amp; SYSTEM DESIGN</span>
           </div>
 
           <div class="pipeline-stage-card">
             <div class="stage-index">02</div>
-            <h3 class="stage-title">Architecture &amp; Assembly</h3>
-            <p class="stage-desc">Scaffolding responsive DOM trees, assembling rough NLE cuts, programming state models, and locking rhythm.</p>
-            <span class="stage-tech-tag">REACT 19 &amp; PREMIERE</span>
+            <h3 class="stage-title">Scaffold &amp; Core Engine</h3>
+            <p class="stage-desc">Scaffolding responsive DOM trees, strict TypeScript types, server actions, and reactive store slices.</p>
+            <span class="stage-tech-tag">REACT 19 &amp; TYPESCRIPT</span>
           </div>
 
           <div class="pipeline-stage-card">
             <div class="stage-index">03</div>
-            <h3 class="stage-title">Motion &amp; Color Polish</h3>
-            <p class="stage-desc">Infusing WebGL particle shaders, 10-bit DaVinci color grading, spring physics curves, and spatial audio mastering.</p>
-            <span class="stage-tech-tag">THREE.JS &amp; DAVINCI</span>
+            <h3 class="stage-title">Shaders &amp; Kinetic Polish</h3>
+            <p class="stage-desc">Infusing WebGL particle shaders, spring physics curves, micro-interactions, and spatial audio feedback.</p>
+            <span class="stage-tech-tag">THREE.JS &amp; GLSL</span>
           </div>
 
           <div class="pipeline-stage-card">
             <div class="stage-index">04</div>
-            <h3 class="stage-title">Audit &amp; 60fps Lock</h3>
-            <p class="stage-desc">100/100 Lighthouse certification, cross-browser rendering tests, 4K render compression, and zero-downtime deployment.</p>
-            <span class="stage-tech-tag">VERCEL &amp; PRORES</span>
+            <h3 class="stage-title">Audit &amp; Edge Deploy</h3>
+            <p class="stage-desc">100/100 Lighthouse certification, cross-browser rendering audits, and global edge network deployment.</p>
+            <span class="stage-tech-tag">VERCEL &amp; LIGHTHOUSE</span>
           </div>
         </div>
 
         <!-- Master Arsenal Badges Cluster -->
         <div class="convergence-header" style="margin-bottom: 24px;">
-          <span class="convergence-tag">COMPLETE TECHNOLOGY &amp; SOFTWARE ARSENAL</span>
+          <span class="convergence-tag">COMPLETE WEB TECHNOLOGY ARSENAL</span>
         </div>
 
         <div class="arsenal-badge-cluster">
@@ -2848,33 +1355,31 @@
           <span class="arsenal-badge">GLSL Shaders</span>
           <span class="arsenal-badge">WebGL</span>
           <span class="arsenal-badge">Node.js</span>
+          <span class="arsenal-badge">Express</span>
           <span class="arsenal-badge">MongoDB</span>
           <span class="arsenal-badge">Tailwind CSS</span>
           <span class="arsenal-badge">Anime.js</span>
-          <span class="arsenal-badge">Adobe Premiere Pro</span>
-          <span class="arsenal-badge">After Effects</span>
-          <span class="arsenal-badge">DaVinci Resolve Studio</span>
-          <span class="arsenal-badge">Blender 3D</span>
-          <span class="arsenal-badge">ComfyUI / Stable Diffusion</span>
-          <span class="arsenal-badge">10-Bit Log Grading</span>
-          <span class="arsenal-badge">Sound Design</span>
+          <span class="arsenal-badge">Vite</span>
           <span class="arsenal-badge">REST &amp; GraphQL</span>
           <span class="arsenal-badge">Docker</span>
           <span class="arsenal-badge">Git &amp; GitHub</span>
           <span class="arsenal-badge">Vercel Edge</span>
           <span class="arsenal-badge">Figma Prototyping</span>
+          <span class="arsenal-badge">Web Audio API</span>
         </div>
       </section>
 
-      <!-- Bottom Collaboration Invitation -->
+      <!-- ====================================================================
+           SECTION 04: COLLABORATION INVITATION
+           ==================================================================== -->
       <section class="skills-collab-section" aria-label="Start a collaboration">
         <div class="collab-left">
-          <h2>READY TO LEVERAGE<br>THIS DUAL CRAFT?</h2>
-          <p>Whether you need a world-class web platform that commands attention or cinematic visual production that moves audiences ΓÇö let's build something unforgettable.</p>
+          <h2>READY TO BUILD YOUR NEXT<br>DIGITAL EXPERIENCE?</h2>
+          <p>Whether you need a high-performance web platform, an immersive 3D interactive application, or custom WebGL engineering — let's build something world-class.</p>
         </div>
         <div class="collab-right">
           <a href="contact.html" class="collab-btn">
-            INITIATE PROJECT <span>Γåù</span>
+            INITIATE PROJECT <span>↗</span>
           </a>
           <span class="collab-note">RESPONSE GUARANTEED WITHIN 24 HOURS</span>
         </div>
@@ -2894,108 +1399,14 @@
   <script src="main.js"></script>
 
   <!-- ========================================================================
-       PREMIUM DUAL-ZONE INTERACTIVE LOGIC (ANIME.JS & THREE.JS DRIVEN)
+       PREMIUM WEB DEV INTERACTIVE LOGIC (THREE.JS & CODE SANDBOX)
        ======================================================================== -->
   <script>
     (function() {
       'use strict';
 
       // ======================================================================
-      // 1. WEB AUDIO SYNTHESIZER FOR HAPTIC SOUND CUES
-      // ======================================================================
-      let audioEnabled = true;
-      let audioCtx = null;
-
-      function getAudioContext() {
-        if (!audioCtx) {
-          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-          if (AudioContextClass) audioCtx = new AudioContextClass();
-        }
-        if (audioCtx && audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-        return audioCtx;
-      }
-
-      function playHapticTone(type) {
-        if (!audioEnabled) return;
-        try {
-          const ctx = getAudioContext();
-          if (!ctx) return;
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-
-          const now = ctx.currentTime;
-          if (type === 'click') {
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(880, now);
-            osc.frequency.exponentialRampToValueAtTime(440, now + 0.04);
-            gain.gain.setValueAtTime(0.04, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
-            osc.start(now);
-            osc.stop(now + 0.04);
-          } else if (type === 'play') {
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(440, now);
-            osc.frequency.exponentialRampToValueAtTime(660, now + 0.08);
-            gain.gain.setValueAtTime(0.05, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
-            osc.start(now);
-            osc.stop(now + 0.08);
-          } else if (type === 'run') {
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(330, now);
-            osc.frequency.exponentialRampToValueAtTime(880, now + 0.15);
-            gain.gain.setValueAtTime(0.03, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.15);
-            osc.start(now);
-            osc.stop(now + 0.15);
-          }
-        } catch (e) {}
-      }
-
-      const btnAudioToggle = document.getElementById('btnAudioToggle');
-      const soundIcon = document.getElementById('soundIcon');
-      const soundStatusText = document.getElementById('soundStatusText');
-      if (btnAudioToggle) {
-        btnAudioToggle.addEventListener('click', function() {
-          audioEnabled = !audioEnabled;
-          if (audioEnabled) {
-            getAudioContext();
-            soundIcon.textContent = '≡ƒöè';
-            soundStatusText.textContent = 'HAPTICS: ON';
-            btnAudioToggle.classList.remove('muted');
-            playHapticTone('click');
-          } else {
-            soundIcon.textContent = '≡ƒöç';
-            soundStatusText.textContent = 'HAPTICS: OFF';
-            btnAudioToggle.classList.add('muted');
-          }
-        });
-      }
-
-      // ======================================================================
-      // 1.5 INTERACTIVE 3D STATS HUD DECK (ROTATION & FLOATING FONT ANIMATION)
-      // ======================================================================
-      const hudStatsCard = document.getElementById('hudStatsCard');
-      if (hudStatsCard) {
-        hudStatsCard.addEventListener('click', function() {
-          playHapticTone('click');
-          this.classList.toggle('is-active-3d');
-        });
-        hudStatsCard.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            playHapticTone('click');
-            this.classList.toggle('is-active-3d');
-          }
-        });
-      }
-
-      // ======================================================================
-      // 2. THREE.JS AMBIENT 3D BACKGROUND CANVAS
+      // 1. THREE.JS AMBIENT 3D WHITE WIREFRAME GLOBE BACKGROUND CANVAS
       // ======================================================================
       const bgCanvas = document.getElementById('skills3dCanvas');
       if (bgCanvas && window.THREE) {
@@ -3007,18 +1418,16 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-        // Create interactive wireframe icosahedron & ambient particle dust
-        const geom = new THREE.IcosahedronGeometry(12, 2);
+        // Create interactive WHITE wireframe icosahedron globe
+        const geom = new THREE.IcosahedronGeometry(13, 2);
         const mat = new THREE.MeshBasicMaterial({
-          color: 0x0574C5,
+          color: 0xFFFFFF,
           wireframe: true,
           transparent: true,
-          opacity: 0.20
+          opacity: 0.55
         });
         const mesh = new THREE.Mesh(geom, mat);
         scene.add(mesh);
-
-        // Particle field removed per user request (floating blue rectangles)
 
         let mouseX = 0, mouseY = 0;
         window.addEventListener('mousemove', function(e) {
@@ -3028,10 +1437,10 @@
 
         function animateBg() {
           requestAnimationFrame(animateBg);
-          mesh.rotation.x += 0.002;
-          mesh.rotation.y += 0.003;
-          mesh.rotation.x += (mouseY * 0.3 - mesh.rotation.x) * 0.05;
-          mesh.rotation.y += (mouseX * 0.3 - mesh.rotation.y) * 0.05;
+          mesh.rotation.x += 0.0018;
+          mesh.rotation.y += 0.0026;
+          mesh.rotation.x += (mouseY * 0.25 - mesh.rotation.x) * 0.04;
+          mesh.rotation.y += (mouseX * 0.25 - mesh.rotation.y) * 0.04;
           renderer.render(scene, camera);
         }
         animateBg();
@@ -3044,50 +1453,14 @@
       }
 
       // ======================================================================
-      // 3. ZONE CONTROLLER / FOCUS SWITCHER WITH ANIME.JS
+      // 2. SCROLL CUE NAVIGATION
       // ======================================================================
-      const btnZoneAll = document.getElementById('btnZoneAll');
-      const btnZoneWeb = document.getElementById('btnZoneWeb');
-      const btnZoneCinema = document.getElementById('btnZoneCinema');
-      const zoneWebDev = document.getElementById('zoneWebDev');
-      const zoneCinema = document.getElementById('zoneCinema');
-
-      function setZoneState(activeMode) {
-        playHapticTone('click');
-        [btnZoneAll, btnZoneWeb, btnZoneCinema].forEach(b => b.classList.remove('active'));
-
-        if (activeMode === 'all') {
-          btnZoneAll.classList.add('active');
-          zoneWebDev.classList.remove('zone-dimmed', 'zone-focused');
-          zoneCinema.classList.remove('zone-dimmed', 'zone-focused');
-        } else if (activeMode === 'web') {
-          btnZoneWeb.classList.add('active');
-          zoneWebDev.classList.remove('zone-dimmed');
-          zoneWebDev.classList.add('zone-focused');
-          zoneCinema.classList.remove('zone-focused');
-          zoneCinema.classList.add('zone-dimmed');
-          zoneWebDev.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else if (activeMode === 'cinema') {
-          btnZoneCinema.classList.add('active');
-          zoneCinema.classList.remove('zone-dimmed');
-          zoneCinema.classList.add('zone-focused');
-          zoneWebDev.classList.remove('zone-focused');
-          zoneWebDev.classList.add('zone-dimmed');
-          zoneCinema.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-
-      if (btnZoneAll) btnZoneAll.addEventListener('click', () => setZoneState('all'));
-      if (btnZoneWeb) btnZoneWeb.addEventListener('click', () => setZoneState('web'));
-      if (btnZoneCinema) btnZoneCinema.addEventListener('click', () => setZoneState('cinema'));
-
       const skillsScrollCue = document.getElementById('skillsScrollCue');
       if (skillsScrollCue) {
         skillsScrollCue.addEventListener('click', () => {
-          playHapticTone('click');
-          const zoneNav = document.querySelector('.skills-zone-nav-container');
-          if (zoneNav) {
-            zoneNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const mainContent = document.getElementById('skillsMainContent');
+          if (mainContent) {
+            mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
         skillsScrollCue.addEventListener('keydown', (e) => {
@@ -3099,7 +1472,7 @@
       }
 
       // ======================================================================
-      // 4. ZONE 01: GLASS IDE CODE EDITOR TAB LOGIC
+      // 3. GLASS IDE CODE EDITOR TAB LOGIC
       // ======================================================================
       const codeFiles = {
         creative: [
@@ -3189,7 +1562,6 @@
       const ideTabs = document.querySelectorAll('.ide-tab-btn');
       ideTabs.forEach(tab => {
         tab.addEventListener('click', function() {
-          playHapticTone('click');
           ideTabs.forEach(t => t.classList.remove('active'));
           this.classList.add('active');
           const key = this.getAttribute('data-tab');
@@ -3201,19 +1573,18 @@
       const btnExecuteCode = document.getElementById('btnExecuteCode');
       if (btnExecuteCode) {
         btnExecuteCode.addEventListener('click', function() {
-          playHapticTone('run');
-          btnExecuteCode.textContent = 'ΓÅ│ COMPILING...';
+          btnExecuteCode.textContent = '⏳ COMPILING...';
           setTimeout(() => {
-            btnExecuteCode.innerHTML = '<span>Γ£ô COMPILED IN 142MS</span>';
+            btnExecuteCode.innerHTML = '<span>✓ COMPILED IN 142MS</span>';
             setTimeout(() => {
-              btnExecuteCode.innerHTML = '<span>Γû╢ RUN BENCHMARK</span>';
+              btnExecuteCode.innerHTML = '<span>▶ RUN BENCHMARK</span>';
             }, 2500);
           }, 350);
         });
       }
 
       // ======================================================================
-      // 5. INTERACTIVE 3D WEBGL MESH (Torus Knot in IDE side)
+      // 4. INTERACTIVE 3D WEBGL MESH (Torus Knot in IDE side)
       // ======================================================================
       const miniCanvas = document.getElementById('interactiveWebglCanvas');
       if (miniCanvas && window.THREE) {
@@ -3266,482 +1637,6 @@
           miniRenderer.setSize(w, h);
         });
       }
-
-      // ======================================================================
-      // 6. ZONE 02: 4K DEMO VIDEO PLAYER, COLOR GRADING & MONITOR CONTROLS
-      // ======================================================================
-      const cinemaVideo = document.getElementById('cinemaVideoElement');
-      const monitorScreen = document.getElementById('monitorScreenContainer');
-      const monitorPlayBadge = document.getElementById('monitorPlayBadge');
-      const monitorTimecode = document.getElementById('monitorTimecode');
-      const btnTimelinePlay = document.getElementById('btnTimelinePlay');
-      const btnTimelineRewind = document.getElementById('btnTimelineRewind');
-      const btnTimelineStepBack = document.getElementById('btnTimelineStepBack');
-      const btnTimelineStepFwd = document.getElementById('btnTimelineStepFwd');
-      const btnTimelineLoop = document.getElementById('btnTimelineLoop');
-      const btnAudioMuteToggle = document.getElementById('btnAudioMuteToggle');
-      const cinemaTintOverlay = document.getElementById('cinemaTintOverlay');
-      const audioBars = document.querySelectorAll('.audio-bar');
-
-      let isLooping = true;
-      let audioAnimFrame = null;
-
-      // Ensure video is properly initialized
-      if (cinemaVideo) {
-        cinemaVideo.volume = 0.8;
-      }
-
-      function formatTimecode(seconds) {
-        if (isNaN(seconds) || seconds < 0) seconds = 0;
-        const totalFrames = Math.floor(seconds * 60);
-        const hrs = Math.floor(seconds / 3600);
-        const mins = Math.floor((seconds % 3600) / 60);
-        const secs = Math.floor(seconds % 60);
-        const frames = totalFrames % 60;
-        return `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}:${String(frames).padStart(2, '0')}`;
-      }
-
-      function updateAudioSpectrum(active) {
-        if (!active) {
-          if (audioAnimFrame) cancelAnimationFrame(audioAnimFrame);
-          audioBars.forEach(bar => { bar.style.height = '20%'; });
-          return;
-        }
-        audioBars.forEach(bar => {
-          const h = Math.floor(20 + Math.random() * 80);
-          bar.style.height = `${h}%`;
-        });
-        audioAnimFrame = requestAnimationFrame(() => updateAudioSpectrum(cinemaVideo && !cinemaVideo.paused));
-      }
-
-      function toggleVideoPlayback() {
-        if (!cinemaVideo) return;
-        playHapticTone('play');
-        if (cinemaVideo.paused) {
-          cinemaVideo.play().then(() => {
-            if (btnTimelinePlay) btnTimelinePlay.textContent = 'ΓÅ╕';
-            if (monitorPlayBadge) monitorPlayBadge.style.opacity = '0';
-            updateAudioSpectrum(true);
-          }).catch(() => {});
-        } else {
-          cinemaVideo.pause();
-          if (btnTimelinePlay) btnTimelinePlay.textContent = 'Γû╢';
-          if (monitorPlayBadge) {
-            monitorPlayBadge.textContent = 'Γû╢ PLAY';
-            monitorPlayBadge.style.opacity = '1';
-          }
-          updateAudioSpectrum(false);
-        }
-      }
-
-      if (monitorScreen) {
-        monitorScreen.addEventListener('click', toggleVideoPlayback);
-      }
-      if (btnTimelinePlay) {
-        btnTimelinePlay.addEventListener('click', toggleVideoPlayback);
-      }
-
-      if (btnAudioMuteToggle && cinemaVideo) {
-        btnAudioMuteToggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          playHapticTone('click');
-          cinemaVideo.muted = !cinemaVideo.muted;
-          if (cinemaVideo.muted) {
-            btnAudioMuteToggle.textContent = 'AUDIO: MUTED ≡ƒöç';
-            btnAudioMuteToggle.classList.remove('active');
-          } else {
-            btnAudioMuteToggle.textContent = 'AUDIO: ACTIVE ≡ƒöè';
-            btnAudioMuteToggle.classList.add('active');
-          }
-        });
-      }
-
-      if (btnTimelineLoop && cinemaVideo) {
-        btnTimelineLoop.addEventListener('click', () => {
-          playHapticTone('click');
-          isLooping = !isLooping;
-          cinemaVideo.loop = isLooping;
-          btnTimelineLoop.classList.toggle('active', isLooping);
-        });
-      }
-
-      if (btnTimelineRewind && cinemaVideo) {
-        btnTimelineRewind.addEventListener('click', () => {
-          playHapticTone('click');
-          cinemaVideo.currentTime = 0;
-          updatePlayheadFromVideo();
-        });
-      }
-
-      if (btnTimelineStepBack && cinemaVideo) {
-        btnTimelineStepBack.addEventListener('click', () => {
-          playHapticTone('click');
-          cinemaVideo.currentTime = Math.max(0, cinemaVideo.currentTime - (1 / 60));
-          updatePlayheadFromVideo();
-        });
-      }
-
-      if (btnTimelineStepFwd && cinemaVideo) {
-        btnTimelineStepFwd.addEventListener('click', () => {
-          playHapticTone('click');
-          cinemaVideo.currentTime = Math.min(cinemaVideo.duration || 10, cinemaVideo.currentTime + (1 / 60));
-          updatePlayheadFromVideo();
-        });
-      }
-
-      // Sync playhead with video playback
-      const timelinePlayhead = document.getElementById('timelinePlayhead');
-      function updatePlayheadFromVideo() {
-        if (!cinemaVideo) return;
-        const dur = cinemaVideo.duration || 10;
-        const cur = cinemaVideo.currentTime || 0;
-        const pct = (cur / dur) * 100;
-        if (timelinePlayhead) {
-          timelinePlayhead.style.left = `${Math.min(100, Math.max(0, pct))}%`;
-        }
-        if (monitorTimecode) {
-          monitorTimecode.textContent = formatTimecode(cur);
-        }
-      }
-
-      if (cinemaVideo) {
-        cinemaVideo.addEventListener('timeupdate', updatePlayheadFromVideo);
-        cinemaVideo.addEventListener('ended', () => {
-          if (!cinemaVideo.loop) {
-            if (btnTimelinePlay) btnTimelinePlay.textContent = 'Γû╢';
-            if (monitorPlayBadge) monitorPlayBadge.style.opacity = '1';
-            updateAudioSpectrum(false);
-          }
-        });
-      }
-
-      // Monitor Grid & Scope Toggles
-      const btnToggleGrid = document.getElementById('btnToggleGrid');
-      const monitorGrid = document.getElementById('monitorGrid');
-      if (btnToggleGrid && monitorGrid) {
-        btnToggleGrid.addEventListener('click', (e) => {
-          e.stopPropagation();
-          playHapticTone('click');
-          monitorGrid.classList.toggle('active');
-          btnToggleGrid.classList.toggle('active');
-        });
-      }
-
-      const btnToggleScope = document.getElementById('btnToggleScope');
-      if (btnToggleScope) {
-        btnToggleScope.addEventListener('click', (e) => {
-          e.stopPropagation();
-          playHapticTone('click');
-          btnToggleScope.classList.toggle('active');
-        });
-      }
-
-      // ======================================================================
-      // 7. LIVE 3-WAY COLOR WHEELS (LIFT, GAMMA, GAIN) & REAL-TIME VIDEO GRADE
-      // ======================================================================
-      const sliderTemp = document.getElementById('sliderTemp');
-      const sliderContrast = document.getElementById('sliderContrast');
-      const sliderSat = document.getElementById('sliderSat');
-      const valTemp = document.getElementById('valTemp');
-      const valContrast = document.getElementById('valContrast');
-      const valSat = document.getElementById('valSat');
-      const btnResetGrade = document.getElementById('btnResetGrade');
-
-      const wheelState = {
-        lift: { x: 0, y: 0, hue: 0, sat: 0 },
-        gamma: { x: 0, y: 0, hue: 0, sat: 0 },
-        gain: { x: 0, y: 0, hue: 0, sat: 0 }
-      };
-
-      function applyLiveColorGrading() {
-        if (!cinemaVideo) return;
-        const temp = sliderTemp ? parseInt(sliderTemp.value, 10) : 100;
-        const contrast = sliderContrast ? parseInt(sliderContrast.value, 10) : 115;
-        const sat = sliderSat ? parseInt(sliderSat.value, 10) : 110;
-
-        if (valTemp) valTemp.textContent = (temp - 100 > 0 ? '+' : '') + (temp - 100);
-        if (valContrast) valContrast.textContent = (contrast - 100 > 0 ? '+' : '') + (contrast - 100) + '%';
-        if (valSat) valSat.textContent = (sat - 100 > 0 ? '+' : '') + (sat - 100) + '%';
-
-        // Base color adjustments
-        const tempHueOffset = (temp - 100) * 0.35;
-        const baseSatPct = sat * (1 + (wheelState.gain.sat * 0.004));
-        const baseContrastPct = contrast + (wheelState.lift.y > 0 ? wheelState.lift.y * 0.4 : 0);
-        const baseBrightnessPct = 100 + (-wheelState.lift.y * 0.3) + (-wheelState.gain.y * 0.25);
-        const hueRotateDeg = tempHueOffset + (wheelState.gamma.sat > 0 ? (wheelState.gamma.hue - 180) * (wheelState.gamma.sat / 400) : 0);
-
-        cinemaVideo.style.filter = `contrast(${baseContrastPct}%) saturate(${baseSatPct}%) brightness(${baseBrightnessPct}%) hue-rotate(${hueRotateDeg}deg)`;
-
-        // Overlay rich color science tint blend
-        if (cinemaTintOverlay) {
-          const totalSat = wheelState.lift.sat + wheelState.gamma.sat + wheelState.gain.sat;
-          if (totalSat > 1) {
-            const liftColor = `hsla(${wheelState.lift.hue}, ${wheelState.lift.sat}%, 35%, 0.4)`;
-            const gammaColor = `hsla(${wheelState.gamma.hue}, ${wheelState.gamma.sat}%, 50%, 0.35)`;
-            const gainColor = `hsla(${wheelState.gain.hue}, ${wheelState.gain.sat}%, 70%, 0.3)`;
-            cinemaTintOverlay.style.background = `linear-gradient(135deg, ${liftColor} 0%, ${gammaColor} 50%, ${gainColor} 100%)`;
-            cinemaTintOverlay.style.opacity = `${Math.min(0.55, totalSat / 180)}`;
-          } else {
-            cinemaTintOverlay.style.opacity = '0';
-          }
-        }
-      }
-
-      function setupColorWheel(discId, puckId, readoutId, key) {
-        const disc = document.getElementById(discId);
-        const puck = document.getElementById(puckId);
-        const readout = document.getElementById(readoutId);
-        if (!disc || !puck) return;
-
-        let isDraggingWheel = false;
-
-        function updateFromPointer(e) {
-          const rect = disc.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-          const dx = clientX - centerX;
-          const dy = clientY - centerY;
-          const maxRadius = (rect.width / 2) - 8;
-          const dist = Math.hypot(dx, dy);
-          const clampedDist = Math.min(dist, maxRadius);
-          const angleRad = Math.atan2(dy, dx);
-
-          const posX = Math.cos(angleRad) * clampedDist;
-          const posY = Math.sin(angleRad) * clampedDist;
-
-          puck.style.transform = `translate(calc(-50% + ${posX}px), calc(-50% + ${posY}px))`;
-
-          const hue = Math.round(((angleRad * 180 / Math.PI) + 360) % 360);
-          const sat = Math.round((clampedDist / maxRadius) * 100);
-
-          wheelState[key] = { x: posX, y: posY, hue, sat };
-          if (readout) readout.textContent = `${hue}┬░ ┬╖ ${sat}%`;
-
-          applyLiveColorGrading();
-        }
-
-        disc.addEventListener('mousedown', (e) => {
-          isDraggingWheel = true;
-          updateFromPointer(e);
-          playHapticTone('click');
-        });
-        disc.addEventListener('touchstart', (e) => {
-          isDraggingWheel = true;
-          updateFromPointer(e);
-        }, { passive: true });
-
-        window.addEventListener('mousemove', (e) => {
-          if (isDraggingWheel) updateFromPointer(e);
-        });
-        window.addEventListener('touchmove', (e) => {
-          if (isDraggingWheel) updateFromPointer(e);
-        }, { passive: true });
-
-        window.addEventListener('mouseup', () => { isDraggingWheel = false; });
-        window.addEventListener('touchend', () => { isDraggingWheel = false; });
-      }
-
-      setupColorWheel('wheelLift', 'puckLift', 'valLiftReadout', 'lift');
-      setupColorWheel('wheelGamma', 'puckGamma', 'valGammaReadout', 'gamma');
-      setupColorWheel('wheelGain', 'puckGain', 'valGainReadout', 'gain');
-
-      [sliderTemp, sliderContrast, sliderSat].forEach(s => {
-        if (s) s.addEventListener('input', applyLiveColorGrading);
-      });
-      applyLiveColorGrading();
-
-      if (btnResetGrade) {
-        btnResetGrade.addEventListener('click', () => {
-          playHapticTone('click');
-          if (sliderTemp) sliderTemp.value = 100;
-          if (sliderContrast) sliderContrast.value = 115;
-          if (sliderSat) sliderSat.value = 110;
-
-          ['Lift', 'Gamma', 'Gain'].forEach(name => {
-            const key = name.toLowerCase();
-            wheelState[key] = { x: 0, y: 0, hue: 0, sat: 0 };
-            const puck = document.getElementById(`puck${name}`);
-            if (puck) puck.style.transform = 'translate(-50%, -50%)';
-            const readout = document.getElementById(`val${name}Readout`);
-            if (readout) readout.textContent = '0┬░ ┬╖ 0%';
-          });
-
-          applyLiveColorGrading();
-        });
-      }
-
-      // ======================================================================
-      // 8. ADOBE PREMIERE PRO CC TIMELINE: 2D DRAGGABLE LAYERS (UP/DOWN/LEFT/RIGHT)
-      // ======================================================================
-      const timelineWrapper = document.getElementById('timelineWrapper');
-      const timelineRuler = document.getElementById('timelineRuler');
-      const timelineSnapGuide = document.getElementById('timelineSnapGuide');
-      const timelineDragTooltip = document.getElementById('timelineDragTooltip');
-      const allClips = document.querySelectorAll('.timeline-clip.pr-clip');
-      const allTrackLanes = document.querySelectorAll('.track-lane');
-
-      // 8.1 Ruler scrubbing to seek video
-      let isRulerScrubbing = false;
-      function handleRulerScrub(e) {
-        if (!timelineRuler || !cinemaVideo) return;
-        const rect = timelineRuler.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const pct = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
-        const dur = cinemaVideo.duration || 10;
-        cinemaVideo.currentTime = (pct / 100) * dur;
-        updatePlayheadFromVideo();
-      }
-
-      if (timelineRuler) {
-        timelineRuler.addEventListener('mousedown', (e) => {
-          isRulerScrubbing = true;
-          handleRulerScrub(e);
-          playHapticTone('click');
-        });
-        window.addEventListener('mousemove', (e) => {
-          if (isRulerScrubbing) handleRulerScrub(e);
-        });
-        window.addEventListener('mouseup', () => { isRulerScrubbing = false; });
-      }
-
-      // 8.2 Full 2D Drag & Drop for Timeline Clips (Horizontal Time + Vertical Track Lane Swap)
-      let activeDragClip = null;
-      let dragStartX = 0;
-      let dragStartY = 0;
-      let clipStartLeftPct = 0;
-      let activeHoverLane = null;
-
-      allClips.forEach(clip => {
-        clip.addEventListener('mousedown', (e) => {
-          // If clicking on trim handles, skip move drag
-          if (e.target.classList.contains('pr-clip-handle')) return;
-          e.preventDefault();
-          e.stopPropagation();
-
-          activeDragClip = clip;
-          dragStartX = e.clientX;
-          dragStartY = e.clientY;
-          clipStartLeftPct = parseFloat(clip.style.left) || 0;
-          activeHoverLane = clip.closest('.track-lane');
-
-          clip.classList.add('is-dragging');
-          playHapticTone('click');
-        });
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        if (!activeDragClip || !timelineWrapper) return;
-
-        const currentTrackContainer = activeDragClip.parentElement;
-        const trackWidth = currentTrackContainer ? currentTrackContainer.clientWidth : 800;
-        const deltaX = e.clientX - dragStartX;
-        const deltaXPct = (deltaX / trackWidth) * 100;
-        const clipWidthPct = parseFloat(activeDragClip.style.width) || 25;
-
-        // 1. Calculate and apply new Horizontal (Time) Position
-        const newLeftPct = Math.max(0, Math.min(100 - clipWidthPct, clipStartLeftPct + deltaXPct));
-        activeDragClip.style.left = `${newLeftPct.toFixed(2)}%`;
-
-        // 2. Calculate Vertical (Track Lane) Hover
-        let candidateLane = null;
-        allTrackLanes.forEach(lane => {
-          const r = lane.getBoundingClientRect();
-          if (e.clientY >= r.top && e.clientY <= r.bottom) {
-            candidateLane = lane;
-          }
-        });
-
-        allTrackLanes.forEach(lane => lane.classList.remove('drag-target-lane'));
-        if (candidateLane) {
-          activeHoverLane = candidateLane;
-          activeHoverLane.classList.add('drag-target-lane');
-        }
-
-        // 3. Update Visual Snapping Guide Line
-        if (timelineSnapGuide) {
-          const wrapperRect = timelineWrapper.getBoundingClientRect();
-          const clipRect = activeDragClip.getBoundingClientRect();
-          timelineSnapGuide.style.display = 'block';
-          timelineSnapGuide.style.left = `${clipRect.left - wrapperRect.left}px`;
-        }
-
-        // 4. Update Floating Dynamic Tooltip
-        if (timelineDragTooltip) {
-          const trackId = activeHoverLane ? activeHoverLane.dataset.trackId : 'V1';
-          const simTimeSeconds = (newLeftPct / 100) * 360;
-          const timecodeStr = formatTimecode(simTimeSeconds);
-          timelineDragTooltip.textContent = `Track: ${trackId} | In: ${timecodeStr}`;
-          timelineDragTooltip.style.display = 'block';
-          timelineDragTooltip.style.left = `${e.clientX + 14}px`;
-          timelineDragTooltip.style.top = `${e.clientY - 38}px`;
-          timelineDragTooltip.style.opacity = '1';
-        }
-      });
-
-      window.addEventListener('mouseup', () => {
-        if (!activeDragClip) return;
-
-        activeDragClip.classList.remove('is-dragging');
-
-        // Drop clip into new track lane if moved vertically
-        if (activeHoverLane) {
-          const targetClipsContainer = activeHoverLane.querySelector('.track-clips-container');
-          if (targetClipsContainer && activeDragClip.parentElement !== targetClipsContainer) {
-            targetClipsContainer.appendChild(activeDragClip);
-            playHapticTone('run');
-          }
-        }
-
-        allTrackLanes.forEach(lane => lane.classList.remove('drag-target-lane'));
-        if (timelineSnapGuide) timelineSnapGuide.style.display = 'none';
-        if (timelineDragTooltip) {
-          timelineDragTooltip.style.opacity = '0';
-          timelineDragTooltip.style.display = 'none';
-        }
-
-        activeDragClip = null;
-        activeHoverLane = null;
-      });
-
-      // 8.3 Draw Dynamic Audio Waveforms for Audio Tracks
-      function renderAudioWaveforms() {
-        const waveformCanvases = document.querySelectorAll('.pr-waveform-canvas');
-        waveformCanvases.forEach(canvas => {
-          const parent = canvas.parentElement;
-          if (!parent) return;
-          const w = canvas.width = parent.clientWidth || 300;
-          const h = canvas.height = parent.clientHeight || 36;
-          const ctx = canvas.getContext('2d');
-          if (!ctx) return;
-
-          ctx.clearRect(0, 0, w, h);
-          const midY = h / 2;
-          const step = 4;
-          const count = Math.floor(w / step);
-
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-          for (let i = 0; i < count; i++) {
-            const x = i * step;
-            // Generate pleasant dynamic audio envelope
-            const amp = Math.sin(i * 0.1) * 0.4 + Math.cos(i * 0.25) * 0.3 + (Math.random() * 0.3);
-            const barH = Math.max(2, amp * (h * 0.8));
-            ctx.fillRect(x, midY - barH / 2, 2, barH);
-          }
-        });
-      }
-      setTimeout(renderAudioWaveforms, 200);
-      window.addEventListener('resize', renderAudioWaveforms);
-
-      // Keyboard shortcuts: Spacebar to toggle playback
-      window.addEventListener('keydown', (e) => {
-        if (e.code === 'Space' && e.target.tagName !== 'INPUT') {
-          e.preventDefault();
-          toggleVideoPlayback();
-        }
-      });
 
     })();
   </script>

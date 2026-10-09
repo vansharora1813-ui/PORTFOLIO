@@ -926,3 +926,100 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 })();
+
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL SOUND EFFECTS SYSTEM (Web Audio API Synthesizer)
+   ───────────────────────────────────────────────────────────── */
+(function initSoundEffects() {
+  let audioCtx = null;
+
+  function getAudioCtx() {
+    if (!audioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) audioCtx = new AudioContextClass();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  // Audio unlock listener for browser autoplay policy
+  ['click', 'touchstart', 'keydown'].forEach(evt => {
+    window.addEventListener(evt, () => getAudioCtx(), { once: true });
+  });
+
+  function playButtonClick() {
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(750, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.35, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.08);
+    } catch (err) {}
+  }
+
+  function playCardClick() {
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(360, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(90, ctx.currentTime + 0.14);
+      gain.gain.setValueAtTime(0.4, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.14);
+    } catch (err) {}
+  }
+
+  function playHoverTick() {
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1300, ctx.currentTime);
+      osc.frequency.linearRampToValueAtTime(1700, ctx.currentTime + 0.035);
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.035);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.035);
+    } catch (err) {}
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a, button, .craft-strip, .id-card, .about-stats-strip, .nav-link, .nav-cta, .editorial-compact-initiate-btn, .editorial-primary-btn, .card, .project-card, [role="button"]');
+    if (!target) return;
+    if (target.matches('.craft-strip, .id-card, .about-stats-strip, .card, .project-card')) {
+      playCardClick();
+    } else {
+      playButtonClick();
+    }
+  });
+
+  document.addEventListener('mouseover', (e) => {
+    const target = e.target.closest('a, button, .craft-strip, .id-card, .about-stats-strip, .nav-link, .card, .project-card');
+    if (target && !target.dataset.sfxHover) {
+      playHoverTick();
+      target.dataset.sfxHover = 'true';
+      setTimeout(() => { delete target.dataset.sfxHover; }, 180);
+    }
+  });
+})();
+
